@@ -42,18 +42,34 @@
 
     <section id="introduction">
 
-# ARIA Annotation use cases, markup and more
-
+# Introduction
 
 ## Definitions
 
-Annotations as they relate to ARIA:
+The following terminology is informed by the [[Web Annotation Data Model]]
+specification.
 
-*   An _annotation_ is the combination of annotated content and its related annotation body.
-*   The _annotated content_ is the range of text or other object which the _annotation body_ is "about". Note: [In the Web Annotations Data Model](https://www.w3.org/TR/annotation-model/#motivation-and-purpose), this is known as the _annotation target_. However, because the term "target" has a specific meaning in accessibility APIs as the end (and not beginning) of a relation, the term annotated content is preferred here, in order to avoid confusion with the actual directionality of aria-details in ARIA annotation markup.
-*   The _annotation body_ is visible information within a page which is connected to annotated content for a related purpose.
-*   The _annotation purpose_ is the role the _annotation body_ plays in relation to the _annotation target_, e.g. commentary vs. a footnote.
+<dl>
+  <dt><dfn>annotation</dfn></dt>
+  <dd>An annotation is the combination of <a>annotated content</a> and its related <a>annotation body</a>.</dd>
 
+  <dt><dfn>annotated content</dfn></dt>
+  <dd>The annotated content is the range of text or other object which the <a>annotation body</a> is "about".
+  <!-- TODO: make this more respec-y -->
+  <blockquote>Note: In the <a href="https://www.w3.org/TR/annotation-model/#motivation-and-purpose">Web Annotations Data Model</a>,
+    this is known as the <strong>annotation target</strong>. However, because
+    the term "target" has a specific meaning in accessibility APIs as the end
+    (and not beginning) of a relation, the term annotated content is preferred
+    here, in order to avoid confusion with the actual directionality of
+    <code>aria-details</code> in ARIA annotation markup.</blockquote></dd>
+
+  <dt><dfn>annotation body</dfn></dt>
+  <dd>The annotation body is visible information within a page which is connected to <a>annotated content</a> for a related purpose.</dd>
+
+  <dt><dfn>annotation purpose</dfn></dt>
+  <dd>The annotation purpose is the role the <a>annotation body</a> plays in relation to the <a>annotated content</a> (e.g. commentary vs. a footnote).</dd>
+
+</dl>
 
 ## How do ARIA annotations relate to the Web Annotations Data Model?
 
