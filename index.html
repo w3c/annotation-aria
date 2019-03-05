@@ -80,53 +80,61 @@ ARIA annotations are more limited than what can be expressed in the Web Annotati
 In addition, ARIA annotations do not contain as much information. It only contains what is necessary for the identified use cases.
 
 For more information, please see the [Addendum on mapping Web Annotations Data Model to accessible web content](#addendum-mapping-from-the-web-annotations-data-model).
+    </section>
 
-## Web content use cases
+<section id="use-cases">
+# Use Cases
 
-
+## Web Content
 
 *   Document editor
 *   Code editor
 *   Published content
 
-
-## Assistive technology use cases
+## Assistive Technology
 
 * AT user issues command to navigate to previous/next annotated content (e.g. next commented text)
 * AT user issues command to navigate to previous/next annotation body (e.g. next comment)
 * AT user issues one of the above commands, but filtered by annotation purpose (e.g. commentary only)
 * AT user issues command to navigate from annotation body to the annotated content, or vice-versa
 * Screen reader provides viewing options for reading annotation purposes, where the purpose is shortened, e.g. "commentary" becomes "*ct"
+</section>
 
-### Proposed Markup
-
-
-*   **aria-details** (required, IDREF)
-    *   Goes on the annotated content, and points to the in-page annotation body.
-    *   Example: `<mark aria-details="comments">This is commented text</mark>`
-    *   No specific tag or role is required. However, it may be desirable to prefer `<mark>` over a generic element such as `<span>` when there is a visible highlight
-*   **role** (optional, NMTOKENS) on the annotation body
-    *   Goes on the annotation body, describing the annotation purpose. See below for a list of roles and more details.
-    *   Example: `<div role="annotation-commentary">`.
-    *   As is always the case, multiple roles are supported: if more than one role is provided then the first recognized role may be mapped through accessibility APIs. The most important or specific role should always go first. For example, `<div role="annotation-suggestion annotation-commentary group">` would indicate that there is a suggestion with comments, but some APIs may only expose it as a "suggestion".
-*   **`<ins>`**/**`<del>`** (required for the "revision" and "suggestion" annotation purposes)
-    *   Provided as children of the annotated content, and define a past change or proposed future change to the document. [TBD] @aleventhal: Alternatively, if/when ARIA provides roles for insertion and deletion, the role attribute could be used instead.
-    *   Example: `<p>Everyone is encouraged to bring a <span aria-details="suggestion-info-1"><del>side dish</del><ins>beverage</ins></span> to share.</p>.`
-    *   Ordering: the ARIA spec should define whether the order is important for these 1-2 children. I suggest the AT should handle all permutations in the ordering.
-
-In addition, the following markup may be helpful but is not really part of the annotations spec:
+<section id="markup">
+# Proposed Markup
 
 
+## **aria-details** (required, IDREF)
 
-*   **aria-label**/**aria-labelledby/aria-describedby** (optional)
-    *   If this is found on the annotation body, it could provides a useful label or description for the annotation, that could be presented by a screen reader in a mode where the user wanted to understand more about the annotation bodies in context but the annotation bodies themselves would be too long.
+*   Goes on the annotated content, and points to the in-page annotation body.
+*   Example: `<mark aria-details="comments">This is commented text</mark>`
+*   No specific tag or role is required. However, it may be desirable to prefer `<mark>` over a generic element such as `<span>` when there is a visible highlight
 
+## **role** (optional, NMTOKENS) on the <a>annotation body</a>
 
-## Roles for annotation purposes
+*   Goes on the annotation body, describing the annotation purpose. See below for a list of roles and more details.
+*   Example: `<div role="annotation-commentary">`.
+  <blockquote>As is always the case, multiple roles are supported: if more than one role is provided then the first recognized role may be mapped through accessibility APIs. The most important or specific role should always go first. For example, <code>&lt;div role="annotation-suggestion annotation-commentary group"&gt;</code> would indicate that there is a suggestion with comments, but some APIs may only expose it as a "suggestion".</blockquote>
 
-These go on the annotation body, not the annotated content.
+## **`<ins>`**/**`<del>`** (required for the "revision" and "suggestion" annotation purposes)
 
-All annotation- prefixed roles would inherit from an abstract role of "annotation", which would inherit from "structure". If the role is not provided, then the annotation is simply treated as a description, as it would already be via aria-details usage.
+*   Provided as children of the annotated content, and define a past change or proposed future change to the document. [TBD] @aleventhal: Alternatively, if/when ARIA provides roles for insertion and deletion, the role attribute could be used instead.
+*   Example: `<p>Everyone is encouraged to bring a <span aria-details="suggestion-info-1"><del>side dish</del><ins>beverage</ins></span> to share.</p>.`
+*   Ordering: the ARIA spec should define whether the order is important for these 1-2 children. I suggest the AT should handle all permutations in the ordering.
+
+## **aria-label**/**aria-labelledby/aria-describedby** (optional)
+<!-- TODO: take this out? move to appendix? mark "at risk"? -->
+In addition, this markup may be helpful, but is not really part of the annotations spec:
+
+*   If this is found on the annotation body, it could provides a useful label or description for the annotation, that could be presented by a screen reader in a mode where the user wanted to understand more about the annotation bodies in context but the annotation bodies themselves would be too long.
+</section>
+
+<section id="roles">
+# Roles for <a>annotation purpose</a>s
+
+These go on the <a>annotation body</a>, not the <a>annotated content</a>.
+
+All <code>annotation-</code> prefixed roles would inherit from an abstract role of "annotation", which would inherit from "structure". If the role is not provided, then the annotation is simply treated as a description, as it would already be via aria-details usage.
 
 
 *   **annotation-attribution**— authoring information for the annotated content. [TBD] @mck we may want to choose a better name as this name may ultimately just be used by screen readers and most users might not know what to make of it. [TBD#2] @aleventhal: recommend we make this redundant with annotation-revision, and remove this one.
@@ -138,79 +146,79 @@ All annotation- prefixed roles would inherit from an abstract role of "annotatio
 *   **doc-footnote**/**doc-endnote** for footnotes and endnotes. When using DPUB roles, the annotated content will be the referencing note number. The author may choose to leave out the **doc-noteref** role on the annotated content, as that will be exposed as a link to ATs (see DPUB-AAM), and it may not be a link. In addition, the fact that it is a note reference number is implied by the relation with the annotation body, which will have the doc-footnote or doc-endnote role.
 
 Use the singular form: for consistency, all of the annotation purposes are in the singular form of the word, even though in some cases the plural could have made sense, as in "suggestion" where there may be multiple suggestions.
+</section>
 
-
-## Rejected annotation purposes
+<!-- TODO: move this to an appendix? remove it? Kind of nice to know what we didn't do and why -->
+<section id="rejects">
+# Rejected annotation purposes
 
 For now, the following annotation purposes have not been assigned new roles:
 
+* **highlight**  — this does not fit the proposed definition of an annotation in that it does not point to additional info. Therefore, ARIA WG should consider adding something like role=mark (would need to be added for role parity), or the author can use HTML via `&lt;mark&gt;`/`&lt;em&gt;`/`&lt;strong&gt;`
+* **error** — in code in code editor: use the already supported aria-invalid="true" + aria-errormessage=id
+* **warning**— in code editor: may want to add aria-invalid="warning" as possible value (and like error, can use aria-errormessage=id)
+* **bookmark** — similar to "annotation-presence"; would need more info on this use case in order to support it. [TBD] @aleventhal: Suggest that the author can use `<mark aria-label="Bookmark name">` for a good experience.
+* **breakpoint**— does not always come with additional visible information, so it would be difficult to shoehorn into this use case. [TBD] @aleventhal: For this one, perhaps a `<mark>` or role="mark" or a new role="breakpoint" could be used, along with aria-label. Or, a visible button could be used on the line with the breakpoint, that is labelled as a breakpoint button.
+</section>
 
-*   **highlight**  — this does not fit the proposed definition of an annotation in that it does not point to additional info. Therefore, ARIA WG should consider adding something like role=mark (would need to be added for role parity), or the author can use HTML via <mark>/<em>/<strong>
-*   **error** — in code in code editor: use the already supported aria-invalid="true" + aria-errormessage=id
-*   **warning**— in code editor: may want to add aria-invalid="warning" as possible value (and like error, can use aria-errormessage=id)
-*   **bookmark** — similar to "annotation-presence"; would need more info on this use case in order to support it. [TBD] @aleventhal: Suggest that the author can use `<mark aria-label="Bookmark name">` for a good experience.
-*   **breakpoint**— does not always come with additional visible information, so it would be difficult to shoehorn into this use case. [TBD] @aleventhal: For this one, perhaps a `<mark>` or role="mark" or a new role="breakpoint" could be used, along with aria-label. Or, a visible button could be used on the line with the breakpoint, that is labelled as a breakpoint button.
+<section id="a11y-mappings">
 
-
-## Platform Accessibility mappings
-
-
+# Platform Accessibility mappings
 
 *   [UI Automation has built-in support for annotations](https://docs.microsoft.com/en-us/windows/desktop/winauto/uiauto-annotation-type-identifiers) — note that a perfect 1 to 1 mapping is not expected here. For example, a grammar error is an annotation in UIA, but in ARIA is aria-invalid="grammar". An important difference with UIA annotations is that ARIA annotations always link to visible in-page content.
 *   Most of the markup is reused — there are already known ways for exposing aria-details, aria-label, aria-labelledby, aria-describedby, `<ins>` and `<del>`.
 *   For aria-annotation, this should be exposed as an object attribute called "annotation" in ATK/IA2
 
+</section>
 
-
+<section id="annotation-model-mappings">
 ## Addendum: Mapping from the Web Annotations Data Model
 
 An important use case is to convert annotation data from the Web Annotations Data Model (typically in JSON format) into accessible content, with the goal of enabling AT support. The following are non-normative suggestions for accomplishing this.
 
-### Example 1: Describing a relationship to in-page visible content
+<aside class="example" title="Describing a relationship to in-page visible content">
 
 Translating a “commenting” motivation in the data model to the appropriate ARIA and HTML markup:
 
-```html
-<p>The following cats have been deemed <span aria-details=”comment-thread-1”>uncooperative</span>.</p>
-<div id=”comment-thread-1” role=”annotation-commentary”>
-<h1>Comment by Ruff Finkledog</h1>
-<p>Wouldn’t it be simpler to list the cooperative cats?</p>
-</div>
-```
+<pre class="highlight">
+  &lt;p&gt;The following cats have been deemed &lt;span aria-details=”comment-thread-1”&gt;uncooperative&lt;/span&gt;.&lt;/p&gt;
+  &lt;div id=”comment-thread-1” role=”annotation-commentary”&gt;
+  &lt;h1&gt;Comment by Ruff Finkledog&lt;/h1&gt;
+  &lt;p&gt;Wouldn’t it be simpler to list the cooperative cats?&lt;/p&gt;
+  &lt;/div&gt;
+</pre>
+</aside>
 
-### Example 2: Describing a Web Annotation that does not have a relationship to other content
+<aside class="example" title="Describing a Web Annotation that does not have a relationship to other content">
 
 This example is useful for the "highlighting" motivation.
 
-```html
-<p>The word <mark>cat</mark> is highlighted</p>
-```
+<pre class="highlight">
+&lt;p&gt;The word &lt;mark&gt;cat&lt;/mark&gt; is highlighted&lt;/p&gt;
+</pre>
+</aside>
 
-### Example 3: Describing a Web Annotation that is related to external content only
+<aside class="example" title="Describing a Web Annotation that is related to external content only">
 
 This example is useful for the "identifying" motivation.
 
-```html
-<p>A <a href="https://en.wikipedia.org/wiki/Cat">cat</a> is one of our favorite quirky pets.</p>
-```
+<pre class="highlight">
+&lt;p&gt;A &lt;a href="https://en.wikipedia.org/wiki/Cat"&gt;cat&lt;/a&gt; is one of our favorite quirky pets.&lt;/p&gt;
+</pre>
+</aside>
 
 ### Proposed Mapping Table
+
 <table>
-  <tbody>
+  <thead>
     <tr>
-      <td>
-        <p>Web Annotations Data Model Concept</p>
-      </td>
-      <td>
-        <p>Proposed &nbsp;additional markup on annotation</p>
-      </td>
-      <td>
-        <p>Proposed markup on annotated content</p>
-      </td>
-      <td>
-        <p>Description</p>
-      </td>
+      <th>Web Annotations Data Model Concept</th>
+      <th>Proposed &nbsp;additional markup on annotation</th>
+      <th>Proposed markup on annotated content</th>
+      <th>Description</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
       <td>
         <p>Assessing motivation</p>
