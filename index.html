@@ -53,10 +53,18 @@ Much of the necessary building blocks already exist with other ARIA specificatio
 Consequently, this specification provides the minimal additions needed to improve
 the reading experience of annotated content when consumed via assistive technology.
 
+Additionally, this specification takes steps to use consistent terminology and
+modeling from past annotation specifications at the W3C, most notably the Web
+Annotation Data Model [[annotation-model]].
+
 ## Definitions
 
 The following terminology is informed by the Web Annotation Data Model [[annotation-model]]
-specification.
+specification. You can read more about [the underlying conceptual model in that
+introduction](https://www.w3.org/TR/annotation-model/#introduction).
+
+<div class="issue">@bigbluehat: perhaps a similar graph (as the one in the
+  WADM) showing the relationship between the parts would be helpful here.</div>
 
 <dl>
   <dt><dfn>annotation</dfn></dt>
@@ -82,13 +90,20 @@ specification.
 
 ## How do ARIA annotations relate to the Web Annotations Data Model?
 
-ARIA annotations are more limited than what can be expressed in the Web Annotations Data Model [[annotation-model]].
-* They cannot point to information external to the web page
-* They must point to additional information within that web page (e.g. a simple "highlight" does not do this).
+ARIA annotations are deliberatly more limited than what can be expressed within
+a Web Annotations Data Model [[annotation-model]] document. For example:
+* ARIA annotations cannot point to information external to the current Web page
+* ARIA annotations must point to *something* within the current Web page to provide the additional content
 
-In addition, ARIA annotations do not contain as much information. It only contains what is necessary for the identified use cases.
+In addition, ARIA annotations do not contain as much information as they only
+contain what is necessary to move between the primary annotated content, and
+the additional content.
 
-For more information, please see the [](#annotation-model-mappings).
+Authors desiring to expand the expresiveness of their markup beyond what is
+provided by ARIA annotations should consult the Embedding Web Annotations in
+HTML Note [[annotation-html]].
+
+For further information, please see the [](#annotation-model-mappings) below.
     </section>
 
 <section id="use-cases">
