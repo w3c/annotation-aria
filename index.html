@@ -151,22 +151,28 @@ In addition, this markup may be helpful, but is not really part of the annotatio
 </section>
 
 <section id="roles">
-# Roles for <a>annotation purpose</a>s
+# Roles for <a>annotation purposes</a>
 
 These go on the <a>annotation body</a>, not the <a>annotated content</a>.
 
-All <code>annotation-</code> prefixed roles would inherit from an abstract role of "annotation", which would inherit from "structure". If the role is not provided, then the annotation is simply treated as a description, as it would already be via aria-details usage.
+All <code>annotation-</code> prefixed `role` values would inherit from an abstract role of `annotation`, which would inherit from `structure`. If the `role` attribute is not provided, then the <a>annotation</a> is simply treated as a description, as it would already be via `aria-details` usage.
 
+*   **annotation-attribution** — authoring information for the <a>annotated content</a>.
+<div class="issue">[TBD] @mck we may want to choose a better name as this name may ultimately just be used by screen readers and most users might not know what to make of it.</div>
+<div class="issue">[TBD#2] @aleventhal: recommend we make this redundant with `annotation-revision`, and remove this one.</div>
 
-*   **annotation-attribution**— authoring information for the annotated content. [TBD] @mck we may want to choose a better name as this name may ultimately just be used by screen readers and most users might not know what to make of it. [TBD#2] @aleventhal: recommend we make this redundant with annotation-revision, and remove this one.
-*   **annotation-commentary**— one or more comments, or a comment thread
-*   **annotation-description**  — generic description. This is also the default if the annotation purpose is unspecified. [TBD] @aleventhal: rather than add an extra role here, how about the author simply not use any of the other annotation roles.
-*   **annotation-revision** — this is a historical change that has already been accepted. The source annotated content will contain 1-2 children for the insertion and/or deletion.
+*   **annotation-commentary** — one or more comments, or a comment thread
+*   **annotation-description**  — generic description. This is also the default if the annotation purpose is unspecified.
+<div class="issue">[TBD] @aleventhal: rather than add an extra role here, how about the author simply not use any of the other annotation roles.</div>
+
+*   **annotation-revision** — this is a historical change that has already been accepted. The source <a>annotated content</a> will contain 1-2 children for the insertion and/or deletion.
 *   **annotation-suggestion** — proposed edit. The source annotation will contain 1-2 children for the proposed insertion and/or deletion.
-*   **annotation-presence** — similar to attribution, but relates to editing that is happening right now. For example, "Mr. Smith is editing nearby".
-*   **doc-footnote**/**doc-endnote** for footnotes and endnotes. When using DPUB roles, the annotated content will be the referencing note number. The author may choose to leave out the **doc-noteref** role on the annotated content, as that will be exposed as a link to ATs (see DPUB-AAM), and it may not be a link. In addition, the fact that it is a note reference number is implied by the relation with the annotation body, which will have the doc-footnote or doc-endnote role.
+<div class="issue">@bigbluehat: is "source annotation" here referring to the <a>annotated content</a>? It seems to be.</div>
 
-Use the singular form: for consistency, all of the annotation purposes are in the singular form of the word, even though in some cases the plural could have made sense, as in "suggestion" where there may be multiple suggestions.
+*   **annotation-presence** — similar to attribution, but relates to editing that is happening right now. For example, "Mr. Smith is editing nearby".
+*   **doc-footnote**/**doc-endnote** for footnotes and endnotes. When using DPUB roles, the <a>annotated content</a> will be the referencing note number. The author may choose to leave out the `doc-noteref` role on the <a>annotated content</a>, as that will be exposed as a link to ATs (see [[DPUB-AAM]]), and it may not be a link. In addition, the fact that it is a note reference number is implied by the relation with the <a>annotation body</a>, which will have the `doc-footnote` or `doc-endnote` role.
+
+Use the singular form: for consistency, all of the <a>annotation purposes</a> are in the singular form of the word, even though in some cases the plural could have made sense, as in "suggestion" where there may be multiple suggestions.
 </section>
 
 <!-- TODO: move this to an appendix? remove it? Kind of nice to know what we didn't do and why -->
