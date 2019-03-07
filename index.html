@@ -166,8 +166,7 @@ All <code>annotation-</code> prefixed `role` values would inherit from an abstra
 <div class="issue">[TBD] @aleventhal: rather than add an extra role here, how about the author simply not use any of the other annotation roles.</div>
 
 *   **annotation-revision** — this is a historical change that has already been accepted. The source <a>annotated content</a> will contain 1-2 children for the insertion and/or deletion.
-*   **annotation-suggestion** — proposed edit. The source annotation will contain 1-2 children for the proposed insertion and/or deletion.
-<div class="issue">@bigbluehat: is "source annotation" here referring to the <a>annotated content</a>? It seems to be.</div>
+*   **annotation-suggestion** — proposed edit. The source <a>annotated content</a> will contain 1-2 children for the proposed insertion and/or deletion.
 
 *   **annotation-presence** — similar to attribution, but relates to editing that is happening right now. For example, "Mr. Smith is editing nearby".
 *   **doc-footnote**/**doc-endnote** for footnotes and endnotes. When using DPUB roles, the <a>annotated content</a> will be the referencing note number. The author may choose to leave out the `doc-noteref` role on the <a>annotated content</a>, as that will be exposed as a link to ATs (see [[DPUB-AAM]]), and it may not be a link. In addition, the fact that it is a note reference number is implied by the relation with the <a>annotation body</a>, which will have the `doc-footnote` or `doc-endnote` role.
