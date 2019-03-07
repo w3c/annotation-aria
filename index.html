@@ -106,27 +106,48 @@ For more information, please see the [](#annotation-model-mappings).
 
 ## **aria-details** (required, IDREF)
 
-*   Goes on the annotated content, and points to the in-page annotation body.
-*   Example: `<mark aria-details="comments">This is commented text</mark>`
-*   No specific tag or role is required. However, it may be desirable to prefer `<mark>` over a generic element such as `<span>` when there is a visible highlight
+*   Goes on the <a>annotated content</a>, and points to the in-page <a>annotation body</a>.
+*   No specific tag or `role` is required. However, it may be desirable to prefer `&lt;mark&gt;` over a generic element such as `&lt;span&gt;` when there is a visible highlight
+
+<pre class="example highlight">
+&lt;mark aria-details="comments"&gt;This is commented text&lt;/mark&gt;
+</pre>
 
 ## **role** (optional, NMTOKENS) on the <a>annotation body</a>
 
-*   Goes on the annotation body, describing the annotation purpose. See below for a list of roles and more details.
-*   Example: `<div role="annotation-commentary">`.
-  <blockquote>As is always the case, multiple roles are supported: if more than one role is provided then the first recognized role may be mapped through accessibility APIs. The most important or specific role should always go first. For example, <code>&lt;div role="annotation-suggestion annotation-commentary group"&gt;</code> would indicate that there is a suggestion with comments, but some APIs may only expose it as a "suggestion".</blockquote>
+*   Goes on the <a>annotation body</a>, describing the <a>annotation purpose</a>. See below for a [list of roles](#roles) and more details.
 
-## **`<ins>`**/**`<del>`** (required for the "revision" and "suggestion" annotation purposes)
+<pre class="example highlight">
+&lt;div role="annotation-commentary"&gt;...&lt;/div&gt;
+</pre>
 
-*   Provided as children of the annotated content, and define a past change or proposed future change to the document. [TBD] @aleventhal: Alternatively, if/when ARIA provides roles for insertion and deletion, the role attribute could be used instead.
-*   Example: `<p>Everyone is encouraged to bring a <span aria-details="suggestion-info-1"><del>side dish</del><ins>beverage</ins></span> to share.</p>.`
+As is always the case, multiple `role` values are supported: if more than one `role` value is provided then the first recognized `role` may be mapped through accessibility APIs. The most important or specific role should always go first.
+
+For example the following would indicate that there is a suggestion with comments, but some APIs may only expose it as a "suggestion":
+
+<pre class="example highlight">
+&lt;div role="annotation-suggestion annotation-commentary group"&gt;...&lt;/div&gt;
+</pre>
+
+## **`&lt;ins&gt;`**/**`&lt;del&gt;`** (required for the "revision" and "suggestion" <a>annotation purposes</a>)
+
+*   Provided as children of the <a>annotated content</a>, and define a past change or proposed future change to the document.
+
+<div class="issue">[TBD] @aleventhal: Alternatively, if/when ARIA provides roles for insertion and deletion, the `role` attribute could be used instead.</div>
+
+<pre class="example highlight">
+&lt;p&gt;Everyone is encouraged to bring a &lt;span aria-details="suggestion-info-1"&gt;&lt;del&gt;side dish&lt;/del&gt;&lt;ins&gt;beverage&lt;/ins&gt;&lt;/span&gt; to share.&lt;/p&gt;
+</pre>
+
 *   Ordering: the ARIA spec should define whether the order is important for these 1-2 children. I suggest the AT should handle all permutations in the ordering.
 
 ## **aria-label**/**aria-labelledby/aria-describedby** (optional)
-<!-- TODO: take this out? move to appendix? mark "at risk"? -->
+
+<div class="issue">@bigbluehat Take this out? move to appendix? mark "at risk"?</div>
+
 In addition, this markup may be helpful, but is not really part of the annotations spec:
 
-*   If this is found on the annotation body, it could provides a useful label or description for the annotation, that could be presented by a screen reader in a mode where the user wanted to understand more about the annotation bodies in context but the annotation bodies themselves would be too long.
+*   If this is found on the <a>annotation body</a>, it could provides a useful label or description for the <a>annotation</a>, that could be presented by a screen reader in a mode where the user wanted to understand more about the <a>annotation bodies</a> in context but the <a>annotation bodies</a> themselves would be too long.
 </section>
 
 <section id="roles">
