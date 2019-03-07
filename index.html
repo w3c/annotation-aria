@@ -46,7 +46,7 @@
 
 ## Definitions
 
-The following terminology is informed by the [[Web Annotation Data Model]]
+The following terminology is informed by the Web Annotation Data Model [[annotation-model]]
 specification.
 
 <dl>
@@ -73,13 +73,13 @@ specification.
 
 ## How do ARIA annotations relate to the Web Annotations Data Model?
 
-ARIA annotations are more limited than what can be expressed in the Web Annotations Data Model.
+ARIA annotations are more limited than what can be expressed in the Web Annotations Data Model [[annotation-model]].
 * They cannot point to information external to the web page
-* They must point to additional information within that web the page (e.g. a simple "highlight" does not do this).
+* They must point to additional information within that web page (e.g. a simple "highlight" does not do this).
 
 In addition, ARIA annotations do not contain as much information. It only contains what is necessary for the identified use cases.
 
-For more information, please see the [Addendum on mapping Web Annotations Data Model to accessible web content](#addendum-mapping-from-the-web-annotations-data-model).
+For more information, please see the [](#annotation-model-mappings).
     </section>
 
 <section id="use-cases">
@@ -93,11 +93,11 @@ For more information, please see the [Addendum on mapping Web Annotations Data M
 
 ## Assistive Technology
 
-* AT user issues command to navigate to previous/next annotated content (e.g. next commented text)
-* AT user issues command to navigate to previous/next annotation body (e.g. next comment)
-* AT user issues one of the above commands, but filtered by annotation purpose (e.g. commentary only)
-* AT user issues command to navigate from annotation body to the annotated content, or vice-versa
-* Screen reader provides viewing options for reading annotation purposes, where the purpose is shortened, e.g. "commentary" becomes "*ct"
+* AT user issues command to navigate to previous/next <a>annotated content</a> (e.g. next commented text)
+* AT user issues command to navigate to previous/next <a>annotation body</a> (e.g. next comment)
+* AT user issues one of the above commands, but filtered by <a>annotation purpose</a> (e.g. commentary only)
+* AT user issues command to navigate from <a>annotation body</a> to the <a>annotated content</a>, or vice-versa
+* Screen reader provides viewing options for reading <a>annotation purposes</a>, where the purpose is shortened, e.g. "commentary" becomes "*ct"
 </section>
 
 <section id="markup">
