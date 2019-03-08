@@ -127,17 +127,27 @@ For further information, please see the [](#annotation-model-mappings) below.
 </section>
 
 <section id="markup">
-# Proposed Markup
+  <h1>Annotation Markup</h1>
 
+  <h2><code>aria-details</code></h2>
 
-## **aria-details** (required, IDREF)
+  <p><a>Annotated content</a> MUST point to the in-page <a>annotation body</a>
+  using the <code>aria-details</code> attribute on the <a>annotated content</a>.</p>
 
-*   Goes on the <a>annotated content</a>, and points to the in-page <a>annotation body</a>.
-*   No specific tag or `role` is required. However, it may be desirable to prefer `&lt;mark&gt;` over a generic element such as `&lt;span&gt;` when there is a visible highlight
+  <p>Any HTML tag MAY be used, and it is not required to use the <code>role</code>
+  attribute. However, when a visible highlight is intended, authors SHOULD prefer
+  using an element such as <code>&lt;mark&gt;</code> over a more semantically
+  generic and visually invisible element such as <code>&lt;span&gt;</code>.</p>
 
-<pre class="example highlight">
-&lt;mark aria-details="comments"&gt;This is commented text&lt;/mark&gt;
-</pre>
+  <p>The <code>aria-details</code> attribute MUST reference an element within
+  the current Web page which contains the <a>annotation body</a>.</p>
+
+  <pre class="example highlight">
+  &lt;p&gt;&lt;mark aria-details="comments"&gt;The proposal&lt;/mark&gt;
+  contains...&lt;/p&gt;
+  ...
+  &lt;div id="comments"&gt;I think this is great!&lt;/div&gt;
+  </pre>
 
 ## **role** (optional, NMTOKENS) on the <a>annotation body</a>
 
