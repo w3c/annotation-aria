@@ -158,8 +158,7 @@ For further information, please see the [](#annotation-model-mappings) below.
   the current Web page which contains the <a>annotation body</a>.</p>
 
   <pre class="example highlight">
-  &lt;p&gt;&lt;mark aria-details="comments"&gt;The proposal&lt;/mark&gt;
-  contains...&lt;/p&gt;
+  &lt;p&gt;&lt;mark aria-details="comments"&gt;The proposal&lt;/mark&gt; contains...&lt;/p&gt;
   ...
   &lt;div id="comments"&gt;I think this is great!&lt;/div&gt;
   </pre>
@@ -168,7 +167,7 @@ For further information, please see the [](#annotation-model-mappings) below.
   for more information and requirements concerning the use of
   <a href="https://w3c.github.io/aria/#aria-details"><code>aria-details</code></a>.</p>
 
-  <div class="issues">@bigbluehat: the WAI-ARIA references and requirements
+  <div class="issue">@bigbluehat: the WAI-ARIA references and requirements
     should be changed to be more clearly normative--with this space making
     additions only when prescribing use of existing ARIA markup.</div>
 
@@ -179,7 +178,9 @@ For further information, please see the [](#annotation-model-mappings) below.
 *   Goes on the <a>annotation body</a>, describing the <a>annotation purpose</a>. See below for a [list of roles](#roles) and more details.
 
 <pre class="example highlight">
-&lt;div role="annotation-commentary"&gt;...&lt;/div&gt;
+  &lt;p&gt;&lt;mark aria-details="comments"&gt;The proposal&lt;/mark&gt; contains...&lt;/p&gt;
+  ...
+  &lt;div id="comments" role="annotation-commentary"&gt;I think this is great!&lt;/div&gt;
 </pre>
 
 As is always the case, multiple `role` values are supported: if more than one `role` value is provided then the first recognized `role` may be mapped through accessibility APIs. The most important or specific role should always go first.
@@ -187,7 +188,12 @@ As is always the case, multiple `role` values are supported: if more than one `r
 For example the following would indicate that there is a suggestion with comments, but some APIs may only expose it as a "suggestion":
 
 <pre class="example highlight">
-&lt;div role="annotation-suggestion annotation-commentary group"&gt;...&lt;/div&gt;
+  &lt;p&gt;&lt;mark aria-details="comments"&gt;The proposal&lt;/mark&gt; contains...&lt;/p&gt;
+  ...
+  &lt;div id="comments" role="annotation-suggestion annotation-commentary group"&gt;
+    I think this is great! However, I think you might want to change "proposal"
+    to "recommendation."
+  &lt;/div&gt;
 </pre>
 
 ## `&lt;ins&gt;`/`&lt;del&gt;`
