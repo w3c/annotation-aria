@@ -172,7 +172,9 @@ For further information, please see the [](#annotation-model-mappings) below.
     should be changed to be more clearly normative--with this space making
     additions only when prescribing use of existing ARIA markup.</div>
 
-## **role** (optional, NMTOKENS) on the <a>annotation body</a>
+## `role`
+
+(optional, NMTOKENS) on the <a>annotation body</a>
 
 *   Goes on the <a>annotation body</a>, describing the <a>annotation purpose</a>. See below for a [list of roles](#roles) and more details.
 
@@ -188,7 +190,9 @@ For example the following would indicate that there is a suggestion with comment
 &lt;div role="annotation-suggestion annotation-commentary group"&gt;...&lt;/div&gt;
 </pre>
 
-## **`&lt;ins&gt;`**/**`&lt;del&gt;`** (required for the "revision" and "suggestion" <a>annotation purposes</a>)
+## `&lt;ins&gt;`/`&lt;del&gt;`
+
+(required for the "revision" and "suggestion" <a>annotation purposes</a>)
 
 *   Provided as children of the <a>annotated content</a>, and define a past change or proposed future change to the document.
 
@@ -204,7 +208,9 @@ For example the following would indicate that there is a suggestion with comment
 
 *   Ordering: the ARIA spec should define whether the order is important for these 1-2 children. I suggest the AT should handle all permutations in the ordering.
 
-## **aria-label**/**aria-labelledby/aria-describedby** (optional)
+## `aria-label`/`aria-labelledby`/`aria-describedby`
+
+(optional)
 
 <div class="issue">@bigbluehat Take this out? move to appendix? mark "at risk"?</div>
 
