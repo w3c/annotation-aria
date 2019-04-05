@@ -251,35 +251,8 @@ All <code>annotation-</code> prefixed `role` values would inherit from an abstra
 Use the singular form: for consistency, all of the <a>annotation purposes</a> are in the singular form of the word, even though in some cases the plural could have made sense, as in "suggestion" where there may be multiple suggestions.
 </section>
 
-<section id="rejects">
-# Rejected annotation purposes
-
-<div class="issue">@bigbluehat: move this to an appendix? remove it? Kind of nice to know what we didn't do and why</div>
-
-For now, the following annotation purposes have not been assigned new roles:
-
-* **highlight**  — this does not fit the proposed definition of an <a>annotation</a> in that it does not point to additional info. Therefore, ARIA WG should consider adding something like `role=mark` (would need to be added for role parity), or the author can use HTML via `&lt;mark&gt;`/`&lt;em&gt;`/`&lt;strong&gt;`
-* **error** — in code in code editor: use the already supported `aria-invalid="true"` + `aria-errormessage=id`
-* **warning** — in code editor: may want to add `aria-invalid="warning"` as possible value (and like error, can use `aria-errormessage=id`)
-* **bookmark** — similar to `annotation-presence`; would need more info on this use case in order to support it.
-<div class="issue">[TBD] @aleventhal: Suggest that the author can use `&lt;mark aria-label="Bookmark name"&gt;` for a good experience.</div>
-* **breakpoint**— does not always come with additional visible information, so it would be difficult to shoehorn into this use case.
-<div class="issue">[TBD] @aleventhal: For this one, perhaps a `&lt;mark&gt;` or `role="mark"` or a new `role="breakpoint"` could be used, along with `aria-label`. Or, a visible button could be used on the line with the breakpoint, that is labelled as a breakpoint button.</div>
-</section>
-
-<section id="a11y-mappings">
-
-# Platform Accessibility mappings
-
-*   [UI Automation has built-in support for annotations](https://docs.microsoft.com/en-us/windows/desktop/winauto/uiauto-annotation-type-identifiers) — note that a perfect 1 to 1 mapping is not expected here. For example, a grammar error is an annotation in UIA, but in ARIA is `aria-invalid="grammar"`. An important difference with UIA annotations is that ARIA annotations always link to visible in-page content.
-*   Most of the markup is reused — there are already known ways for exposing `aria-details`, `aria-label`, `aria-labelledby`, `aria-describedby`, `&lt;ins&gt;` and `&lt;del>`.
-*   For aria-annotation, this should be exposed as an object attribute called "annotation" in ATK/IA2
-<div class="issue">@bigbluehat: does "aria-annotation" here mean this spec? It seems to (vs. an attribute or value)</div>
-
-</section>
-
 <section id="annotation-model-mappings">
-## Addendum: Mapping from the Web Annotation Data Model
+## Mapping from the Web Annotation Data Model
 
 An important use case is to convert annotation data from the Web Annotation Data Model [[annotation-model]] (typically in JSON format) into accessible content, with the goal of enabling AT support. The following are non-normative suggestions for accomplishing this.
 
@@ -440,6 +413,36 @@ This example is useful for the "identifying" motivation.
     </tr>
   </tbody>
 </table>
-    </section>
+</section>
+
+<section id="a11y-mappings">
+
+# Platform Accessibility mappings
+
+*   [UI Automation has built-in support for annotations](https://docs.microsoft.com/en-us/windows/desktop/winauto/uiauto-annotation-type-identifiers) — note that a perfect 1 to 1 mapping is not expected here. For example, a grammar error is an annotation in UIA, but in ARIA is `aria-invalid="grammar"`. An important difference with UIA annotations is that ARIA annotations always link to visible in-page content.
+*   Most of the markup is reused — there are already known ways for exposing `aria-details`, `aria-label`, `aria-labelledby`, `aria-describedby`, `&lt;ins&gt;` and `&lt;del>`.
+*   For aria-annotation, this should be exposed as an object attribute called "annotation" in ATK/IA2
+<div class="issue">@bigbluehat: does "aria-annotation" here mean this spec? It seems to (vs. an attribute or value)</div>
+
+</section>
+
+<section id="rejects" class="appendix">
+# Rejected annotation purposes
+
+<div class="issue">@bigbluehat: move this to an appendix? remove it? Kind of nice to know what we didn't do and why</div>
+
+For now, the following annotation purposes have not been assigned new roles:
+
+* **highlight**  — this does not fit the proposed definition of an <a>annotation</a> in that it does not point to additional info. Therefore, ARIA WG should consider adding something like `role=mark` (would need to be added for role parity), or the author can use HTML via `&lt;mark&gt;`/`&lt;em&gt;`/`&lt;strong&gt;`
+* **error** — in code in code editor: use the already supported `aria-invalid="true"` + `aria-errormessage=id`
+* **warning** — in code editor: may want to add `aria-invalid="warning"` as possible value (and like error, can use `aria-errormessage=id`)
+* **bookmark** — similar to `annotation-presence`; would need more info on this use case in order to support it.
+<div class="issue">[TBD] @aleventhal: Suggest that the author can use `&lt;mark aria-label="Bookmark name"&gt;` for a good experience.</div>
+* **breakpoint**— does not always come with additional visible information, so it would be difficult to shoehorn into this use case.
+<div class="issue">[TBD] @aleventhal: For this one, perhaps a `&lt;mark&gt;` or `role="mark"` or a new `role="breakpoint"` could be used, along with `aria-label`. Or, a visible button could be used on the line with the breakpoint, that is labelled as a breakpoint button.</div>
+</section>
+
+
+
   </body>
 </html>
