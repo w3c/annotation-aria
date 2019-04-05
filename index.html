@@ -208,11 +208,7 @@ For example the following would indicate that there is a suggestion with comment
 
 *   Provided as children of the <a>annotated content</a>, and define a past change or proposed future change to the document.
 
-<div class="issue">
-  [TBD] @aleventhal: Alternatively, if/when ARIA provides roles for insertion and deletion, the `role` attribute could be used instead.
-
-  See [ARIA #526](https://github.com/w3c/aria/issues/526) for discussion.
-</div>
+<div class="issue" data-number="3"></div>
 
 <pre class="example highlight">
 &lt;p&gt;Everyone is encouraged to bring a &lt;span aria-details="suggestion-info-1"&gt;&lt;del&gt;side dish&lt;/del&gt;&lt;ins&gt;beverage&lt;/ins&gt;&lt;/span&gt; to share.&lt;/p&gt;
@@ -239,12 +235,12 @@ These go on the <a>annotation body</a>, not the <a>annotated content</a>.
 All <code>annotation-</code> prefixed `role` values would inherit from an abstract role of `annotation`, which would inherit from `structure`. If the `role` attribute is not provided, then the <a>annotation</a> is simply treated as a description, as it would already be via `aria-details` usage.
 
 *   **annotation-attribution** — authoring information for the <a>annotated content</a>.
-<div class="issue">[TBD] @mck we may want to choose a better name as this name may ultimately just be used by screen readers and most users might not know what to make of it.</div>
-<div class="issue">[TBD#2] @aleventhal: recommend we make this redundant with `annotation-revision`, and remove this one.</div>
+<div class="issue" data-number="4"></div>
+<div class="issue" data-number="5"></div>
 
 *   **annotation-commentary** — one or more comments, or a comment thread
 *   **annotation-description**  — generic description. This is also the default if the annotation purpose is unspecified.
-<div class="issue">[TBD] @aleventhal: rather than add an extra role here, how about the author simply not use any of the other annotation roles.</div>
+<div class="issue" data-number="6"></div>
 
 *   **annotation-revision** — this is a historical change that has already been accepted. The source <a>annotated content</a> will contain 1-2 children for the insertion and/or deletion.
 *   **annotation-suggestion** — proposed edit. The source <a>annotated content</a> will contain 1-2 children for the proposed insertion and/or deletion.
