@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="generator" content="ReSpec 24.17.0"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><style>/* --- EXAMPLES --- */
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="generator" content="ReSpec 24.19.0"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><style>/* --- EXAMPLES --- */
 span.example-title {
     text-transform: none;
 }
@@ -483,6 +483,50 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-strong {
   font-weight: bold;
 }
+</style><style>var {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+var[data-type]::before,
+var[data-type]::after {
+  position: absolute;
+  left: 50%;
+  top: -6px;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+/* the triangle or arrow or caret or whatever */
+var[data-type]::before {
+  content: "";
+  transform: translateX(-50%);
+  border-width: 4px 6px 0 6px;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: #000;
+}
+
+/* actual text */
+var[data-type]::after {
+  content: attr(data-type);
+  transform: translateX(-50%) translateY(-100%);
+  background: #000;
+  text-align: center;
+  /* additional styling */
+  font-family: "Dank Mono", "Fira Code", monospace;
+  font-style: normal;
+  padding: 6px;
+  border-radius: 3px;
+  color: #daca88;
+}
+
+var[data-type]:hover::after,
+var[data-type]:hover::before {
+  opacity: 1;
+}
 </style><script id="initialUserConfig" type="application/json">{
   "specStatus": "ED",
   "shortName": "annotation-aria",
@@ -517,9 +561,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   "wgURI": "https://www.w3.org/WAI/ARIA/",
   "wgPublicList": "public-aria",
   "wgPatentURI": "https://www.w3.org/2004/01/pp-impl/83726/status",
-  "publishDate": "2019-04-18",
-  "publishISODate": "2019-04-18T00:00:00.000Z",
-  "generatedSubtitle": "Editor's Draft 18 April 2019"
+  "publishDate": "2019-04-23",
+  "publishISODate": "2019-04-23T00:00:00.000Z",
+  "generatedSubtitle": "Editor's Draft 23 April 2019"
 }</script><meta name="description" content="ARIA Annotations provides markup for accessible, in-page annotations.
 This specification describes the mechanism for signaling that
 content has been annotated, for what purpose, and where to find the
@@ -552,7 +596,7 @@ related additional content."><script type="application/ld+json">{
   "name": "ARIA Annotations",
   "inLanguage": "en",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2019-04-18",
+  "datePublished": "2019-04-23",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -618,7 +662,7 @@ related additional content."><script type="application/ld+json">{
       
       <h2>
         W3C Editor's Draft
-        <time class="dt-published" datetime="2019-04-18">18 April 2019</time>
+        <time class="dt-published" datetime="2019-04-23">23 April 2019</time>
       </h2>
       <dl>
         <dt>This version:</dt><dd>
@@ -771,8 +815,7 @@ generic and visually invisible element such as <code>&lt;span&gt;</code>.</p><p>
 the current Web page which contains the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>.</p><div class="example" id="example-1">
           <div class="marker">
       <a class="self-link" href="#example-1">Example 1</a>
-    </div>
-          <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comments"</span>&gt;</span>The proposal<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> contains...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comments"</span>&gt;</span>The proposal<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> contains...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 ...
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"comments"</span>&gt;</span>I think this is great!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
         </div><p>See the Accessible Rich Internet Applications [<cite><a class="bibref" href="#bib-wai-aria-1.2">wai-aria-1.2</a></cite>] specification
@@ -785,15 +828,13 @@ additions only when prescribing use of existing ARIA markup.</p>
 </ul><div class="example" id="example-2">
           <div class="marker">
       <a class="self-link" href="#example-2">Example 2</a>
-    </div>
-          <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comments"</span>&gt;</span>The proposal<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> contains...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comments"</span>&gt;</span>The proposal<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> contains...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 ...
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"comments"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-commentary"</span>&gt;</span>I think this is great!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
         </div><p>As is always the case, multiple <code>role</code> values are supported: if more than one <code>role</code> value is provided then the first recognized <code>role</code> may be mapped through accessibility APIs. The most important or specific role should always go first.</p><p>For example the following would indicate that there is a suggestion with comments, but some APIs may only expose it as a "suggestion":</p><div class="example" id="example-3">
           <div class="marker">
       <a class="self-link" href="#example-3">Example 3</a>
-    </div>
-          <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comments"</span>&gt;</span>The proposal<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> contains...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comments"</span>&gt;</span>The proposal<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> contains...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 ...
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"comments"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-suggestion annotation-commentary group"</span>&gt;</span>
   I think this is great! However, I think you might want to change "proposal"
@@ -806,8 +847,7 @@ additions only when prescribing use of existing ARIA markup.</p>
 </div></div><div class="example" id="example-4">
           <div class="marker">
       <a class="self-link" href="#example-4">Example 4</a>
-    </div>
-          <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Everyone is encouraged to bring a <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"suggestion-info-1"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span>side dish<span class="hljs-tag">&lt;/<span class="hljs-name">del</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ins</span>&gt;</span>beverage<span class="hljs-tag">&lt;/<span class="hljs-name">ins</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> to share.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+    </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Everyone is encouraged to bring a <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"suggestion-info-1"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span>side dish<span class="hljs-tag">&lt;/<span class="hljs-name">del</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ins</span>&gt;</span>beverage<span class="hljs-tag">&lt;/<span class="hljs-name">ins</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> to share.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
         </div><ul>
 <li>Ordering: the ARIA spec should define whether the order is important for these 1-2 children. I suggest the AT should handle all permutations in the ordering.</li>
 </ul></section><section id="aria-label-aria-labelledby-aria-describedby"><h3 id="x3-4-aria-label-aria-labelledby-aria-describedby"><span class="secno">3.4 </span><code>aria-label</code>/<code>aria-labelledby</code>/<code>aria-describedby</code><a class="self-link" aria-label="§" href="#aria-label-aria-labelledby-aria-describedby"></a></h3><p>(optional)</p><div class="issue" id="issue-container-number-4"><div role="heading" class="issue-title marker" id="h-issue-2" aria-level="4"><span>Issue 4</span></div><div class=""><p>@bigbluehat Take this out? move to appendix? mark "at risk"?</p>
