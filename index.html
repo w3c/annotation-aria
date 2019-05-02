@@ -208,17 +208,46 @@ comments, but some APIs may only expose it as a "suggestion":
 
 ## `&lt;ins&gt;`/`&lt;del&gt;`
 
-(required for the "revision" and "suggestion" <a>annotation purposes</a>)
+Annotations motivated by expressing a revision to the <a>annotated content</a>
+or which are providing suggestions to that content come with an additional
+requirement to convey that revision or suggestion.
 
-*   Provided as children of the <a>annotated content</a>, and define a past change or proposed future change to the document.
+The <a>annotated content</a> of such a change-related annotation MUST contain
+at least one HTML `&lt;ins&gt;` or `&lt;del&gt;` tag. If a replacement to the
+<a>annotated content</a> is being requested, authors MUST provide both an
+`&lt;ins&gt;` and a `&lt;del&gt;` tag together. Each combination of an
+`&lt;ins&gt;` and a `&lt;del&gt;` tag pair SHOULD be authored as separate
+<a>annotated content</a>.
+
+<pre class="example highlight">
+&lt;p&gt;Everyone is encouraged to bring a
+&lt;span aria-details="suggestion-info-1"&gt;&lt;del&gt;side dish&lt;/del&gt;&lt;ins&gt;beverage&lt;/ins&gt;&lt;/span&gt;
+to share.&lt;/p&gt;
+</pre>
+
+Assistive Technology SHOULD handle all permutations of the ordering of
+`&lt;ins&gt;` and `&lt;del&gt;` when processing edits.
+
+<div class="note">In future, the [[wai-aria-1.2]] specification may define
+  whether the order of `&lt;ins&gt;` and `&lt;del&gt;` are important.</div>
 
 <div class="issue" data-number="3"></div>
 
+To distinguish between revisions (past edits) and suggestions (future edits),
+an <a>annotation purpose</a> can be expressed by placing the appropriate `role`
+value on the related <a>annotation body</a>.
+
 <pre class="example highlight">
-&lt;p&gt;Everyone is encouraged to bring a &lt;span aria-details="suggestion-info-1"&gt;&lt;del&gt;side dish&lt;/del&gt;&lt;ins&gt;beverage&lt;/ins&gt;&lt;/span&gt; to share.&lt;/p&gt;
+&lt;p&gt;Everyone is encouraged to bring a
+&lt;span aria-details="suggestion-info-1"&gt;&lt;del&gt;side dish&lt;/del&gt;&lt;ins&gt;beverage&lt;/ins&gt;&lt;/span&gt;
+to share.&lt;/p&gt;
+&lt;!-- later in the document... --&gt;
+&lt;div id="suggestion-info-1" role="annotation-suggestion"&gt;
+Change of plans! Thanks updating this, Aaron
+&lt;/div&gt;
 </pre>
 
-*   Ordering: the ARIA spec should define whether the order is important for these 1-2 children. I suggest the AT should handle all permutations in the ordering.
+
 
 ## `aria-label`/`aria-labelledby`/`aria-describedby`
 
