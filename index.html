@@ -213,16 +213,28 @@ or which are providing suggestions to that content come with an additional
 requirement to convey that revision or suggestion.
 
 The <a>annotated content</a> of such a change-related annotation MUST contain
-at least one HTML `&lt;ins&gt;` or `&lt;del&gt;` tag. If a replacement to the
-<a>annotated content</a> is being requested, authors MUST provide both an
-`&lt;ins&gt;` and a `&lt;del&gt;` tag together. Each combination of an
-`&lt;ins&gt;` and a `&lt;del&gt;` tag pair SHOULD be authored as separate
-<a>annotated content</a>.
+at least one HTML `&lt;ins&gt;` or `&lt;del&gt;` tag or at least one HTML tag
+with a `role` value of either [`insertion`](https://w3c.github.io/aria/#insertion)
+or [`deletion`](https://w3c.github.io/aria/#deletion) defined in [[wai-aria-1.2]].
 
-<pre class="example highlight">
+If a replacement to the <a>annotated content</a> is being requested, authors
+MUST provide both an `&lt;ins&gt;` and a `&lt;del&gt;` tag together or two HTML
+tags one with `role="insertion"` and the other with `role="deletion"`.
+
+Each combination of an `&lt;ins&gt;` and a `&lt;del&gt;` tag pair (or their
+equivalent expressed via `insertion`/`deletion` roles) SHOULD be authored as
+separate <a>annotated content</a> (i.e. no more than one of each per grouping).
+
+<pre class="example highlight" title="suggestion using &lt;ins&gt; and &lt;del&gt;">
 &lt;p&gt;Everyone is encouraged to bring a
 &lt;span aria-details="suggestion-info-1"&gt;&lt;del&gt;side dish&lt;/del&gt;&lt;ins&gt;beverage&lt;/ins&gt;&lt;/span&gt;
 to share.&lt;/p&gt;
+</pre>
+
+<pre class="example highlight" title="suggestion using insertion and deletion roles">
+&lt;p&gt;Cats are so funny:
+&lt;span aria-details="suggestion-info-1"&gt;&lt;img role="deletion" src="dog.jpg"&gt;&lt;img role="insertion" src="cat.jpg"&gt;&lt;/span&gt;
+Pretty cute, right?!&lt;/p&gt;
 </pre>
 
 Assistive Technology SHOULD handle all permutations of the ordering of
@@ -232,8 +244,6 @@ Assistive Technology SHOULD handle all permutations of the ordering of
   whether the order of `&lt;ins&gt;` and `&lt;del&gt;` are important.</div>
 
 <div class="issue" data-number="7"></div>
-
-<div class="issue" data-number="3"></div>
 
 To distinguish between revisions (past edits) and suggestions (future edits),
 an <a>annotation purpose</a> can be expressed by placing the appropriate `role`
