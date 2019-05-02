@@ -67,7 +67,7 @@ Their uses vary from commentary, to suggested edits, to attribution, and even
 noting the presence of other readers.
 
 Much of the necessary building blocks already exist with other ARIA specifications.
-Consequently, this specification provides the minimal additions needed to improve
+This specification provides the minimal additions needed to improve
 the reading experience of annotated content when consumed via assistive technology.
 
 Additionally, this specification takes steps to use consistent terminology and
@@ -155,7 +155,7 @@ For further information, please see the [](#annotation-model-mappings) below.
   attribute which MUST contain the IDREF of an <a>annotation body</a> which
   exists in the current web page.</p>
 
-  <p>Any HTML tag MAY be used, and it is not required to use the <code>role</code>
+  <p>Any HTML tag MAY be used. It is not required to use the <code>role</code>
   attribute. However, when a visible highlight is intended, authors SHOULD prefer
   using an element such as <code>&lt;mark&gt;</code> over a more semantically
   generic and visually invisible element such as <code>&lt;span&gt;</code>.</p>
@@ -169,13 +169,10 @@ For further information, please see the [](#annotation-model-mappings) below.
   &lt;div id="comments"&gt;I think this is great!&lt;/div&gt;
   </pre>
 
-  <p>See the Accessible Rich Internet Applications [[wai-aria-1.2]] specification
-  for more information and requirements concerning the use of
-  <a href="https://w3c.github.io/aria/#aria-details"><code>aria-details</code></a>.</p>
-
-  <div class="issue">@bigbluehat: the WAI-ARIA references and requirements
-    should be changed to be more clearly normative--with this space making
-    additions only when prescribing use of existing ARIA markup.</div>
+  <p>Use of the
+  <a href="https://w3c.github.io/aria/#aria-details"><code>aria-details</code></a>
+  attribute MUST follow any additiona requirements expressed in the
+  Accessible Rich Internet Applications [[wai-aria-1.2]] specification.</p>
 
 ## `role`
 
