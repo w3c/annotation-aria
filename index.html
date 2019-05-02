@@ -176,24 +176,31 @@ For further information, please see the [](#annotation-model-mappings) below.
 
 ## `role`
 
-(optional, NMTOKENS) on the <a>annotation body</a>
+The <a>annotation body</a> contains the commentary, suggestions, or secondary
+content about the <a>annotated content</a>.
 
-*   Goes on the <a>annotation body</a>, describing the <a>annotation purpose</a>. See below for a [list of roles](#roles) and more details.
+The `role` on the <a>annotation body</a> describes the purpose or intent (i.e.
+the <a>annotation purpose</a>) of the <a>annotation body</a>. See below for a
+[list of available roles](#roles) meant for use in ARIA annotations.
 
 <pre class="example highlight">
-  &lt;p&gt;&lt;mark aria-details="comments"&gt;The proposal&lt;/mark&gt; contains...&lt;/p&gt;
+  &lt;p&gt;&lt;mark aria-details="comment-123"&gt;The proposal&lt;/mark&gt; contains...&lt;/p&gt;
   ...
-  &lt;div id="comments" role="annotation-commentary"&gt;I think this is great!&lt;/div&gt;
+  &lt;div id="comment-123" role="annotation-commentary"&gt;I think this is great!&lt;/div&gt;
 </pre>
 
-As is always the case, multiple `role` values are supported: if more than one `role` value is provided then the first recognized `role` may be mapped through accessibility APIs. The most important or specific role should always go first.
+Multiple `role` attribute values are supported. If more than one `role` value
+is provided then the first recognized `role` MAY be mapped through
+accessibility APIs. Consequently, annotation authors SHOULD place the most
+important (or specific) role first.
 
-For example the following would indicate that there is a suggestion with comments, but some APIs may only expose it as a "suggestion":
+For example, the following would indicate that there is a suggestion with
+comments, but some APIs may only expose it as a "suggestion":
 
 <pre class="example highlight">
-  &lt;p&gt;&lt;mark aria-details="comments"&gt;The proposal&lt;/mark&gt; contains...&lt;/p&gt;
+  &lt;p&gt;&lt;mark aria-details="suggestion-123"&gt;The proposal&lt;/mark&gt; contains...&lt;/p&gt;
   ...
-  &lt;div id="comments" role="annotation-suggestion annotation-commentary group"&gt;
+  &lt;div id="suggestion-123" role="annotation-suggestion annotation-commentary group"&gt;
     I think this is great! However, I think you might want to change "proposal"
     to "recommendation."
   &lt;/div&gt;
