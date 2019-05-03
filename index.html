@@ -561,9 +561,9 @@ var[data-type]:hover::before {
   "wgURI": "https://www.w3.org/WAI/ARIA/",
   "wgPublicList": "public-aria",
   "wgPatentURI": "https://www.w3.org/2004/01/pp-impl/83726/status",
-  "publishDate": "2019-05-02",
-  "publishISODate": "2019-05-02T00:00:00.000Z",
-  "generatedSubtitle": "Editor's Draft 02 May 2019"
+  "publishDate": "2019-05-03",
+  "publishISODate": "2019-05-03T00:00:00.000Z",
+  "generatedSubtitle": "Editor's Draft 03 May 2019"
 }</script><meta name="description" content="ARIA Annotations provides markup for accessible, in-page annotations.
 This specification describes the mechanism for signaling that
 content has been annotated, for what purpose, and where to find the
@@ -596,7 +596,7 @@ related additional content."><script type="application/ld+json">{
   "name": "ARIA Annotations",
   "inLanguage": "en",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2019-05-02",
+  "datePublished": "2019-05-03",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -662,7 +662,7 @@ related additional content."><script type="application/ld+json">{
       
       <h2>
         W3C Editor's Draft
-        <time class="dt-published" datetime="2019-05-02">02 May 2019</time>
+        <time class="dt-published" datetime="2019-05-03">03 May 2019</time>
       </h2>
       <dl>
         <dt>This version:</dt><dd>
@@ -846,25 +846,33 @@ comments, but some APIs may only expose it as a "suggestion":</p><div class="exa
         </div></section><section id="ins-del"><h3 id="x3-3-ins-del"><span class="secno">3.3 </span><code>&lt;ins&gt;</code>/<code>&lt;del&gt;</code><a class="self-link" aria-label="§" href="#ins-del"></a></h3><p>Annotations motivated by expressing a revision to the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>
 or which are providing suggestions to that content come with an additional
 requirement to convey that revision or suggestion.</p><p>The <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> of such a change-related annotation <em class="rfc2119" title="MUST">MUST</em> contain
-at least one HTML <code>&lt;ins&gt;</code> or <code>&lt;del&gt;</code> tag. If a replacement to the
-<a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> is being requested, authors <em class="rfc2119" title="MUST">MUST</em> provide both an
-<code>&lt;ins&gt;</code> and a <code>&lt;del&gt;</code> tag together. Each combination of an
-<code>&lt;ins&gt;</code> and a <code>&lt;del&gt;</code> tag pair <em class="rfc2119" title="SHOULD">SHOULD</em> be authored as separate
-<a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>.</p><div class="example" id="example-4">
+at least one HTML <code>&lt;ins&gt;</code> or <code>&lt;del&gt;</code> tag or at least one HTML tag
+with a <code>role</code> value of either <a href="https://w3c.github.io/aria/#insertion"><code>insertion</code></a>
+or <a href="https://w3c.github.io/aria/#deletion"><code>deletion</code></a> defined in [<cite><a class="bibref" href="#bib-wai-aria-1.2">wai-aria-1.2</a></cite>].</p><p>If a replacement to the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> is being requested, authors
+<em class="rfc2119" title="MUST">MUST</em> provide both an <code>&lt;ins&gt;</code> and a <code>&lt;del&gt;</code> tag together or two HTML
+tags one with <code>role="insertion"</code> and the other with <code>role="deletion"</code>.</p><p>Each combination of an <code>&lt;ins&gt;</code> and a <code>&lt;del&gt;</code> tag pair (or their
+equivalent expressed via <code>insertion</code>/<code>deletion</code> roles) <em class="rfc2119" title="SHOULD">SHOULD</em> be authored as
+separate <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> (i.e. no more than one of each per grouping).</p><div class="example" id="example-4-suggestion-using-ins-and-del">
           <div class="marker">
-      <a class="self-link" href="#example-4">Example 4</a>
+      <a class="self-link" href="#example-4-suggestion-using-ins-and-del">Example 4</a><span class="example-title">: suggestion using &lt;ins&gt; and &lt;del&gt;</span>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Everyone is encouraged to bring a
 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"suggestion-info-1"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span>side dish<span class="hljs-tag">&lt;/<span class="hljs-name">del</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ins</span>&gt;</span>beverage<span class="hljs-tag">&lt;/<span class="hljs-name">ins</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 to share.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+        </div><div class="example" id="example-5-suggestion-using-insertion-and-deletion-roles">
+          <div class="marker">
+      <a class="self-link" href="#example-5-suggestion-using-insertion-and-deletion-roles">Example 5</a><span class="example-title">: suggestion using insertion and deletion roles</span>
+    </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Cats are so funny:
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"suggestion-info-1"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"deletion"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"dog.jpg"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"insertion"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"cat.jpg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+Pretty cute, right?!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
         </div><p>Assistive Technology <em class="rfc2119" title="SHOULD">SHOULD</em> handle all permutations of the ordering of
 <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code> when processing edits.</p><div class="note" role="note" id="issue-container-generatedID-0"><div role="heading" class="note-title marker" id="h-note" aria-level="4"><span>Note</span></div><div class=""><p>In future, the [<cite><a class="bibref" href="#bib-wai-aria-1.2">wai-aria-1.2</a></cite>] specification may define
 whether the order of <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code> are important.</p>
-</div></div><div class="issue" id="issue-container-number-3"><div role="heading" class="issue-title marker" id="h-issue-0" aria-level="4"><a href="https://github.com/w3c/annotation-aria/issues/3"><span class="issue-number">Issue 3</span></a><span class="issue-label">: Update `&lt;ins&gt;`/`&lt;del&gt;` section to point to new insertion/deletion roles</span></div><p>See <a rel="nofollow" href="https://w3c.github.io/aria/#insertion">https://w3c.github.io/aria/#insertion</a> and <a rel="nofollow" href="https://w3c.github.io/aria/#deletion">https://w3c.github.io/aria/#deletion</a></p>
-<p>These roles were/are being discussed in <a class="issue-link js-issue-link" data-error-text="Failed to load issue title" data-id="207622320" data-permission-text="Issue title is private" data-url="https://github.com/w3c/aria/issues/526" data-hovercard-type="issue" data-hovercard-url="/w3c/aria/issues/526/hovercard" href="https://github.com/w3c/aria/issues/526">w3c/aria#526</a></p></div><p>To distinguish between revisions (past edits) and suggestions (future edits),
+</div></div><div class="issue" id="issue-container-number-7"><div role="heading" class="issue-title marker" id="h-issue-0" aria-level="4"><a href="https://github.com/w3c/annotation-aria/issues/7"><span class="issue-number">Issue 7</span></a><span class="issue-label">: Should `annotation-suggestion`/`annotation-revision` processing ignore additional markup?</span></div><p>Right now, we define (somewhat implicitly...) how <code>&lt;ins&gt;</code>/<code>&lt;del&gt;</code> could be processed by AT into actual edits in the main text (i.e. replacing the annotated content following the logic expressed via <code>&lt;ins&gt;</code> and/or <code>&lt;del&gt;</code>).</p>
+<p>Should we also add something about how to handle any other markup? I'd suggest we state that it should be thrown out entirely--but want to make sure that's what would be expected here from an AT perspective (and that there aren't hidden "gotchas" I've not yet thought about).</p></div><p>To distinguish between revisions (past edits) and suggestions (future edits),
 an <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purpose</a> can be expressed by placing the appropriate <code>role</code>
-value on the related <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>.</p><div class="example" id="example-5">
+value on the related <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>.</p><div class="example" id="example-6">
           <div class="marker">
-      <a class="self-link" href="#example-5">Example 5</a>
+      <a class="self-link" href="#example-6">Example 6</a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Everyone is encouraged to bring a
 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"suggestion-info-1"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span>side dish<span class="hljs-tag">&lt;/<span class="hljs-name">del</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ins</span>&gt;</span>beverage<span class="hljs-tag">&lt;/<span class="hljs-name">ins</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 to share.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
@@ -902,20 +910,20 @@ Change of plans! Thanks updating this, Aaron
 </li>
 <li><p><strong>doc-footnote</strong>/<strong>doc-endnote</strong> for footnotes and endnotes. When using DPUB roles, the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> will be the referencing note number. The author may choose to leave out the <code>doc-noteref</code> role on the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>, as that will be exposed as a link to ATs (see [<cite><a class="bibref" href="#bib-dpub-aam-1.0">DPUB-AAM-1.0</a></cite>]), and it may not be a link. In addition, the fact that it is a note reference number is implied by the relation with the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>, which will have the <code>doc-footnote</code> or <code>doc-endnote</code> role.</p>
 </li>
-</ul><p>Use the singular form: for consistency, all of the <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purposes</a> are in the singular form of the word, even though in some cases the plural could have made sense, as in "suggestion" where there may be multiple suggestions.</p></section><section id="annotation-model-mappings"><!--OddPage--><h2 id="x5-web-annotation-data-model-correlations"><span class="secno">5. </span>Web Annotation Data Model correlations<a class="self-link" aria-label="§" href="#annotation-model-mappings"></a></h2><p>An important use case is to convert annotation data from the Web Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model">annotation-model</a></cite>] (typically in JSON format) into accessible content, with the goal of enabling AT support. The following are non-normative suggestions for accomplishing this.</p><aside class="example" id="example-6-describing-a-relationship-to-in-page-visible-content"><div class="marker">
-      <a class="self-link" href="#example-6-describing-a-relationship-to-in-page-visible-content">Example 6</a><span class="example-title">: Describing a relationship to in-page visible content</span>
+</ul><p>Use the singular form: for consistency, all of the <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purposes</a> are in the singular form of the word, even though in some cases the plural could have made sense, as in "suggestion" where there may be multiple suggestions.</p></section><section id="annotation-model-mappings"><!--OddPage--><h2 id="x5-web-annotation-data-model-correlations"><span class="secno">5. </span>Web Annotation Data Model correlations<a class="self-link" aria-label="§" href="#annotation-model-mappings"></a></h2><p>An important use case is to convert annotation data from the Web Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model">annotation-model</a></cite>] (typically in JSON format) into accessible content, with the goal of enabling AT support. The following are non-normative suggestions for accomplishing this.</p><aside class="example" id="example-7-describing-a-relationship-to-in-page-visible-content"><div class="marker">
+      <a class="self-link" href="#example-7-describing-a-relationship-to-in-page-visible-content">Example 7</a><span class="example-title">: Describing a relationship to in-page visible content</span>
     </div><p>Translating a "commenting" motivation in the Web Annotation Data Model to the appropriate ARIA and HTML markup:</p>
 <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The following cats have been deemed <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comment-thread-1"</span>&gt;</span>uncooperative<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"comment-thread-1"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-commentary"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Comment by Ruff Finkledog<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Wouldn't it be simpler to list the cooperative cats?<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-</aside><aside class="example" id="example-7-describing-a-web-annotation-that-does-not-have-a-relationship-to-other-content"><div class="marker">
-      <a class="self-link" href="#example-7-describing-a-web-annotation-that-does-not-have-a-relationship-to-other-content">Example 7</a><span class="example-title">: Describing a Web Annotation that does not have a relationship to other content</span>
+</aside><aside class="example" id="example-8-describing-a-web-annotation-that-does-not-have-a-relationship-to-other-content"><div class="marker">
+      <a class="self-link" href="#example-8-describing-a-web-annotation-that-does-not-have-a-relationship-to-other-content">Example 8</a><span class="example-title">: Describing a Web Annotation that does not have a relationship to other content</span>
     </div><p>This example is useful for the "highlighting" motivation.</p>
 <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The word <span class="hljs-tag">&lt;<span class="hljs-name">mark</span>&gt;</span>cat<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> is highlighted<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
-</aside><aside class="example" id="example-8-describing-a-web-annotation-that-is-related-to-external-content-only"><div class="marker">
-      <a class="self-link" href="#example-8-describing-a-web-annotation-that-is-related-to-external-content-only">Example 8</a><span class="example-title">: Describing a Web Annotation that is related to external content only</span>
+</aside><aside class="example" id="example-9-describing-a-web-annotation-that-is-related-to-external-content-only"><div class="marker">
+      <a class="self-link" href="#example-9-describing-a-web-annotation-that-is-related-to-external-content-only">Example 9</a><span class="example-title">: Describing a Web Annotation that is related to external content only</span>
     </div><p>This example is useful for the "identifying" motivation.</p>
 <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>A <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://en.wikipedia.org/wiki/Cat"</span>&gt;</span>cat<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> is one of our favorite quirky pets.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
 </aside><section id="purpose-to-role-mapping-table"><h3 id="x5-1-purpose-to-role-mapping-table"><span class="secno">5.1 </span>Purpose to Role Mapping Table<a class="self-link" aria-label="§" href="#purpose-to-role-mapping-table"></a></h3><table>
