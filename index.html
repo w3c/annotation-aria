@@ -208,24 +208,573 @@ comments, but some APIs may only expose it as a "suggestion":
 </pre>
 
     <section id="roles">
-    # Roles for <a>annotation purposes</a>
+# Roles for <a>annotation purposes</a>
 
-    These go on the <a>annotation body</a>, not the <a>annotated content</a>.
+The <a data-lt="annotation purpose">purpose of an annotation</a> by placing a
+`role` attribute on the <a>annotation body</a>, not the <a>annotated content</a>.
 
-    All <code>annotation-</code> prefixed `role` values would inherit from an abstract role of `annotation`, which would inherit from `structure`. If the `role` attribute is not provided, then the <a>annotation</a> is simply treated as a description, as it would already be via `aria-details` usage.
+All <code>annotation-</code> prefixed `role` values inherit from an abstract
+role of `annotation`, which inherits from `structure`. If the `role` attribute
+is not provided, then the <a>annotation</a> is simply treated as a description.
 
-    *   **annotation-attribution** — authoring information for the <a>annotated content</a>.
+  <div class="role">
+    <rdef>annotation-attribution</rdef>
+    <div class="role-description">
+      <p>Authoring information for the <a>annotated content</a>.</p>
+      <pre class="example highlight">...</pre>
+    </div>
+    <table class="role-features">
+      <caption>Characteristics:</caption>
+      <thead>
+        <tr>
+          <th scope="col">Characteristic</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="role-abstract-head" scope="row">Is Abstract:</th>
+          <td class="role-abstract"> </td>
+        </tr>
+        <tr>
+          <th class="role-parent-head" scope="row">Superclass Role:</th>
+          <td class="role-parent"><rref>annotation</rref></td>
+        </tr>
+        <tr>
+          <th class="role-children-head" scope="row">Subclass Roles:</th>
+          <td class="role-children"> </td>
+        </tr>
+        <tr>
+          <th class="role-base-head" scope="row">Base Concept:</th>
+          <td class="role-base"> </td>
+        </tr>
+        <tr>
+          <th class="role-related-head" scope="row">Related Concepts:</th>
+          <td class="role-related"> </td>
+        </tr>
+        <tr>
+          <th class="role-scope-head" scope="row">Required Context Role:</th>
+          <td class="role-scope"> </td>
+        </tr>
+        <tr>
+          <th class="role-mustcontain-head" scope="row">Required Owned
+            Elements:</th>
+          <td class="role-mustcontain"></td>
+        </tr>
+        <tr>
+          <th class="role-required-properties-head">Required States and
+            Properties:</th>
+          <td class="role-required-properties"> </td>
+        </tr>
+        <tr>
+          <th class="role-properties-head" scope="row">Supported States and
+            Properties:</th>
+          <td class="role-properties"> </td>
+        </tr>
+        <tr>
+          <th class="role-inherited-head" scope="row">Inherited States and
+            Properties:</th>
+          <td class="role-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="role-namefrom-head" scope="row">Name From:</th>
+          <td class="role-namefrom">author</td>
+        </tr>
+        <tr>
+          <th class="role-namerequired-head" scope="row">Accessible Name
+            Required:</th>
+          <td class="role-namerequired">False</td>
+        </tr>
+        <tr>
+          <th class="role-namerequired-inherited-head" scope="row">Inherits
+            Name Required:</th>
+          <td class="role-namerequired-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="role-childpresentational-head" scope="row">Children
+            Presentational:</th>
+          <td class="role-childpresentational"> </td>
+        </tr>
+        <tr>
+          <th class="role-presentational-inherited-head" scope="row">Inherits
+            Presentational:</th>
+          <td class="role-presentational-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="implicit-values-head">Implicit Value for Role:</th>
+          <td class="implicit-values"> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
     <div class="issue" data-number="4"></div>
     <div class="issue" data-number="5"></div>
 
-    *   **annotation-commentary** — one or more comments, or a comment thread
-    *   **annotation-description**  — generic description. This is also the default if the annotation purpose is unspecified.
+  <div class="role">
+    <rdef>annotation-commentary</rdef>
+    <div class="role-description">
+      <p>One or more comments, or a comment thread.</p>
+      <pre class="example highlight">...</pre>
+    </div>
+    <table class="role-features">
+      <caption>Characteristics:</caption>
+      <thead>
+        <tr>
+          <th scope="col">Characteristic</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="role-abstract-head" scope="row">Is Abstract:</th>
+          <td class="role-abstract"> </td>
+        </tr>
+        <tr>
+          <th class="role-parent-head" scope="row">Superclass Role:</th>
+          <td class="role-parent"><rref>annotation</rref></td>
+        </tr>
+        <tr>
+          <th class="role-children-head" scope="row">Subclass Roles:</th>
+          <td class="role-children"> </td>
+        </tr>
+        <tr>
+          <th class="role-base-head" scope="row">Base Concept:</th>
+          <td class="role-base"> </td>
+        </tr>
+        <tr>
+          <th class="role-related-head" scope="row">Related Concepts:</th>
+          <td class="role-related"> </td>
+        </tr>
+        <tr>
+          <th class="role-scope-head" scope="row">Required Context Role:</th>
+          <td class="role-scope"> </td>
+        </tr>
+        <tr>
+          <th class="role-mustcontain-head" scope="row">Required Owned
+            Elements:</th>
+          <td class="role-mustcontain"></td>
+        </tr>
+        <tr>
+          <th class="role-required-properties-head">Required States and
+            Properties:</th>
+          <td class="role-required-properties"> </td>
+        </tr>
+        <tr>
+          <th class="role-properties-head" scope="row">Supported States and
+            Properties:</th>
+          <td class="role-properties"> </td>
+        </tr>
+        <tr>
+          <th class="role-inherited-head" scope="row">Inherited States and
+            Properties:</th>
+          <td class="role-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="role-namefrom-head" scope="row">Name From:</th>
+          <td class="role-namefrom">author</td>
+        </tr>
+        <tr>
+          <th class="role-namerequired-head" scope="row">Accessible Name
+            Required:</th>
+          <td class="role-namerequired">False</td>
+        </tr>
+        <tr>
+          <th class="role-namerequired-inherited-head" scope="row">Inherits
+            Name Required:</th>
+          <td class="role-namerequired-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="role-childpresentational-head" scope="row">Children
+            Presentational:</th>
+          <td class="role-childpresentational"> </td>
+        </tr>
+        <tr>
+          <th class="role-presentational-inherited-head" scope="row">Inherits
+            Presentational:</th>
+          <td class="role-presentational-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="implicit-values-head">Implicit Value for Role:</th>
+          <td class="implicit-values"> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="role">
+    <rdef>annotation-description</rdef>
+    <div class="role-description">
+      <p>Generic description. This is the default if the
+      <a>annotation purpose</a> is unspecified.</p>
+      <pre class="example highlight">...</pre>
+    </div>
+    <table class="role-features">
+      <caption>Characteristics:</caption>
+      <thead>
+        <tr>
+          <th scope="col">Characteristic</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="role-abstract-head" scope="row">Is Abstract:</th>
+          <td class="role-abstract"> </td>
+        </tr>
+        <tr>
+          <th class="role-parent-head" scope="row">Superclass Role:</th>
+          <td class="role-parent"><rref>annotation</rref></td>
+        </tr>
+        <tr>
+          <th class="role-children-head" scope="row">Subclass Roles:</th>
+          <td class="role-children"> </td>
+        </tr>
+        <tr>
+          <th class="role-base-head" scope="row">Base Concept:</th>
+          <td class="role-base"> </td>
+        </tr>
+        <tr>
+          <th class="role-related-head" scope="row">Related Concepts:</th>
+          <td class="role-related"> </td>
+        </tr>
+        <tr>
+          <th class="role-scope-head" scope="row">Required Context Role:</th>
+          <td class="role-scope"> </td>
+        </tr>
+        <tr>
+          <th class="role-mustcontain-head" scope="row">Required Owned
+            Elements:</th>
+          <td class="role-mustcontain"></td>
+        </tr>
+        <tr>
+          <th class="role-required-properties-head">Required States and
+            Properties:</th>
+          <td class="role-required-properties"> </td>
+        </tr>
+        <tr>
+          <th class="role-properties-head" scope="row">Supported States and
+            Properties:</th>
+          <td class="role-properties"> </td>
+        </tr>
+        <tr>
+          <th class="role-inherited-head" scope="row">Inherited States and
+            Properties:</th>
+          <td class="role-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="role-namefrom-head" scope="row">Name From:</th>
+          <td class="role-namefrom">author</td>
+        </tr>
+        <tr>
+          <th class="role-namerequired-head" scope="row">Accessible Name
+            Required:</th>
+          <td class="role-namerequired">False</td>
+        </tr>
+        <tr>
+          <th class="role-namerequired-inherited-head" scope="row">Inherits
+            Name Required:</th>
+          <td class="role-namerequired-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="role-childpresentational-head" scope="row">Children
+            Presentational:</th>
+          <td class="role-childpresentational"> </td>
+        </tr>
+        <tr>
+          <th class="role-presentational-inherited-head" scope="row">Inherits
+            Presentational:</th>
+          <td class="role-presentational-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="implicit-values-head">Implicit Value for Role:</th>
+          <td class="implicit-values"> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
     <div class="issue" data-number="6"></div>
 
-    *   **annotation-revision** — this is a historical change that has already been accepted. The source <a>annotated content</a> will contain 1-2 children for the insertion and/or deletion.
-    *   **annotation-suggestion** — proposed edit. The source <a>annotated content</a> will contain 1-2 children for the proposed insertion and/or deletion.
+  <div class="role">
+    <rdef>annotation-revision</rdef>
+    <div class="role-description">
+      <p>An historical change that has already been accepted. The source
+      <a>annotated content</a> MUST contain 1-2 children for the
+      <a href="#expressing-editorial-activities">insertion and/or deletion</a>.</p>
+      <pre class="example highlight">...</pre>
+    </div>
+    <table class="role-features">
+      <caption>Characteristics:</caption>
+      <thead>
+        <tr>
+          <th scope="col">Characteristic</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="role-abstract-head" scope="row">Is Abstract:</th>
+          <td class="role-abstract"> </td>
+        </tr>
+        <tr>
+          <th class="role-parent-head" scope="row">Superclass Role:</th>
+          <td class="role-parent"><rref>annotation</rref></td>
+        </tr>
+        <tr>
+          <th class="role-children-head" scope="row">Subclass Roles:</th>
+          <td class="role-children"> </td>
+        </tr>
+        <tr>
+          <th class="role-base-head" scope="row">Base Concept:</th>
+          <td class="role-base"> </td>
+        </tr>
+        <tr>
+          <th class="role-related-head" scope="row">Related Concepts:</th>
+          <td class="role-related"> </td>
+        </tr>
+        <tr>
+          <th class="role-scope-head" scope="row">Required Context Role:</th>
+          <td class="role-scope"> </td>
+        </tr>
+        <tr>
+          <th class="role-mustcontain-head" scope="row">Required Owned
+            Elements:</th>
+          <td class="role-mustcontain"></td>
+        </tr>
+        <tr>
+          <th class="role-required-properties-head">Required States and
+            Properties:</th>
+          <td class="role-required-properties"> </td>
+        </tr>
+        <tr>
+          <th class="role-properties-head" scope="row">Supported States and
+            Properties:</th>
+          <td class="role-properties"> </td>
+        </tr>
+        <tr>
+          <th class="role-inherited-head" scope="row">Inherited States and
+            Properties:</th>
+          <td class="role-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="role-namefrom-head" scope="row">Name From:</th>
+          <td class="role-namefrom">author</td>
+        </tr>
+        <tr>
+          <th class="role-namerequired-head" scope="row">Accessible Name
+            Required:</th>
+          <td class="role-namerequired">False</td>
+        </tr>
+        <tr>
+          <th class="role-namerequired-inherited-head" scope="row">Inherits
+            Name Required:</th>
+          <td class="role-namerequired-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="role-childpresentational-head" scope="row">Children
+            Presentational:</th>
+          <td class="role-childpresentational"> </td>
+        </tr>
+        <tr>
+          <th class="role-presentational-inherited-head" scope="row">Inherits
+            Presentational:</th>
+          <td class="role-presentational-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="implicit-values-head">Implicit Value for Role:</th>
+          <td class="implicit-values"> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-    *   **annotation-presence** — similar to attribution, but relates to editing that is happening right now. For example, "Mr. Smith is editing nearby".
+  <div class="role">
+    <rdef>annotation-suggestion</rdef>
+    <div class="role-description">
+      <p>A proposed edit. The source <a>annotated content</a> MUST contain 1-2
+      children for the proposed <a href="#expressing-editorial-activities">insertion and/or deletion</a>.</p>
+      <pre class="example highlight">...</pre>
+    </div>
+    <table class="role-features">
+      <caption>Characteristics:</caption>
+      <thead>
+        <tr>
+          <th scope="col">Characteristic</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="role-abstract-head" scope="row">Is Abstract:</th>
+          <td class="role-abstract"> </td>
+        </tr>
+        <tr>
+          <th class="role-parent-head" scope="row">Superclass Role:</th>
+          <td class="role-parent"><rref>annotation</rref></td>
+        </tr>
+        <tr>
+          <th class="role-children-head" scope="row">Subclass Roles:</th>
+          <td class="role-children"> </td>
+        </tr>
+        <tr>
+          <th class="role-base-head" scope="row">Base Concept:</th>
+          <td class="role-base"> </td>
+        </tr>
+        <tr>
+          <th class="role-related-head" scope="row">Related Concepts:</th>
+          <td class="role-related"> </td>
+        </tr>
+        <tr>
+          <th class="role-scope-head" scope="row">Required Context Role:</th>
+          <td class="role-scope"> </td>
+        </tr>
+        <tr>
+          <th class="role-mustcontain-head" scope="row">Required Owned
+            Elements:</th>
+          <td class="role-mustcontain"></td>
+        </tr>
+        <tr>
+          <th class="role-required-properties-head">Required States and
+            Properties:</th>
+          <td class="role-required-properties"> </td>
+        </tr>
+        <tr>
+          <th class="role-properties-head" scope="row">Supported States and
+            Properties:</th>
+          <td class="role-properties"> </td>
+        </tr>
+        <tr>
+          <th class="role-inherited-head" scope="row">Inherited States and
+            Properties:</th>
+          <td class="role-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="role-namefrom-head" scope="row">Name From:</th>
+          <td class="role-namefrom">author</td>
+        </tr>
+        <tr>
+          <th class="role-namerequired-head" scope="row">Accessible Name
+            Required:</th>
+          <td class="role-namerequired">False</td>
+        </tr>
+        <tr>
+          <th class="role-namerequired-inherited-head" scope="row">Inherits
+            Name Required:</th>
+          <td class="role-namerequired-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="role-childpresentational-head" scope="row">Children
+            Presentational:</th>
+          <td class="role-childpresentational"> </td>
+        </tr>
+        <tr>
+          <th class="role-presentational-inherited-head" scope="row">Inherits
+            Presentational:</th>
+          <td class="role-presentational-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="implicit-values-head">Implicit Value for Role:</th>
+          <td class="implicit-values"> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="role">
+    <rdef>annotation-presence</rdef>
+    <div class="role-description">
+      <p>Similar to attribution, but relates to editing that is happening right
+      now. For example, "Mr. Smith is editing nearby".</p>
+      <pre class="example highlight">...</pre>
+    </div>
+    <table class="role-features">
+      <caption>Characteristics:</caption>
+      <thead>
+        <tr>
+          <th scope="col">Characteristic</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="role-abstract-head" scope="row">Is Abstract:</th>
+          <td class="role-abstract"> </td>
+        </tr>
+        <tr>
+          <th class="role-parent-head" scope="row">Superclass Role:</th>
+          <td class="role-parent"><rref>annotation</rref></td>
+        </tr>
+        <tr>
+          <th class="role-children-head" scope="row">Subclass Roles:</th>
+          <td class="role-children"> </td>
+        </tr>
+        <tr>
+          <th class="role-base-head" scope="row">Base Concept:</th>
+          <td class="role-base"> </td>
+        </tr>
+        <tr>
+          <th class="role-related-head" scope="row">Related Concepts:</th>
+          <td class="role-related"> </td>
+        </tr>
+        <tr>
+          <th class="role-scope-head" scope="row">Required Context Role:</th>
+          <td class="role-scope"> </td>
+        </tr>
+        <tr>
+          <th class="role-mustcontain-head" scope="row">Required Owned
+            Elements:</th>
+          <td class="role-mustcontain"></td>
+        </tr>
+        <tr>
+          <th class="role-required-properties-head">Required States and
+            Properties:</th>
+          <td class="role-required-properties"> </td>
+        </tr>
+        <tr>
+          <th class="role-properties-head" scope="row">Supported States and
+            Properties:</th>
+          <td class="role-properties"> </td>
+        </tr>
+        <tr>
+          <th class="role-inherited-head" scope="row">Inherited States and
+            Properties:</th>
+          <td class="role-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="role-namefrom-head" scope="row">Name From:</th>
+          <td class="role-namefrom">author</td>
+        </tr>
+        <tr>
+          <th class="role-namerequired-head" scope="row">Accessible Name
+            Required:</th>
+          <td class="role-namerequired">False</td>
+        </tr>
+        <tr>
+          <th class="role-namerequired-inherited-head" scope="row">Inherits
+            Name Required:</th>
+          <td class="role-namerequired-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="role-childpresentational-head" scope="row">Children
+            Presentational:</th>
+          <td class="role-childpresentational"> </td>
+        </tr>
+        <tr>
+          <th class="role-presentational-inherited-head" scope="row">Inherits
+            Presentational:</th>
+          <td class="role-presentational-inherited"> </td>
+        </tr>
+        <tr>
+          <th class="implicit-values-head">Implicit Value for Role:</th>
+          <td class="implicit-values"> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- TODO: turn this into a role table? -->
     *   **doc-footnote**/**doc-endnote** for footnotes and endnotes. When using DPUB roles, the <a>annotated content</a> will be the referencing note number. The author may choose to leave out the `doc-noteref` role on the <a>annotated content</a>, as that will be exposed as a link to ATs (see [[DPUB-AAM-1.0]]), and it may not be a link. In addition, the fact that it is a note reference number is implied by the relation with the <a>annotation body</a>, which will have the `doc-footnote` or `doc-endnote` role.
 
     Use the singular form: for consistency, all of the <a>annotation purposes</a> are in the singular form of the word, even though in some cases the plural could have made sense, as in "suggestion" where there may be multiple suggestions.
