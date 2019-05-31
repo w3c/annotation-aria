@@ -4,6 +4,12 @@
     <meta charset="utf-8">
     <title>ARIA Annotations</title>
     <script src="https://www.w3.org/Tools/respec/respec-w3c-common" class="remove"></script>
+    <script src="common/script/resolveReferences.js" class="remove"></script> 
+    <script src="common/biblio.js" class="remove"></script>
+    <link href="common/css/common.css" rel="stylesheet" type="text/css" />
+    <script class="remove" src="common/script/ariaChild.js"></script>
+    <script class="remove" src="common/script/roleInfo.js"></script>
+
     <script class='remove'>
       // See https://github.com/w3c/respec/wiki/ for how to configure ReSpec
       var respecConfig = {
@@ -208,16 +214,16 @@ comments, but some APIs may only expose it as a "suggestion":
 </pre>
 
     <section id="roles">
-# Roles for <a>annotation purposes</a>
+        # Roles for <a>annotation purposes</a>
 
-The <a data-lt="annotation purpose">purpose of an annotation</a> by placing a
-`role` attribute on the <a>annotation body</a>, not the <a>annotated content</a>.
-
-All <code>annotation-</code> prefixed `role` values inherit from an abstract
-role of `annotation`, which inherits from `structure`. If the `role` attribute
-is not provided, then the <a>annotation</a> is simply treated as a description.
-
-  <div class="role">
+        The <a data-lt="annotation purpose">purpose of an annotation</a> by placing a
+        `role` attribute on the <a>annotation body</a>, not the <a>annotated content</a>.
+        
+        All <code>annotation-</code> prefixed `role` values inherit from an abstract
+        role of `annotation`, which inherits from `structure`. If the `role` attribute
+        is not provided, then the <a>annotation</a> is simply treated as a description.
+        
+          <div class="role">
     <rdef>annotation-attribution</rdef>
     <div class="role-description">
       <p>Authoring information for the <a>annotated content</a>.</p>
