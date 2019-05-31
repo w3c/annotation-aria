@@ -383,6 +383,12 @@ h6 > a.self-link::before {
   }
 }
 </style>
+     
+    
+    <link href="common/css/common.css" rel="stylesheet" type="text/css">
+    
+    
+
     
   <link rel="canonical" href="https://www.w3.org/TR/annotation-aria/"><style>/*
 
@@ -841,18 +847,15 @@ comments, but some APIs may only expose it as a "suggestion":</p><div class="exa
   I think this is great! However, I think you might want to change "proposal"
   to "recommendation."
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-        </div><section id="roles"><h4 id="x3-2-1-roles-for-annotation-purposes"><bdi class="secno">3.2.1 </bdi>Roles for <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purposes</a><a class="self-link" aria-label="§" href="#roles"></a></h4><p>The <a data-lt="annotation purpose" href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">purpose of an annotation</a> by placing a
-<code>role</code> attribute on the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>, not the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>.</p><p>All <code>annotation-</code> prefixed <code>role</code> values inherit from an abstract
+        </div><section id="roles"><h4 id="x3-2-1-roles-for-annotation-purposes"><bdi class="secno">3.2.1 </bdi>Roles for <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purposes</a><a class="self-link" aria-label="§" href="#roles"></a></h4><pre><code aria-busy="false" class="hljs xml">    The <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">data-lt</span>=<span class="hljs-string">"annotation purpose"</span>&gt;</span>purpose of an annotation<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> by placing a</code></pre><p><code>role</code> attribute on the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>, not the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>.</p><p>All <code>annotation-</code> prefixed <code>role</code> values inherit from an abstract
 role of <code>annotation</code>, which inherits from <code>structure</code>. If the <code>role</code> attribute
-is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-link-type="dfn">annotation</a> is simply treated as a description.</p><div class="role"><p><rdef>annotation-attribution</rdef></p>
-<div class="role-description"><p>Authoring information for the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>.</p>
+is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-link-type="dfn">annotation</a> is simply treated as a description.</p><pre><code aria-busy="false" class="hljs javascript">      &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"role"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">rdef</span>&gt;</span>annotation-attribution<span class="hljs-tag">&lt;/<span class="hljs-name">rdef</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span></code></pre><div class="role-description"><p>Authoring information for the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>.</p>
 <div class="example" id="example-4">
           <div class="marker">
       <a class="self-link" href="#example-4">Example<bdi> 4</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs">...</code></pre>
         </div>
-</div>
-<table class="role-features">
+</div><table class="role-features">
       <caption>Characteristics:</caption>
       <thead>
         <tr>
@@ -934,14 +937,13 @@ is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-lin
           <td class="implicit-values"> </td>
         </tr>
       </tbody>
-    </table>
-</div><div class="issue" id="issue-container-number-4"><div role="heading" class="issue-title marker" id="h-issue-0" aria-level="5"><a href="https://github.com/w3c/annotation-aria/issues/4"><span class="issue-number">Issue 4</span></a><span class="issue-label">: Consider a different name for `annotation-attribution`</span></div><p>From <a class="user-mention" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=7241781" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/mcking65">@mcking65</a>:</p>
+    </table><div class="issue" id="issue-container-number-4"><div role="heading" class="issue-title marker" id="h-issue-0" aria-level="5"><a href="https://github.com/w3c/annotation-aria/issues/4"><span class="issue-number">Issue 4</span></a><span class="issue-label">: Consider a different name for `annotation-attribution`</span></div><p>From <a class="user-mention" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=7241781" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/mcking65">@mcking65</a>:</p>
 <blockquote>
 <p>we may want to choose a better name as this name may ultimately just be used by screen readers and most users might not know what to make of it.</p>
 </blockquote></div><div class="issue" id="issue-container-number-5"><div role="heading" class="issue-title marker" id="h-issue-1" aria-level="5"><a href="https://github.com/w3c/annotation-aria/issues/5"><span class="issue-number">Issue 5</span></a><span class="issue-label">: Remove `annotation-attribution` in favor of using `annotation-revision`</span></div><p>From <a class="user-mention" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=1376358" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/aleventhal">@aleventhal</a>:</p>
 <blockquote>
 <p>recommend we make this redundant with <code>annotation-revision</code>, and remove this one.</p>
-</blockquote></div><div class="role"><p><rdef>annotation-commentary</rdef></p>
+</blockquote></div><div class="role"><p id="annotation-commentary"><rdef>annotation-commentary</rdef></p>
 <div class="role-description"><p>One or more comments, or a comment thread.</p>
 <div class="example" id="example-5">
           <div class="marker">
