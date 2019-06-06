@@ -537,7 +537,6 @@ var[data-type]:hover::before {
 </style><script id="initialUserConfig" type="application/json">{
   "specStatus": "ED",
   "shortName": "annotation-aria",
-  "format": "markdown",
   "copyrightStart": "2019",
   "editors": [
     {
@@ -568,13 +567,13 @@ var[data-type]:hover::before {
   "wgURI": "https://www.w3.org/WAI/ARIA/",
   "wgPublicList": "public-aria",
   "wgPatentURI": "https://www.w3.org/2004/01/pp-impl/83726/status",
-  "publishDate": "2019-06-05",
-  "publishISODate": "2019-06-05T00:00:00.000Z",
-  "generatedSubtitle": "Editor's Draft 05 June 2019"
+  "publishDate": "2019-06-06",
+  "publishISODate": "2019-06-06T00:00:00.000Z",
+  "generatedSubtitle": "Editor's Draft 06 June 2019"
 }</script><meta name="description" content="ARIA Annotations provides markup for accessible, in-page annotations.
-This specification describes the mechanism for signaling that
-content has been annotated, for what purpose, and where to find the
-related additional content."><script type="application/ld+json">{
+        This specification describes the mechanism for signaling that
+        content has been annotated, for what purpose, and where to find the
+        related additional content."><script type="application/ld+json">{
   "@context": [
     "http://schema.org",
     {
@@ -603,7 +602,7 @@ related additional content."><script type="application/ld+json">{
   "name": "ARIA Annotations",
   "inLanguage": "en",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2019-06-05",
+  "datePublished": "2019-06-06",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -611,7 +610,7 @@ related additional content."><script type="application/ld+json">{
   "discussionUrl": "https://github.com/w3c/annotation-aria/issues/",
   "alternativeHeadline": "",
   "isBasedOn": "",
-  "description": "ARIA Annotations provides markup for accessible, in-page annotations.\nThis specification describes the mechanism for signaling that\ncontent has been annotated, for what purpose, and where to find the\nrelated additional content.",
+  "description": "ARIA Annotations provides markup for accessible, in-page annotations.\n        This specification describes the mechanism for signaling that\n        content has been annotated, for what purpose, and where to find the\n        related additional content.",
   "editor": [
     {
       "type": "Person",
@@ -648,19 +647,10 @@ related additional content."><script type="application/ld+json">{
       "url": "https://www.w3.org/TR/annotation-model/"
     },
     {
-      "id": "https://www.w3.org/TR/annotation-html/",
-      "type": "TechArticle",
-      "name": "Embedding Web Annotations in HTML",
-      "url": "https://www.w3.org/TR/annotation-html/"
-    },
-    {
       "id": "https://www.w3.org/TR/wai-aria-1.2/",
       "type": "TechArticle",
       "name": "Accessible Rich Internet Applications (WAI-ARIA) 1.2",
       "url": "https://www.w3.org/TR/wai-aria-1.2/"
-    },
-    {
-      "type": "TechArticle"
     }
   ]
 }</script><link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-ED"></head>
@@ -669,7 +659,7 @@ related additional content."><script type="application/ld+json">{
       
       <h2>
         W3C Editor's Draft
-        <time class="dt-published" datetime="2019-06-05">05 June 2019</time>
+        <time class="dt-published" datetime="2019-06-06">06 June 2019</time>
       </h2>
       <dl>
         <dt>This version:</dt><dd>
@@ -720,14 +710,20 @@ related additional content."><script type="application/ld+json">{
       apply.
     </p>
       <hr title="Separator for header">
-    </div><section id="abstract" class="introductory"><h2>Abstract</h2><p>
-ARIA Annotations provides markup for accessible, in-page annotations.
-This specification describes the mechanism for signaling that
-content has been annotated, for what purpose, and where to find the
-related additional content.
-</p></section><section id="sotd" class="introductory"><h2>Status of This Document</h2><p><em>This section describes the status of this document at the time of its publication. Other documents may supersede this document. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at https://www.w3.org/TR/.</em></p><p>
-This is an unofficial proposal.
-</p><p>
+    </div>
+    <section id="abstract" class="introductory"><h2>Abstract</h2>
+      <p>
+        ARIA Annotations provides markup for accessible, in-page annotations.
+        This specification describes the mechanism for signaling that
+        content has been annotated, for what purpose, and where to find the
+        related additional content.
+      </p>
+    </section>
+    <section id="sotd" class="introductory"><h2>Status of This Document</h2><p><em>This section describes the status of this document at the time of its publication. Other documents may supersede this document. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision of this technical report can be found in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at https://www.w3.org/TR/.</em></p>
+      <p>
+        This is an unofficial proposal.
+      </p>
+    <p>
                         This document was published by the <a href="https://www.w3.org/WAI/ARIA/">Accessible Rich Internet Applications Working Group</a> as
                         an Editor's Draft.
                         
@@ -766,82 +762,168 @@ This is an unofficial proposal.
     </p><p>
                   This document is governed by the
                   <a id="w3c_process_revision" href="https://www.w3.org/2019/Process-20190301/">1 March 2019 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
-                </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#definitions"><bdi class="secno">1.1 </bdi>Definitions</a></li><li class="tocline"><a class="tocxref" href="#how-do-aria-annotations-relate-to-the-web-annotations-data-model"><bdi class="secno">1.2 </bdi>How do ARIA annotations relate to the Web Annotations Data Model?</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">2. </bdi>Use Cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#web-content"><bdi class="secno">2.1 </bdi>Web Content</a></li><li class="tocline"><a class="tocxref" href="#assistive-technology"><bdi class="secno">2.2 </bdi>Assistive Technology</a></li></ol></li><li class="tocline"><a class="tocxref" href="#markup"><bdi class="secno">3. </bdi>Annotation Markup</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#basic-expression"><bdi class="secno">3.1 </bdi>Basic expression</a></li><li class="tocline"><a class="tocxref" href="#role"><bdi class="secno">3.2 </bdi>Stating a purpose</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#roles"><bdi class="secno">3.2.1 </bdi>Roles for <span class="formerLink" data-link-type="dfn">annotation purposes</span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#expressing-editorial-activities"><bdi class="secno">3.3 </bdi>Expressing editorial activities</a></li><li class="tocline"><a class="tocxref" href="#further-annotation-labeling"><bdi class="secno">3.4 </bdi>Further annotation labeling</a></li></ol></li><li class="tocline"><a class="tocxref" href="#annotation-model-mappings"><bdi class="secno">4. </bdi>Web Annotation Data Model correlations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#purpose-to-role-mapping-table"><bdi class="secno">4.1 </bdi>Purpose to Role Mapping Table</a></li></ol></li><li class="tocline"><a class="tocxref" href="#a11y-mappings"><bdi class="secno">5. </bdi>Platform Accessibility mappings</a></li><li class="tocline"><a class="tocxref" href="#rejects"><bdi class="secno">A. </bdi>Rejected annotation purposes</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">B.1 </bdi>Informative references</a></li></ol></li></ol></nav><section id="introduction"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a></h2><p>Annotations provide additional content about the primary content of a document.
+                </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#definitions"><bdi class="secno">1.1 </bdi>Definitions</a></li><li class="tocline"><a class="tocxref" href="#how-do-aria-annotations-relate-to-the-web-annotations-data-model"><bdi class="secno">1.2 </bdi>How do ARIA annotations relate to the Web Annotations Data Model?</a></li></ol></li><li class="tocline"><a class="tocxref" href="#use-cases"><bdi class="secno">2. </bdi>Use Cases</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#web-content"><bdi class="secno">2.1 </bdi>Web Content</a></li><li class="tocline"><a class="tocxref" href="#assistive-technology"><bdi class="secno">2.2 </bdi>Assistive Technology</a></li></ol></li><li class="tocline"><a class="tocxref" href="#markup"><bdi class="secno">3. </bdi>Annotation Markup</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#basic-expression"><bdi class="secno">3.1 </bdi>Basic expression</a></li><li class="tocline"><a class="tocxref" href="#role"><bdi class="secno">3.2 </bdi>Stating a purpose</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#roles"><bdi class="secno">3.2.1 </bdi>Roles for <span class="formerLink" data-link-type="dfn">annotation purposes</span></a></li></ol></li><li class="tocline"><a class="tocxref" href="#editorial-activities"><bdi class="secno">3.3 </bdi>Expressing editorial activities</a></li><li class="tocline"><a class="tocxref" href="#further-annotation-labeling"><bdi class="secno">3.4 </bdi>Further annotation labeling</a></li></ol></li><li class="tocline"><a class="tocxref" href="#annotation-model-mappings"><bdi class="secno">4. </bdi>Web Annotation Data Model correlations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#purpose-to-role-mapping-table"><bdi class="secno">4.1 </bdi>Purpose to Role Mapping Table</a></li></ol></li><li class="tocline"><a class="tocxref" href="#a11y-mappings"><bdi class="secno">5. </bdi>Platform Accessibility mappings</a></li><li class="tocline"><a class="tocxref" href="#rejects"><bdi class="secno">A. </bdi>Rejected annotation purposes</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">B.1 </bdi>Informative references</a></li></ol></li></ol></nav>
+
+    <section id="introduction">
+      <h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a></h2>
+
+      <p>Annotations provide additional content about the primary content of a document.
 Their uses vary from commentary, to suggested edits, to attribution, and even
-noting the presence of other readers.</p><p>Much of the necessary building blocks already exist with other ARIA specifications.
+noting the presence of other readers.</p>
+
+      <p>Much of the necessary building blocks already exist with other ARIA specifications.
 This specification provides the minimal additions needed to improve
-the reading experience of annotated content when consumed via assistive technology.</p><p>Additionally, this specification takes steps to use consistent terminology and
+the reading experience of annotated content when consumed via assistive technology.</p>
+
+      <p>Additionally, this specification takes steps to use consistent terminology and
 modeling from past annotation specifications at the <abbr title="World Wide Web Consortium">W3C</abbr>, most notably the Web
-Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" title="Web Annotation Data Model" data-link-type="biblio">annotation-model</a></cite>].</p><section id="definitions"><h3 id="x1-1-definitions"><bdi class="secno">1.1 </bdi>Definitions<a class="self-link" aria-label="§" href="#definitions"></a></h3><p>The following terminology is informed by the Web Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" title="Web Annotation Data Model" data-link-type="biblio">annotation-model</a></cite>]
-specification. You can read more about <a href="https://www.w3.org/TR/annotation-model/#introduction">the underlying conceptual model in that
-introduction</a>.</p><div class="issue" id="issue-container-generatedID"><div role="heading" class="issue-title marker" id="h-issue" aria-level="4"><span>Issue</span></div><div class=""><p>@bigbluehat: perhaps a similar graph (as the one in the
-WADM) showing the relationship between the parts would be helpful here.</p>
-</div></div><dl>
-<dt><dfn data-dfn-type="dfn" id="dfn-annotation">annotation</dfn></dt>
-<dd>An annotation is the combination of <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> and its related <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>.</dd>
-<dt><dfn data-dfn-type="dfn" id="dfn-annotated-content">annotated content</dfn></dt>
-<dd>The annotated content is the range of text or other object which the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> is "about".
-  
-<blockquote>Note: In the <a href="https://www.w3.org/TR/annotation-model/#motivation-and-purpose">Web Annotations Data Model</a>,
-this is known as the <strong>annotation target</strong>. However, because
-the term "target" has a specific meaning in accessibility APIs as the end
-(and not beginning) of a relation, the term annotated content is preferred
-here, in order to avoid confusion with the actual directionality of
-<code>aria-details</code> in ARIA annotation markup.</blockquote></dd>
-<dt><dfn data-dfn-type="dfn" data-plurals="annotation bodies" id="dfn-annotation-body">annotation body</dfn></dt>
-<dd>The annotation body is visible information within a page which is connected to <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> for a related purpose.</dd>
-<dt><dfn data-dfn-type="dfn" data-plurals="annotation purposes" id="dfn-annotation-purpose">annotation purpose</dfn></dt>
-<dd>The annotation purpose is the role the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> plays in relation to the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> (e.g. commentary vs. a footnote).</dd>
-</dl></section><section id="how-do-aria-annotations-relate-to-the-web-annotations-data-model"><h3 id="x1-2-how-do-aria-annotations-relate-to-the-web-annotations-data-model"><bdi class="secno">1.2 </bdi>How do ARIA annotations relate to the Web Annotations Data Model?<a class="self-link" aria-label="§" href="#how-do-aria-annotations-relate-to-the-web-annotations-data-model"></a></h3><p>ARIA annotations are deliberatly more limited than what can be expressed within
-a Web Annotations Data Model [<cite><a class="bibref" href="#bib-annotation-model" title="Web Annotation Data Model" data-link-type="biblio">annotation-model</a></cite>] document. For example:</p><ul>
-<li>ARIA annotations cannot point to information external to the current Web page</li>
-<li>ARIA annotations must point to <em>something</em> within the current Web page to provide the additional content</li>
-</ul><p>In addition, ARIA annotations do not contain as much information as they only
-contain what is necessary to move between the primary annotated content, and
-the additional content.</p><p>Authors desiring to expand the expresiveness of their markup beyond what is
-provided by ARIA annotations should consult the Embedding Web Annotations in
-HTML Note [<cite><a class="bibref" href="#bib-annotation-html" title="Embedding Web Annotations in HTML" data-link-type="biblio">annotation-html</a></cite>].</p><p>For further information, please see the <a href="#annotation-model-mappings" class="sec-ref">§&nbsp;<bdi class="secno">4. </bdi>Web Annotation Data Model correlations</a> below.</p></section></section><section id="use-cases"><h2 id="x2-use-cases"><bdi class="secno">2. </bdi>Use Cases<a class="self-link" aria-label="§" href="#use-cases"></a></h2><section id="web-content"><h3 id="x2-1-web-content"><bdi class="secno">2.1 </bdi>Web Content<a class="self-link" aria-label="§" href="#web-content"></a></h3><ul>
-<li>Document editor</li>
-<li>Code editor</li>
-<li>Published content</li>
-</ul></section><section id="assistive-technology"><h3 id="x2-2-assistive-technology"><bdi class="secno">2.2 </bdi>Assistive Technology<a class="self-link" aria-label="§" href="#assistive-technology"></a></h3><ul>
-<li>AT user issues command to navigate to previous/next <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> (e.g. next commented text)</li>
-<li>AT user issues command to navigate to previous/next <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> (e.g. next comment)</li>
-<li>AT user issues one of the above commands, but filtered by <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purpose</a> (e.g. commentary only)</li>
-<li>AT user issues command to navigate from <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> to the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>, or vice-versa</li>
-<li>Screen reader provides viewing options for reading <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purposes</a>, where the purpose is shortened, e.g. "commentary" becomes "*ct"</li>
-</ul></section></section><section id="markup"><h2 id="x3-annotation-markup"><bdi class="secno">3. </bdi>Annotation Markup<a class="self-link" aria-label="§" href="#markup"></a></h2><p>ARIA annotations are built from existing ARIA attributes. This specification
-does introduce new <code>role</code> values to distinguish the purpose of
+Annotation Data Model <a class="respec-offending-element" title="Error: No matching dfn found." id="respec-offender-error-no-matching-dfn-found">annotation-model</a>.</p>
+
+      <section id="definitions">
+          <h3 id="x1-1-definitions"><bdi class="secno">1.1 </bdi>Definitions<a class="self-link" aria-label="§" href="#definitions"></a></h3>
+
+          <p>The following terminology is informed by the Web Annotation Data Model <a class="respec-offending-element" title="Error: No matching dfn found." id="respec-offender-error-no-matching-dfn-found-0">annotation-model</a>
+          specification. You can read more about <a href="https://www.w3.org/TR/annotation-model/#introduction">the underlying conceptual model in that
+          introduction</a>.</p>
+
+        <div class="issue" id="issue-container-generatedID"><div role="heading" class="issue-title marker" id="h-issue" aria-level="4"><span>Issue</span></div><div class="">@bigbluehat: perhaps a similar graph (as the one in the
+          WADM) showing the relationship between the parts would be helpful here.</div></div>
+
+        <dl>
+          <dt><dfn data-dfn-type="dfn" id="dfn-annotation">annotation</dfn></dt>
+          <dd>An annotation is the combination of <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> and its related <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>.</dd>
+
+          <dt><dfn data-dfn-type="dfn" id="dfn-annotated-content">annotated content</dfn></dt>
+          <dd>The annotated content is the range of text or other object which the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> is "about".
+          
+          <blockquote>Note: In the <a href="https://www.w3.org/TR/annotation-model/#motivation-and-purpose">Web Annotations Data Model</a>,
+            this is known as the <strong>annotation target</strong>. However, because
+            the term "target" has a specific meaning in accessibility APIs as the end
+            (and not beginning) of a relation, the term annotated content is preferred
+            here, in order to avoid confusion with the actual directionality of
+            <code>aria-details</code> in ARIA annotation markup.</blockquote></dd>
+
+          <dt><dfn data-dfn-type="dfn" data-plurals="annotation bodies" id="dfn-annotation-body">annotation body</dfn></dt>
+          <dd>The annotation body is visible information within a page which is connected to <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> for a related purpose.</dd>
+
+          <dt><dfn data-dfn-type="dfn" data-plurals="annotation purposes" id="dfn-annotation-purpose">annotation purpose</dfn></dt>
+          <dd>The annotation purpose is the role the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> plays in relation to the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> (e.g. commentary vs. a footnote).</dd>
+
+        </dl>
+      </section>
+
+      <section id="how-do-aria-annotations-relate-to-the-web-annotations-data-model">
+        <h3 id="x1-2-how-do-aria-annotations-relate-to-the-web-annotations-data-model"><bdi class="secno">1.2 </bdi>How do ARIA annotations relate to the Web Annotations Data Model?<a class="self-link" aria-label="§" href="#how-do-aria-annotations-relate-to-the-web-annotations-data-model"></a></h3>
+
+        <p>ARIA annotations are deliberatly more limited than what can be expressed within
+        a Web Annotations Data Model [<cite><a class="bibref" href="#bib-annotation-model" title="Web Annotation Data Model" data-link-type="biblio">annotation-model</a></cite>] document. For example:</p>
+        <ul>
+          <li>ARIA annotations cannot point to information external to the current Web page</li>
+          <li>ARIA annotations must point to *something* within the current Web page to provide the additional content</li>
+        </ul>
+
+        <p>In addition, ARIA annotations do not contain as much information as they only
+        contain what is necessary to move between the primary annotated content, and
+        the additional content.</p>
+
+        <p>Authors desiring to expand the expresiveness of their markup beyond what is
+        provided by ARIA annotations should consult the Embedding Web Annotations in
+        HTML Note <a class="respec-offending-element" title="Error: No matching dfn found." id="respec-offender-error-no-matching-dfn-found-2">annotation-html</a>.</p>
+
+        <p>For further information, please see the <a class="respec-offending-element" title="Error: No matching dfn found." id="respec-offender-error-no-matching-dfn-found-3">annotation-model-mappings</a> below.</p>
+      </section>
+    </section>
+
+<section id="use-cases">
+  <h2 id="x2-use-cases"><bdi class="secno">2. </bdi>Use Cases<a class="self-link" aria-label="§" href="#use-cases"></a></h2>
+
+  <section id="web-content">
+  <h3 id="x2-1-web-content"><bdi class="secno">2.1 </bdi>Web Content<a class="self-link" aria-label="§" href="#web-content"></a></h3>
+
+  <ul>
+    <li>Document editor</li>
+    <li>Code editor</li>
+    <li>Published content</li>
+  </ul>
+  </section>
+
+  <section id="assistive-technology">
+    <h3 id="x2-2-assistive-technology"><bdi class="secno">2.2 </bdi>Assistive Technology<a class="self-link" aria-label="§" href="#assistive-technology"></a></h3>
+
+    <ul>
+      <li>AT user issues command to navigate to previous/next <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> (e.g. next commented text)</li>
+      <li>AT user issues command to navigate to previous/next <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> (e.g. next comment)</li>
+      <li>AT user issues one of the above commands, but filtered by <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purpose</a> (e.g. commentary only)</li>
+      <li>AT user issues command to navigate from <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> to the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>, or vice-versa</li>
+      <li>Screen reader provides viewing options for reading <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purposes</a>, where the purpose is shortened, e.g. "commentary" becomes "*ct"</li>
+    </ul>
+  </section>
+</section>
+
+<section id="markup">
+  <h2 id="x3-annotation-markup"><bdi class="secno">3. </bdi>Annotation Markup<a class="self-link" aria-label="§" href="#markup"></a></h2>
+
+  <p>ARIA annotations are built from existing ARIA attributes. This specification
+  does introduce new <code>role</code> values to distinguish the purpose of
   <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> from among each other and from among other content
-within the current page.</p><section id="basic-expression"><h3 id="x3-1-basic-expression"><bdi class="secno">3.1 </bdi>Basic expression<a class="self-link" aria-label="§" href="#basic-expression"></a></h3><p><a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">Annotated content</a> markup <em class="rfc2119" title="MUST">MUST</em> use the <code>aria-details</code>
-  attribute which <em class="rfc2119" title="MUST">MUST</em> contain the IDREF of an <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> which
-exists in the current web page.</p><p>Any HTML tag <em class="rfc2119" title="MAY">MAY</em> be used. It is not required to use the <code>role</code>
-attribute. However, when a visible highlight is intended, authors <em class="rfc2119" title="SHOULD">SHOULD</em> prefer
-using an element such as <code>&lt;mark&gt;</code> over a more semantically
-generic and visually invisible element such as <code>&lt;span&gt;</code>.</p><p>The <code>aria-details</code> attribute <em class="rfc2119" title="MUST">MUST</em> reference an element within
-the current Web page which contains the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>.</p><div class="example" id="example-1">
+  within the current page.</p>
+
+  <section id="basic-expression">
+    <h3 id="x3-1-basic-expression"><bdi class="secno">3.1 </bdi>Basic expression<a class="self-link" aria-label="§" href="#basic-expression"></a></h3>
+
+    <p><a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">Annotated content</a> markup <em class="rfc2119" title="MUST">MUST</em> use the <code>aria-details</code>
+    attribute which <em class="rfc2119" title="MUST">MUST</em> contain the IDREF of an <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> which
+    exists in the current web page.</p>
+
+    <p>Any HTML tag <em class="rfc2119" title="MAY">MAY</em> be used. It is not required to use the <code>role</code>
+    attribute. However, when a visible highlight is intended, authors <em class="rfc2119" title="SHOULD">SHOULD</em> prefer
+    using an element such as <code>&lt;mark&gt;</code> over a more semantically
+    generic and visually invisible element such as <code>&lt;span&gt;</code>.</p>
+
+    <p>The <code>aria-details</code> attribute <em class="rfc2119" title="MUST">MUST</em> reference an element within
+    the current Web page which contains the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>.</p>
+
+    <div class="example" id="example-1">
           <div class="marker">
       <a class="self-link" href="#example-1">Example<bdi> 1</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comment-123"</span>&gt;</span>The proposal<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> contains...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 ...
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"comment-123"</span>&gt;</span>I think this is great!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-        </div><p>Use of the
-<a href="https://w3c.github.io/aria/#aria-details"><code>aria-details</code></a>
-attribute <em class="rfc2119" title="MUST">MUST</em> follow any additional requirements expressed in the
-Accessible Rich Internet Applications [<cite><a class="bibref" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2" data-link-type="biblio">wai-aria-1.2</a></cite>] specification.</p></section><section id="role"><h3 id="x3-2-stating-a-purpose"><bdi class="secno">3.2 </bdi>Stating a purpose<a class="self-link" aria-label="§" href="#role"></a></h3><p>The <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> contains the commentary, suggestions, or secondary
-content about the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>.</p><p>The <code>role</code> on the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> describes the purpose or intent (i.e.
-the <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purpose</a>) of the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>. See below for a
-<a href="#roles">list of available roles</a> meant for use in ARIA annotations.</p><div class="example" id="example-2">
+        </div>
+
+    <p>Use of the
+    <a href="https://w3c.github.io/aria/#aria-details"><code>aria-details</code></a>
+    attribute <em class="rfc2119" title="MUST">MUST</em> follow any additional requirements expressed in the
+    Accessible Rich Internet Applications <a class="respec-offending-element" title="Error: No matching dfn found." id="respec-offender-error-no-matching-dfn-found-4">wai-aria-1.2</a> specification.</p>
+  </section>
+
+  <section id="role">
+    <h3 id="x3-2-stating-a-purpose"><bdi class="secno">3.2 </bdi>Stating a purpose<a class="self-link" aria-label="§" href="#role"></a></h3>
+
+    <p>The <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> contains the commentary, suggestions, or secondary
+    content about the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>.</p>
+
+    <p>The <code>role</code> on the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> describes the purpose or intent (i.e.
+    the <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purpose</a>) of the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>. See below for a
+    <a href="#roles">list of available roles</a> meant for use in ARIA annotations.
+
+    </p><div class="example" id="example-2">
           <div class="marker">
       <a class="self-link" href="#example-2">Example<bdi> 2</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comment-123"</span>&gt;</span>The proposal<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> contains...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 ...
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"comment-123"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-commentary"</span>&gt;</span>I think this is great!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-        </div><p>Multiple <code>role</code> attribute values are supported. If more than one <code>role</code> value
-is provided then the first recognized <code>role</code> <em class="rfc2119" title="MAY">MAY</em> be mapped through
-accessibility APIs. Consequently, annotation authors <em class="rfc2119" title="SHOULD">SHOULD</em> place the most
-important (or specific) role first.</p><p>For example, the following would indicate that there is a suggestion with
-comments, but some APIs may only expose it as a "suggestion":</p><div class="example" id="example-3">
+        </div>
+
+    <p>Multiple <code>role</code> attribute values are supported. If more than one <code>role</code> value
+    is provided then the first recognized <code>role</code> <em class="rfc2119" title="MAY">MAY</em> be mapped through
+    accessibility APIs. Consequently, annotation authors <em class="rfc2119" title="SHOULD">SHOULD</em> place the most
+    important (or specific) role first.</p>
+
+    <p>For example, the following would indicate that there is a suggestion with
+    comments, but some APIs may only expose it as a "suggestion":</p>
+
+<div class="example" id="example-3">
           <div class="marker">
       <a class="self-link" href="#example-3">Example<bdi> 3</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"suggestion-123"</span>&gt;</span>The proposal<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> contains...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
@@ -850,13 +932,25 @@ comments, but some APIs may only expose it as a "suggestion":</p><div class="exa
   I think this is great! However, I think you might want to change "proposal"
   to "recommendation."
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-        </div><section id="roles"><h4 id="x3-2-1-roles-for-annotation-purposes"><bdi class="secno">3.2.1 </bdi>Roles for <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purposes</a><a class="self-link" aria-label="§" href="#roles"></a></h4><pre><code aria-busy="false" class="hljs xml">    The <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">data-lt</span>=<span class="hljs-string">"annotation purpose"</span>&gt;</span>purpose of an annotation<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> by placing a</code></pre><p><code>role</code> attribute on the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>, not the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>.</p><p>All <code>annotation-</code> prefixed <code>role</code> values inherit from an abstract
-role of <code>annotation</code>, which inherits from <code>structure</code>. If the <code>role</code> attribute
-is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-link-type="dfn">annotation</a> is simply treated as a description.</p><div class="role"><p id="annotation"><rdef>annotation</rdef></p>
-<div class="role-description"><p>A renderable structural annotation containment unit in a document or application.</p>
-<div class="note" role="note" id="issue-container-generatedID-0"><div role="heading" class="note-title marker" id="h-note" aria-level="5"><span>Note</span></div><p class=""><code>annotation</code> is an abstract role used for the ontology. Authors should not use this role in content.</p></div>
-</div>
-<table class="role-features">
+        </div>
+
+<section id="roles">
+  <h4 id="x3-2-1-roles-for-annotation-purposes"><bdi class="secno">3.2.1 </bdi>Roles for <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purposes</a><a class="self-link" aria-label="§" href="#roles"></a></h4>
+
+  <p>The <a data-lt="annotation purpose" href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">purpose of an annotation</a> by placing a
+  <code>role</code> attribute on the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>, not the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>.</p>
+
+  <p>All <code>annotation-</code> prefixed <code>role</code> values inherit from an abstract
+  role of <code>annotation</code>, which inherits from <code>structure</code>. If the <code>role</code> attribute
+  is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-link-type="dfn">annotation</a> is simply treated as a description.</p>
+
+  <section class="role notoc" id="annotation">
+    <h5 class="role-name" title="annotation" aria-describedby="desc-annotation" id="annotation-0"><code>annotation</code> <span class="type-indicator">(abstract role)</span><a class="self-link" aria-label="§" href="#annotation"></a></h5>
+    <div class="role-description" id="desc-annotation" role="definition">
+      <p>A renderable structural annotation containment unit in a document or application.</p>
+      <div class="note" role="note" id="issue-container-generatedID-0"><div role="heading" class="note-title marker" id="h-note" aria-level="6"><span>Note</span></div><p class=""><code>annotation</code> is an abstract role used for the ontology. Authors should not use this role in content.</p></div>
+    </div>
+    <table class="role-features">
       <caption>Characteristics:</caption>
       <thead>
         <tr>
@@ -909,7 +1003,31 @@ is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-lin
         <tr>
           <th class="role-inherited-head" scope="row">Inherited States and
             Properties:</th>
-          <td class="role-inherited"> </td>
+          <td class="role-inherited"><ul>
+<li><pref>aria-atomic</pref></li>
+<li><sref title="aria-busy">aria-busy (state)</sref></li>
+<li><pref>aria-controls</pref></li>
+<li><sref title="aria-current">aria-current (state)</sref></li>
+<li><pref>aria-describedby</pref></li>
+<li><pref>aria-details</pref></li>
+<li><sref title="aria-disabled">aria-disabled (state)</sref></li>
+<li><pref>aria-dropeffect</pref></li>
+<li><pref>aria-errormessage</pref></li>
+<li><sref title="aria-expanded">aria-expanded (state)</sref></li>
+<li><pref>aria-flowto</pref></li>
+<li><sref title="aria-grabbed">aria-grabbed (state)</sref></li>
+<li><pref>aria-haspopup</pref></li>
+<li><sref title="aria-hidden">aria-hidden (state)</sref></li>
+<li><sref title="aria-invalid">aria-invalid (state)</sref></li>
+<li><pref>aria-keyshortcuts</pref></li>
+<li><pref>aria-label</pref></li>
+<li><pref>aria-labelledby</pref></li>
+<li><pref>aria-live</pref></li>
+<li><pref>aria-owns</pref></li>
+<li><pref>aria-relevant</pref></li>
+<li><pref>aria-roledescription</pref></li>
+</ul>
+</td>
         </tr>
         <tr>
           <th class="role-namefrom-head" scope="row">Name From:</th>
@@ -941,15 +1059,18 @@ is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-lin
         </tr>
       </tbody>
     </table>
-</div><div class="role"><p><rdef>annotation-attribution</rdef></p>
-<div class="role-description"><p>Authoring information for the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>.</p>
-<div class="example" id="example-4">
+  </section>
+  <section class="role notoc" id="annotation-attribution">
+    <h5 class="role-name" title="annotation-attribution" aria-describedby="desc-annotation-attribution" id="annotation-attribution-0"><code>annotation-attribution</code> <span class="type-indicator">(role)</span><a class="self-link" aria-label="§" href="#annotation-attribution"></a></h5>
+    <div class="role-description" id="desc-annotation-attribution" role="definition">
+      <p>Authoring information for the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>.</p>
+      <div class="example" id="example-4">
           <div class="marker">
       <a class="self-link" href="#example-4">Example<bdi> 4</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs">...</code></pre>
         </div>
-</div>
-<table class="role-features">
+    </div>
+    <table class="role-features">
       <caption>Characteristics:</caption>
       <thead>
         <tr>
@@ -1000,7 +1121,31 @@ is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-lin
         <tr>
           <th class="role-inherited-head" scope="row">Inherited States and
             Properties:</th>
-          <td class="role-inherited"> </td>
+          <td class="role-inherited"><ul>
+<li><pref>aria-atomic</pref></li>
+<li><sref title="aria-busy">aria-busy (state)</sref></li>
+<li><pref>aria-controls</pref></li>
+<li><sref title="aria-current">aria-current (state)</sref></li>
+<li><pref>aria-describedby</pref></li>
+<li><pref>aria-details</pref></li>
+<li><sref title="aria-disabled">aria-disabled (state)</sref></li>
+<li><pref>aria-dropeffect</pref></li>
+<li><pref>aria-errormessage</pref></li>
+<li><sref title="aria-expanded">aria-expanded (state)</sref></li>
+<li><pref>aria-flowto</pref></li>
+<li><sref title="aria-grabbed">aria-grabbed (state)</sref></li>
+<li><pref>aria-haspopup</pref></li>
+<li><sref title="aria-hidden">aria-hidden (state)</sref></li>
+<li><sref title="aria-invalid">aria-invalid (state)</sref></li>
+<li><pref>aria-keyshortcuts</pref></li>
+<li><pref>aria-label</pref></li>
+<li><pref>aria-labelledby</pref></li>
+<li><pref>aria-live</pref></li>
+<li><pref>aria-owns</pref></li>
+<li><pref>aria-relevant</pref></li>
+<li><pref>aria-roledescription</pref></li>
+</ul>
+</td>
         </tr>
         <tr>
           <th class="role-namefrom-head" scope="row">Name From:</th>
@@ -1032,21 +1177,28 @@ is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-lin
         </tr>
       </tbody>
     </table>
-</div><div class="issue" id="issue-container-number-4"><div role="heading" class="issue-title marker" id="h-issue-0" aria-level="5"><a href="https://github.com/w3c/annotation-aria/issues/4"><span class="issue-number">Issue 4</span></a><span class="issue-label">: Consider a different name for `annotation-attribution`</span></div><p>From <a class="user-mention" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=7241781" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/mcking65">@mcking65</a>:</p>
+  </section>
+
+    <div class="issue" id="issue-container-number-4"><div role="heading" class="issue-title marker" id="h-issue-0" aria-level="5"><a href="https://github.com/w3c/annotation-aria/issues/4"><span class="issue-number">Issue 4</span></a><span class="issue-label">: Consider a different name for `annotation-attribution`</span></div><p>From <a class="user-mention" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=7241781" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/mcking65">@mcking65</a>:</p>
 <blockquote>
 <p>we may want to choose a better name as this name may ultimately just be used by screen readers and most users might not know what to make of it.</p>
-</blockquote></div><div class="issue" id="issue-container-number-5"><div role="heading" class="issue-title marker" id="h-issue-1" aria-level="5"><a href="https://github.com/w3c/annotation-aria/issues/5"><span class="issue-number">Issue 5</span></a><span class="issue-label">: Remove `annotation-attribution` in favor of using `annotation-revision`</span></div><p>From <a class="user-mention" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=1376358" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/aleventhal">@aleventhal</a>:</p>
+</blockquote></div>
+    <div class="issue" id="issue-container-number-5"><div role="heading" class="issue-title marker" id="h-issue-1" aria-level="5"><a href="https://github.com/w3c/annotation-aria/issues/5"><span class="issue-number">Issue 5</span></a><span class="issue-label">: Remove `annotation-attribution` in favor of using `annotation-revision`</span></div><p>From <a class="user-mention" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=1376358" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/aleventhal">@aleventhal</a>:</p>
 <blockquote>
 <p>recommend we make this redundant with <code>annotation-revision</code>, and remove this one.</p>
-</blockquote></div><div class="role"><p><rdef>annotation-commentary</rdef></p>
-<div class="role-description"><p>One or more comments, or a comment thread.</p>
-<div class="example" id="example-5">
+</blockquote></div>
+
+  <section class="role notoc" id="annotation-commentary">
+    <h5 class="role-name" title="annotation-commentary" aria-describedby="desc-annotation-commentary" id="annotation-commentary-0"><code>annotation-commentary</code> <span class="type-indicator">(role)</span><a class="self-link" aria-label="§" href="#annotation-commentary"></a></h5>
+    <div class="role-description" id="desc-annotation-commentary" role="definition">
+      <p>One or more comments, or a comment thread.</p>
+      <div class="example" id="example-5">
           <div class="marker">
       <a class="self-link" href="#example-5">Example<bdi> 5</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs">...</code></pre>
         </div>
-</div>
-<table class="role-features">
+    </div>
+    <table class="role-features">
       <caption>Characteristics:</caption>
       <thead>
         <tr>
@@ -1097,7 +1249,31 @@ is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-lin
         <tr>
           <th class="role-inherited-head" scope="row">Inherited States and
             Properties:</th>
-          <td class="role-inherited"> </td>
+          <td class="role-inherited"><ul>
+<li><pref>aria-atomic</pref></li>
+<li><sref title="aria-busy">aria-busy (state)</sref></li>
+<li><pref>aria-controls</pref></li>
+<li><sref title="aria-current">aria-current (state)</sref></li>
+<li><pref>aria-describedby</pref></li>
+<li><pref>aria-details</pref></li>
+<li><sref title="aria-disabled">aria-disabled (state)</sref></li>
+<li><pref>aria-dropeffect</pref></li>
+<li><pref>aria-errormessage</pref></li>
+<li><sref title="aria-expanded">aria-expanded (state)</sref></li>
+<li><pref>aria-flowto</pref></li>
+<li><sref title="aria-grabbed">aria-grabbed (state)</sref></li>
+<li><pref>aria-haspopup</pref></li>
+<li><sref title="aria-hidden">aria-hidden (state)</sref></li>
+<li><sref title="aria-invalid">aria-invalid (state)</sref></li>
+<li><pref>aria-keyshortcuts</pref></li>
+<li><pref>aria-label</pref></li>
+<li><pref>aria-labelledby</pref></li>
+<li><pref>aria-live</pref></li>
+<li><pref>aria-owns</pref></li>
+<li><pref>aria-relevant</pref></li>
+<li><pref>aria-roledescription</pref></li>
+</ul>
+</td>
         </tr>
         <tr>
           <th class="role-namefrom-head" scope="row">Name From:</th>
@@ -1129,16 +1305,20 @@ is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-lin
         </tr>
       </tbody>
     </table>
-</div><div class="role"><p><rdef>annotation-description</rdef></p>
-<div class="role-description"><p>Generic description. This is the default if the
-<a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purpose</a> is unspecified.</p>
-<div class="example" id="example-6">
+  </section>
+
+  <section class="role notoc" id="annotation-description">
+    <h5 class="role-name" title="annotation-description" aria-describedby="desc-annotation-description" id="annotation-description-0"><code>annotation-description</code> <span class="type-indicator">(role)</span><a class="self-link" aria-label="§" href="#annotation-description"></a></h5>
+    <div class="role-description" id="desc-annotation-description" role="definition">
+      <p>Generic description. This is the default if the
+      <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purpose</a> is unspecified.</p>
+      <div class="example" id="example-6">
           <div class="marker">
       <a class="self-link" href="#example-6">Example<bdi> 6</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs">...</code></pre>
         </div>
-</div>
-<table class="role-features">
+    </div>
+    <table class="role-features">
       <caption>Characteristics:</caption>
       <thead>
         <tr>
@@ -1189,7 +1369,31 @@ is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-lin
         <tr>
           <th class="role-inherited-head" scope="row">Inherited States and
             Properties:</th>
-          <td class="role-inherited"> </td>
+          <td class="role-inherited"><ul>
+<li><pref>aria-atomic</pref></li>
+<li><sref title="aria-busy">aria-busy (state)</sref></li>
+<li><pref>aria-controls</pref></li>
+<li><sref title="aria-current">aria-current (state)</sref></li>
+<li><pref>aria-describedby</pref></li>
+<li><pref>aria-details</pref></li>
+<li><sref title="aria-disabled">aria-disabled (state)</sref></li>
+<li><pref>aria-dropeffect</pref></li>
+<li><pref>aria-errormessage</pref></li>
+<li><sref title="aria-expanded">aria-expanded (state)</sref></li>
+<li><pref>aria-flowto</pref></li>
+<li><sref title="aria-grabbed">aria-grabbed (state)</sref></li>
+<li><pref>aria-haspopup</pref></li>
+<li><sref title="aria-hidden">aria-hidden (state)</sref></li>
+<li><sref title="aria-invalid">aria-invalid (state)</sref></li>
+<li><pref>aria-keyshortcuts</pref></li>
+<li><pref>aria-label</pref></li>
+<li><pref>aria-labelledby</pref></li>
+<li><pref>aria-live</pref></li>
+<li><pref>aria-owns</pref></li>
+<li><pref>aria-relevant</pref></li>
+<li><pref>aria-roledescription</pref></li>
+</ul>
+</td>
         </tr>
         <tr>
           <th class="role-namefrom-head" scope="row">Name From:</th>
@@ -1221,20 +1425,26 @@ is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-lin
         </tr>
       </tbody>
     </table>
-</div><div class="issue" id="issue-container-number-6"><div role="heading" class="issue-title marker" id="h-issue-2" aria-level="5"><a href="https://github.com/w3c/annotation-aria/issues/6"><span class="issue-number">Issue 6</span></a><span class="issue-label">: Consider removing `annotation-description` and making that the default "purpose"</span></div><p>From <a class="user-mention" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=1376358" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/aleventhal">@aleventhal</a>:</p>
+  </section>
+
+    <div class="issue" id="issue-container-number-6"><div role="heading" class="issue-title marker" id="h-issue-2" aria-level="5"><a href="https://github.com/w3c/annotation-aria/issues/6"><span class="issue-number">Issue 6</span></a><span class="issue-label">: Consider removing `annotation-description` and making that the default "purpose"</span></div><p>From <a class="user-mention" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=1376358" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/aleventhal">@aleventhal</a>:</p>
 <blockquote>
 <p>rather than add an extra role here, how about the author simply not use any of the other annotation roles.</p>
-</blockquote></div><div class="role"><p><rdef>annotation-revision</rdef></p>
-<div class="role-description"><p>An historical change that has already been accepted. The source
-<a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> <em class="rfc2119" title="MUST">MUST</em> contain 1-2 children for the
+</blockquote></div>
+
+  <section class="role notoc" id="annotation-revision">
+    <h5 class="role-name" title="annotation-revision" aria-describedby="desc-annotation-revision" id="annotation-revision-0"><code>annotation-revision</code> <span class="type-indicator">(role)</span><a class="self-link" aria-label="§" href="#annotation-revision"></a></h5>
+    <div class="role-description" id="desc-annotation-revision" role="definition">
+      <p>An historical change that has already been accepted. The source
+      <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> <em class="rfc2119" title="MUST">MUST</em> contain 1-2 children for the
       <a href="#expressing-editorial-activities">insertion and/or deletion</a>.</p>
-<div class="example" id="example-7">
+      <div class="example" id="example-7">
           <div class="marker">
       <a class="self-link" href="#example-7">Example<bdi> 7</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs">...</code></pre>
         </div>
-</div>
-<table class="role-features">
+    </div>
+    <table class="role-features">
       <caption>Characteristics:</caption>
       <thead>
         <tr>
@@ -1285,7 +1495,31 @@ is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-lin
         <tr>
           <th class="role-inherited-head" scope="row">Inherited States and
             Properties:</th>
-          <td class="role-inherited"> </td>
+          <td class="role-inherited"><ul>
+<li><pref>aria-atomic</pref></li>
+<li><sref title="aria-busy">aria-busy (state)</sref></li>
+<li><pref>aria-controls</pref></li>
+<li><sref title="aria-current">aria-current (state)</sref></li>
+<li><pref>aria-describedby</pref></li>
+<li><pref>aria-details</pref></li>
+<li><sref title="aria-disabled">aria-disabled (state)</sref></li>
+<li><pref>aria-dropeffect</pref></li>
+<li><pref>aria-errormessage</pref></li>
+<li><sref title="aria-expanded">aria-expanded (state)</sref></li>
+<li><pref>aria-flowto</pref></li>
+<li><sref title="aria-grabbed">aria-grabbed (state)</sref></li>
+<li><pref>aria-haspopup</pref></li>
+<li><sref title="aria-hidden">aria-hidden (state)</sref></li>
+<li><sref title="aria-invalid">aria-invalid (state)</sref></li>
+<li><pref>aria-keyshortcuts</pref></li>
+<li><pref>aria-label</pref></li>
+<li><pref>aria-labelledby</pref></li>
+<li><pref>aria-live</pref></li>
+<li><pref>aria-owns</pref></li>
+<li><pref>aria-relevant</pref></li>
+<li><pref>aria-roledescription</pref></li>
+</ul>
+</td>
         </tr>
         <tr>
           <th class="role-namefrom-head" scope="row">Name From:</th>
@@ -1317,16 +1551,20 @@ is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-lin
         </tr>
       </tbody>
     </table>
-</div><div class="role"><p><rdef>annotation-suggestion</rdef></p>
-<div class="role-description"><p>A proposed edit. The source <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> <em class="rfc2119" title="MUST">MUST</em> contain 1-2
-children for the proposed <a href="#expressing-editorial-activities">insertion and/or deletion</a>.</p>
-<div class="example" id="example-8">
+  </section>
+
+  <section class="role notoc" id="annotation-suggestion">
+    <h5 class="role-name" title="annotation-suggestion" aria-describedby="desc-annotation-suggestion" id="annotation-suggestion-0"><code>annotation-suggestion</code> <span class="type-indicator">(role)</span><a class="self-link" aria-label="§" href="#annotation-suggestion"></a></h5>
+    <div class="role-description" id="desc-annotation-suggestion" role="definition">
+      <p>A proposed edit. The source <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> <em class="rfc2119" title="MUST">MUST</em> contain 1-2
+      children for the proposed <a href="#expressing-editorial-activities">insertion and/or deletion</a>.</p>
+      <div class="example" id="example-8">
           <div class="marker">
       <a class="self-link" href="#example-8">Example<bdi> 8</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs">...</code></pre>
         </div>
-</div>
-<table class="role-features">
+    </div>
+    <table class="role-features">
       <caption>Characteristics:</caption>
       <thead>
         <tr>
@@ -1377,7 +1615,31 @@ children for the proposed <a href="#expressing-editorial-activities">insertion a
         <tr>
           <th class="role-inherited-head" scope="row">Inherited States and
             Properties:</th>
-          <td class="role-inherited"> </td>
+          <td class="role-inherited"><ul>
+<li><pref>aria-atomic</pref></li>
+<li><sref title="aria-busy">aria-busy (state)</sref></li>
+<li><pref>aria-controls</pref></li>
+<li><sref title="aria-current">aria-current (state)</sref></li>
+<li><pref>aria-describedby</pref></li>
+<li><pref>aria-details</pref></li>
+<li><sref title="aria-disabled">aria-disabled (state)</sref></li>
+<li><pref>aria-dropeffect</pref></li>
+<li><pref>aria-errormessage</pref></li>
+<li><sref title="aria-expanded">aria-expanded (state)</sref></li>
+<li><pref>aria-flowto</pref></li>
+<li><sref title="aria-grabbed">aria-grabbed (state)</sref></li>
+<li><pref>aria-haspopup</pref></li>
+<li><sref title="aria-hidden">aria-hidden (state)</sref></li>
+<li><sref title="aria-invalid">aria-invalid (state)</sref></li>
+<li><pref>aria-keyshortcuts</pref></li>
+<li><pref>aria-label</pref></li>
+<li><pref>aria-labelledby</pref></li>
+<li><pref>aria-live</pref></li>
+<li><pref>aria-owns</pref></li>
+<li><pref>aria-relevant</pref></li>
+<li><pref>aria-roledescription</pref></li>
+</ul>
+</td>
         </tr>
         <tr>
           <th class="role-namefrom-head" scope="row">Name From:</th>
@@ -1409,16 +1671,20 @@ children for the proposed <a href="#expressing-editorial-activities">insertion a
         </tr>
       </tbody>
     </table>
-</div><div class="role"><p><rdef>annotation-presence</rdef></p>
-<div class="role-description"><p>Similar to attribution, but relates to editing that is happening right
-now. For example, "Mr. Smith is editing nearby".</p>
-<div class="example" id="example-9">
+  </section>
+
+  <section class="role notoc" id="annotation-presence">
+    <h5 class="role-name" title="annotation-presence" aria-describedby="desc-annotation-presence" id="annotation-presence-0"><code>annotation-presence</code> <span class="type-indicator">(role)</span><a class="self-link" aria-label="§" href="#annotation-presence"></a></h5>
+    <div class="role-description" id="desc-annotation-presence" role="definition">
+      <p>Similar to attribution, but relates to editing that is happening right
+      now. For example, "Mr. Smith is editing nearby".</p>
+      <div class="example" id="example-9">
           <div class="marker">
       <a class="self-link" href="#example-9">Example<bdi> 9</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs">...</code></pre>
         </div>
-</div>
-<table class="role-features">
+    </div>
+    <table class="role-features">
       <caption>Characteristics:</caption>
       <thead>
         <tr>
@@ -1469,7 +1735,31 @@ now. For example, "Mr. Smith is editing nearby".</p>
         <tr>
           <th class="role-inherited-head" scope="row">Inherited States and
             Properties:</th>
-          <td class="role-inherited"> </td>
+          <td class="role-inherited"><ul>
+<li><pref>aria-atomic</pref></li>
+<li><sref title="aria-busy">aria-busy (state)</sref></li>
+<li><pref>aria-controls</pref></li>
+<li><sref title="aria-current">aria-current (state)</sref></li>
+<li><pref>aria-describedby</pref></li>
+<li><pref>aria-details</pref></li>
+<li><sref title="aria-disabled">aria-disabled (state)</sref></li>
+<li><pref>aria-dropeffect</pref></li>
+<li><pref>aria-errormessage</pref></li>
+<li><sref title="aria-expanded">aria-expanded (state)</sref></li>
+<li><pref>aria-flowto</pref></li>
+<li><sref title="aria-grabbed">aria-grabbed (state)</sref></li>
+<li><pref>aria-haspopup</pref></li>
+<li><sref title="aria-hidden">aria-hidden (state)</sref></li>
+<li><sref title="aria-invalid">aria-invalid (state)</sref></li>
+<li><pref>aria-keyshortcuts</pref></li>
+<li><pref>aria-label</pref></li>
+<li><pref>aria-labelledby</pref></li>
+<li><pref>aria-live</pref></li>
+<li><pref>aria-owns</pref></li>
+<li><pref>aria-relevant</pref></li>
+<li><pref>aria-roledescription</pref></li>
+</ul>
+</td>
         </tr>
         <tr>
           <th class="role-namefrom-head" scope="row">Name From:</th>
@@ -1501,36 +1791,70 @@ now. For example, "Mr. Smith is editing nearby".</p>
         </tr>
       </tbody>
     </table>
-</div><ul>
-<li><strong>doc-footnote</strong>/<strong>doc-endnote</strong> for footnotes and endnotes. When using DPUB roles, the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> will be the referencing note number. The author may choose to leave out the <code>doc-noteref</code> role on the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>, as that will be exposed as a link to ATs (see [<cite><a class="bibref" href="#bib-dpub-aam-1.0" title="Digital Publishing Accessibility API Mappings" data-link-type="biblio">DPUB-AAM-1.0</a></cite>]), and it may not be a link. In addition, the fact that it is a note reference number is implied by the relation with the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>, which will have the <code>doc-footnote</code> or <code>doc-endnote</code> role.</li>
-</ul><p>Use the singular form: for consistency, all of the <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purposes</a> are in the singular form of the word, even though in some cases the plural could have made sense, as in "suggestion" where there may be multiple suggestions.</p></section></section><section id="expressing-editorial-activities"><h3 id="x3-3-expressing-editorial-activities"><bdi class="secno">3.3 </bdi>Expressing editorial activities<a class="self-link" aria-label="§" href="#expressing-editorial-activities"></a></h3><p>Annotations motivated by expressing a revision to the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>
+  </section>
+
+  
+
+  <ul>
+    <li><strong>doc-footnote</strong>/<strong>doc-endnote</strong> for footnotes and endnotes. When using DPUB roles, the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> will be the referencing note number. The author may choose to leave out the <code>doc-noteref</code> role on the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>, as that will be exposed as a link to ATs (see <a class="respec-offending-element" title="Error: No matching dfn found." id="respec-offender-error-no-matching-dfn-found-6">DPUB-AAM-1.0</a>), and it may not be a link. In addition, the fact that it is a note reference number is implied by the relation with the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>, which will have the <code>doc-footnote</code> or <code>doc-endnote</code> role.
+  </li></ul>
+
+  <p>Use the singular form: for consistency, all of the <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purposes</a> are in the singular form of the word, even though in some cases the plural could have made sense, as in "suggestion" where there may be multiple suggestions.</p>
+    </section>
+  </section>
+
+
+  <section id="editorial-activities">
+    <h3 id="x3-3-expressing-editorial-activities"><bdi class="secno">3.3 </bdi>Expressing editorial activities<a class="self-link" aria-label="§" href="#editorial-activities"></a></h3>
+
+    <p>Annotations motivated by expressing a revision to the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>
 or which are providing suggestions to that content come with an additional
-requirement to convey that revision or suggestion.</p><p>The <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> of such a change-related annotation <em class="rfc2119" title="MUST">MUST</em> contain
-at least one HTML <code>&lt;ins&gt;</code> or <code>&lt;del&gt;</code> tag or at least one HTML tag
-with a <code>role</code> value of either <a href="https://w3c.github.io/aria/#insertion"><code>insertion</code></a>
-or <a href="https://w3c.github.io/aria/#deletion"><code>deletion</code></a> defined in [<cite><a class="bibref" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2" data-link-type="biblio">wai-aria-1.2</a></cite>].</p><p>If a replacement to the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> is being requested, authors
-<em class="rfc2119" title="MUST">MUST</em> provide both an <code>&lt;ins&gt;</code> and a <code>&lt;del&gt;</code> tag together or two HTML
-tags one with <code>role="insertion"</code> and the other with <code>role="deletion"</code>.</p><p>Each combination of an <code>&lt;ins&gt;</code> and a <code>&lt;del&gt;</code> tag pair (or their
-equivalent expressed via <code>insertion</code>/<code>deletion</code> roles) <em class="rfc2119" title="SHOULD">SHOULD</em> be authored as
-separate <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> (i.e. no more than one of each per grouping).</p><div class="example" id="example-10-suggestion-using-ins-and-del">
+requirement to convey that revision or suggestion.</p>
+
+    <p>The <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> of such a change-related annotation <em class="rfc2119" title="MUST">MUST</em> contain
+    at least one HTML <code>&lt;ins&gt;</code> or <code>&lt;del&gt;</code> tag or at least one HTML tag
+    with a <code>role</code> value of either <a href="https://w3c.github.io/aria/#insertion"><code>insertion</code></a>
+    or <a href="https://w3c.github.io/aria/#deletion"><code>deletion</code></a> defined in <a class="respec-offending-element" title="Error: No matching dfn found." id="respec-offender-error-no-matching-dfn-found-5">wai-aria-1.2</a>.</p>
+
+    <p>If a replacement to the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> is being requested, authors
+    <em class="rfc2119" title="MUST">MUST</em> provide both an <code>&lt;ins&gt;</code> and a <code>&lt;del&gt;</code> tag together or two HTML
+    tags one with <code>role="insertion"</code> and the other with <code>role="deletion"</code>.</p>
+
+    <p>Each combination of an <code>&lt;ins&gt;</code> and a
+    <code>&lt;del&gt;</code> tag pair (or their equivalent expressed via
+    <code>insertion</code>/<code>deletion</code> roles) <em class="rfc2119" title="SHOULD">SHOULD</em> be authored as
+    separate <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> (i.e. no more than one of each per grouping).</p>
+
+    <div class="example" id="example-10-suggestion-using-ins-and-del">
           <div class="marker">
       <a class="self-link" href="#example-10-suggestion-using-ins-and-del">Example<bdi> 10</bdi></a><span class="example-title">: suggestion using &lt;ins&gt; and &lt;del&gt;</span>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Everyone is encouraged to bring a
 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"suggestion-info-1"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span>side dish<span class="hljs-tag">&lt;/<span class="hljs-name">del</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ins</span>&gt;</span>beverage<span class="hljs-tag">&lt;/<span class="hljs-name">ins</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 to share.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
-        </div><div class="example" id="example-11-suggestion-using-insertion-and-deletion-roles">
+        </div>
+
+    <div class="example" id="example-11-suggestion-using-insertion-and-deletion-roles">
           <div class="marker">
       <a class="self-link" href="#example-11-suggestion-using-insertion-and-deletion-roles">Example<bdi> 11</bdi></a><span class="example-title">: suggestion using insertion and deletion roles</span>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Cats are so funny:
 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"suggestion-info-1"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"deletion"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"dog.jpg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"insertion"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"cat.jpg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 Pretty cute, right?!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
-        </div><p>Assistive Technology <em class="rfc2119" title="SHOULD">SHOULD</em> handle all permutations of the ordering of
-<code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code> when processing edits.</p><div class="note" role="note" id="issue-container-generatedID-1"><div role="heading" class="note-title marker" id="h-note-0" aria-level="4"><span>Note</span></div><div class=""><p>In future, the [<cite><a class="bibref" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2" data-link-type="biblio">wai-aria-1.2</a></cite>] specification may define
-whether the order of <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code> are important.</p>
-</div></div><div class="issue" id="issue-container-number-7"><div role="heading" class="issue-title marker" id="h-issue-3" aria-level="4"><a href="https://github.com/w3c/annotation-aria/issues/7"><span class="issue-number">Issue 7</span></a><span class="issue-label">: Should `annotation-suggestion`/`annotation-revision` processing ignore additional markup?</span></div><p>Right now, we define (somewhat implicitly...) how <code>&lt;ins&gt;</code>/<code>&lt;del&gt;</code> could be processed by AT into actual edits in the main text (i.e. replacing the annotated content following the logic expressed via <code>&lt;ins&gt;</code> and/or <code>&lt;del&gt;</code>).</p>
-<p>Should we also add something about how to handle any other markup? I'd suggest we state that it should be thrown out entirely--but want to make sure that's what would be expected here from an AT perspective (and that there aren't hidden "gotchas" I've not yet thought about).</p></div><p>To distinguish between revisions (past edits) and suggestions (future edits),
-an <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purpose</a> can be expressed by placing the appropriate <code>role</code>
-value on the related <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>.</p><div class="example" id="example-12">
+        </div>
+
+    <p>Assistive Technology <em class="rfc2119" title="SHOULD">SHOULD</em> handle all permutations of the ordering of
+    <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code> when processing edits.</p>
+
+    <div class="note" role="note" id="issue-container-generatedID-1"><div role="heading" class="note-title marker" id="h-note-0" aria-level="4"><span>Note</span></div><div class="">In future, the [<cite><a class="bibref" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2" data-link-type="biblio">wai-aria-1.2</a></cite>] specification may define
+      whether the order of <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code> are important.</div></div>
+
+    <div class="issue" id="issue-container-number-7"><div role="heading" class="issue-title marker" id="h-issue-3" aria-level="4"><a href="https://github.com/w3c/annotation-aria/issues/7"><span class="issue-number">Issue 7</span></a><span class="issue-label">: Should `annotation-suggestion`/`annotation-revision` processing ignore additional markup?</span></div><p>Right now, we define (somewhat implicitly...) how <code>&lt;ins&gt;</code>/<code>&lt;del&gt;</code> could be processed by AT into actual edits in the main text (i.e. replacing the annotated content following the logic expressed via <code>&lt;ins&gt;</code> and/or <code>&lt;del&gt;</code>).</p>
+<p>Should we also add something about how to handle any other markup? I'd suggest we state that it should be thrown out entirely--but want to make sure that's what would be expected here from an AT perspective (and that there aren't hidden "gotchas" I've not yet thought about).</p></div>
+
+    <p>To distinguish between revisions (past edits) and suggestions (future edits),
+    an <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purpose</a> can be expressed by placing the appropriate
+    <code>role</code> value on the related <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>.</p>
+
+    <div class="example" id="example-12">
           <div class="marker">
       <a class="self-link" href="#example-12">Example<bdi> 12</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Everyone is encouraged to bring a
@@ -1540,26 +1864,61 @@ to share.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"suggestion-info-1"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-suggestion"</span>&gt;</span>
 Change of plans! Thanks updating this, Aaron
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-        </div></section><section id="further-annotation-labeling"><h3 id="x3-4-further-annotation-labeling"><bdi class="secno">3.4 </bdi>Further annotation labeling<a class="self-link" aria-label="§" href="#further-annotation-labeling"></a></h3><p>(optional)</p><div class="issue" id="issue-container-generatedID-2"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="4"><span>Issue</span></div><div class=""><p>@bigbluehat update this to be non-normitave/description/examplary</p>
-</div></div><p>In addition, this markup may be helpful, but is not really part of the annotations spec:</p><ul>
-<li>If this is found on the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>, it could provides a useful label or description for the <a href="#dfn-annotation" class="internalDFN" data-link-type="dfn">annotation</a>, that could be presented by a screen reader in a mode where the user wanted to understand more about the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation bodies</a> in context but the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation bodies</a> themselves would be too long.</li>
-</ul></section></section><section id="annotation-model-mappings"><h2 id="x4-web-annotation-data-model-correlations"><bdi class="secno">4. </bdi>Web Annotation Data Model correlations<a class="self-link" aria-label="§" href="#annotation-model-mappings"></a></h2><p>An important use case is to convert annotation data from the Web Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" title="Web Annotation Data Model" data-link-type="biblio">annotation-model</a></cite>] (typically in JSON format) into accessible content, with the goal of enabling AT support. The following are non-normative suggestions for accomplishing this.</p><aside class="example" id="example-13-describing-a-relationship-to-in-page-visible-content"><div class="marker">
+        </div>
+  </section>
+
+    <section id="further-annotation-labeling">
+      <h3 id="x3-4-further-annotation-labeling"><bdi class="secno">3.4 </bdi>Further annotation labeling<a class="self-link" aria-label="§" href="#further-annotation-labeling"></a></h3>
+      (optional)
+
+      <div class="issue" id="issue-container-generatedID-2"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="4"><span>Issue</span></div><div class="">@bigbluehat update this to be non-normitave/description/examplary</div></div>
+
+      <p>In addition, this markup may be helpful, but is not really part of the annotations spec:</p>
+      <ul>
+      <li>If this is found on the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>, it could provides a useful label or description for the <a href="#dfn-annotation" class="internalDFN" data-link-type="dfn">annotation</a>, that could be presented by a screen reader in a mode where the user wanted to understand more about the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation bodies</a> in context but the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation bodies</a> themselves would be too long.</li>
+      </ul>
+    </section>
+</section>
+
+<section id="annotation-model-mappings">
+  <h2 id="x4-web-annotation-data-model-correlations"><bdi class="secno">4. </bdi>Web Annotation Data Model correlations<a class="self-link" aria-label="§" href="#annotation-model-mappings"></a></h2>
+  <p>An important use case is to convert annotation data from the
+  Web Annotation Data Model <a class="respec-offending-element" title="Error: No matching dfn found." id="respec-offender-error-no-matching-dfn-found-1">annotation-model</a> (typically in JSON format)
+  into accessible content, with the goal of enabling AT support. The following
+  are non-normative suggestions for accomplishing this.</p>
+
+  <aside class="example" id="example-13-describing-a-relationship-to-in-page-visible-content"><div class="marker">
       <a class="self-link" href="#example-13-describing-a-relationship-to-in-page-visible-content">Example<bdi> 13</bdi></a><span class="example-title">: Describing a relationship to in-page visible content</span>
-    </div><p>Translating a "commenting" motivation in the Web Annotation Data Model to the appropriate ARIA and HTML markup:</p>
-<pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The following cats have been deemed <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comment-thread-1"</span>&gt;</span>uncooperative<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    </div>
+    <p>Translating a “commenting” motivation in the Web Annotation Data Model to the appropriate ARIA and HTML markup:</p>
+
+    <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The following cats have been deemed <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comment-thread-1"</span>&gt;</span>uncooperative<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"comment-thread-1"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-commentary"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Comment by Ruff Finkledog<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Wouldn't it be simpler to list the cooperative cats?<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
-</aside><aside class="example" id="example-14-describing-a-web-annotation-that-does-not-have-a-relationship-to-other-content"><div class="marker">
+  </aside>
+
+  <aside class="example" id="example-14-describing-a-web-annotation-that-does-not-have-a-relationship-to-other-content"><div class="marker">
       <a class="self-link" href="#example-14-describing-a-web-annotation-that-does-not-have-a-relationship-to-other-content">Example<bdi> 14</bdi></a><span class="example-title">: Describing a Web Annotation that does not have a relationship to other content</span>
-    </div><p>This example is useful for the "highlighting" motivation.</p>
-<pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The word <span class="hljs-tag">&lt;<span class="hljs-name">mark</span>&gt;</span>cat<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> is highlighted<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
-</aside><aside class="example" id="example-15-describing-a-web-annotation-that-is-related-to-external-content-only"><div class="marker">
+    </div>
+    <p>This example is useful for the “highlighting” motivation.</p>
+
+    <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The word <span class="hljs-tag">&lt;<span class="hljs-name">mark</span>&gt;</span>cat<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> is highlighted<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+  </aside>
+
+  <aside class="example" id="example-15-describing-a-web-annotation-that-is-related-to-external-content-only"><div class="marker">
       <a class="self-link" href="#example-15-describing-a-web-annotation-that-is-related-to-external-content-only">Example<bdi> 15</bdi></a><span class="example-title">: Describing a Web Annotation that is related to external content only</span>
-    </div><p>This example is useful for the "identifying" motivation.</p>
-<pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>A <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://en.wikipedia.org/wiki/Cat"</span>&gt;</span>cat<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> is one of our favorite quirky pets.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
-</aside><section id="purpose-to-role-mapping-table"><h3 id="x4-1-purpose-to-role-mapping-table"><bdi class="secno">4.1 </bdi>Purpose to Role Mapping Table<a class="self-link" aria-label="§" href="#purpose-to-role-mapping-table"></a></h3><table>
+    </div>
+    <p>This example is useful for the “identifying” motivation.</p>
+
+    <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>A <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://en.wikipedia.org/wiki/Cat"</span>&gt;</span>cat<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> is one of our favorite quirky pets.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+  </aside>
+
+  <section id="purpose-to-role-mapping-table">
+  <h3 id="x4-1-purpose-to-role-mapping-table"><bdi class="secno">4.1 </bdi>Purpose to Role Mapping Table<a class="self-link" aria-label="§" href="#purpose-to-role-mapping-table"></a></h3>
+
+<table>
   <thead>
     <tr>
       <th>Web Annotation motivation/purpose</th>
@@ -1682,27 +2041,57 @@ Change of plans! Thanks updating this, Aaron
       <td>In-page links for footnotes, endnotes, bibliographical information in a document</td>
     </tr>
   </tbody>
-</table></section></section><section id="a11y-mappings"><h2 id="x5-platform-accessibility-mappings"><bdi class="secno">5. </bdi>Platform Accessibility mappings<a class="self-link" aria-label="§" href="#a11y-mappings"></a></h2><ul>
-<li><a href="https://docs.microsoft.com/en-us/windows/desktop/winauto/uiauto-annotation-type-identifiers">UI Automation has built-in support for annotations</a> — note that a perfect 1 to 1 mapping is not expected here. For example, a grammar error is an annotation in UIA, but in ARIA is <code>aria-invalid="grammar"</code>. An important difference with UIA annotations is that ARIA annotations always link to visible in-page content.</li>
-<li>Most of the markup is reused — there are already known ways for exposing <code>aria-details</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-describedby</code>, <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code>.</li>
-<li>For aria-annotation, this should be exposed as an object attribute called "annotation" in ATK/IA2<div class="issue" id="issue-container-generatedID-3"><div role="heading" class="issue-title marker" id="h-issue-5" aria-level="3"><span>Issue</span></div><div class=""><p>@bigbluehat: does "aria-annotation" here mean this spec? It seems to (vs. an attribute or value)</p>
-</div></div>
-</li>
-</ul></section><section id="rejects" class="appendix"><h2 id="a-rejected-annotation-purposes"><bdi class="secno">A. </bdi>Rejected annotation purposes<a class="self-link" aria-label="§" href="#rejects"></a></h2><div class="issue" id="issue-container-generatedID-4"><div role="heading" class="issue-title marker" id="h-issue-6" aria-level="3"><span>Issue</span></div><div class=""><p>@bigbluehat: move this to an appendix? remove it? Kind of nice to know what we didn't do and why</p>
-</div></div><p>For now, the following annotation purposes have not been assigned new roles:</p><ul>
-<li><strong>highlight</strong>  — this does not fit the proposed definition of an <a href="#dfn-annotation" class="internalDFN" data-link-type="dfn">annotation</a> in that it does not point to additional info. Therefore, ARIA WG should consider adding something like <code>role=mark</code> (would need to be added for role parity), or the author can use HTML via <code>&lt;mark&gt;</code>/<code>&lt;em&gt;</code>/<code>&lt;strong&gt;</code></li>
-<li><strong>error</strong> — in code in code editor: use the already supported <code>aria-invalid="true"</code> + <code>aria-errormessage=id</code></li>
-<li><strong>warning</strong> — in code editor: may want to add <code>aria-invalid="warning"</code> as possible value (and like error, can use <code>aria-errormessage=id</code>)</li>
-<li><strong>bookmark</strong> — similar to <code>annotation-presence</code>; would need more info on this use case in order to support it.<div class="issue" id="issue-container-generatedID-5"><div role="heading" class="issue-title marker" id="h-issue-7" aria-level="3"><span>Issue</span></div><div class=""><p>[TBD] @aleventhal: Suggest that the author can use <code>&lt;mark aria-label="Bookmark name"&gt;</code> for a good experience.</p>
-</div></div></li>
-<li><strong>breakpoint</strong>— does not always come with additional visible information, so it would be difficult to shoehorn into this use case.<div class="issue" id="issue-container-generatedID-6"><div role="heading" class="issue-title marker" id="h-issue-8" aria-level="3"><span>Issue</span></div><div class=""><p>[TBD] @aleventhal: For this one, perhaps a <code>&lt;mark&gt;</code> or <code>role="mark"</code> or a new <code>role="breakpoint"</code> could be used, along with <code>aria-label</code>. Or, a visible button could be used on the line with the breakpoint, that is labelled as a breakpoint button.</p>
-</div></div>
-</li>
-</ul></section><section id="references" class="appendix">
+</table>
+  </section>
+</section>
+
+<section id="a11y-mappings">
+<h2 id="x5-platform-accessibility-mappings"><bdi class="secno">5. </bdi>Platform Accessibility mappings<a class="self-link" aria-label="§" href="#a11y-mappings"></a></h2>
+  <ul>
+  <li><a href="https://docs.microsoft.com/en-us/windows/desktop/winauto/uiauto-annotation-type-identifiers">UI Automation has built-in support for annotations</a> — note that a perfect 1 to 1 mapping is not expected here. For example, a grammar error is an annotation in UIA, but in ARIA is <code>aria-invalid="grammar"</code>. An important difference with UIA annotations is that ARIA annotations always link to visible in-page content.</li>
+  <li>Most of the markup is reused — there are already known ways for exposing <code>aria-details</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-describedby</code>, <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code>.</li>
+  <li>For aria-annotation, this should be exposed as an object attribute called “annotation” in ATK/IA2</li>
+</ul>
+<div class="issue" id="issue-container-generatedID-3"><div role="heading" class="issue-title marker" id="h-issue-5" aria-level="3"><span>Issue</span></div><div class="">@bigbluehat: does "aria-annotation" here mean this spec? It seems to (vs. an attribute or value)</div></div>
+
+</section>
+
+<section id="rejects" class="appendix">
+  <h2 id="a-rejected-annotation-purposes"><bdi class="secno">A. </bdi>Rejected annotation purposes<a class="self-link" aria-label="§" href="#rejects"></a></h2>
+
+  <div class="issue" id="issue-container-generatedID-4"><div role="heading" class="issue-title marker" id="h-issue-6" aria-level="3"><span>Issue</span></div><div class="">@bigbluehat: move this to an appendix? remove it? Kind of nice to know what we didn't do and why</div></div>
+
+  <p>For now, the following annotation purposes have not been assigned new roles:</p>
+  <ul>
+    <li><strong>highlight</strong> — this does not fit the proposed definition of an <a href="#dfn-annotation" class="internalDFN" data-link-type="dfn">annotation</a> in that it does not point to additional info. Therefore, ARIA WG should consider adding something like <code>role=mark</code> (would need to be added for role parity), or the author can use HTML via <code>&lt;mark&gt;</code>/<code>&lt;em&gt;</code>/<code>&lt;strong&gt;</code></li>
+    <li><strong>error</strong> — in code in code editor: use the already supported <code>aria-invalid="true"</code> + <code>aria-errormessage=id</code></li>
+    <li><strong>warning</strong> — in code editor: may want to add <code>aria-invalid="warning"</code> as possible value (and like error, can use <code>aria-errormessage=id</code>)</li>
+    <li><strong>bookmark</strong> — similar to <code>annotation-presence</code>; would need more info on this use case in order to support it.</li>
+  </ul>
+
+  <div class="issue" id="issue-container-generatedID-5"><div role="heading" class="issue-title marker" id="h-issue-7" aria-level="3"><span>Issue</span></div><div class="">[TBD] @aleventhal: Suggest that the author can use <code>&lt;mark aria-label="Bookmark name"&gt;</code> for a good experience.</div></div>
+
+  <ul>
+    <li><strong>breakpoint</strong>— does not always come with additional visible information, so it would be difficult to shoehorn into this use case.</li>
+  </ul>
+
+  <div class="issue" id="issue-container-generatedID-6"><div role="heading" class="issue-title marker" id="h-issue-8" aria-level="3"><span>Issue</span></div><div class="">
+    [TBD] @aleventhal: For this one, perhaps a <code>&lt;mark&gt;</code> or
+    <code>role="mark"</code> or a new <code>role="breakpoint"</code> could be
+    used, along with <code>aria-label</code>. Or, a visible button could be used
+    on the line with the breakpoint, that is labelled as a breakpoint button.
+  </div></div>
+</section>
+
+
+
+  
+
+<section id="references" class="appendix">
       <h2 id="b-references"><bdi class="secno">B. </bdi>References<a class="self-link" aria-label="§" href="#references"></a></h2>
       
     <section id="informative-references">
         <h3 id="b-1-informative-references"><bdi class="secno">B.1 </bdi>Informative references<a class="self-link" aria-label="§" href="#informative-references"></a></h3>
       <dl class="bibliography">
-        <dt id="bib-annotation-html">[annotation-html]</dt><dd><a href="https://www.w3.org/TR/annotation-html/"><cite>Embedding Web Annotations in HTML</cite></a>. Timothy Cole; Sarven Capadisli; Benjamin Young; Ivan Herman.  W3C. 23 February 2017. W3C Note. URL: <a href="https://www.w3.org/TR/annotation-html/">https://www.w3.org/TR/annotation-html/</a></dd><dt id="bib-annotation-model">[annotation-model]</dt><dd><a href="https://www.w3.org/TR/annotation-model/"><cite>Web Annotation Data Model</cite></a>. Robert Sanderson; Paolo Ciccarese; Benjamin Young.  W3C. 23 February 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/annotation-model/">https://www.w3.org/TR/annotation-model/</a></dd><dt id="bib-dpub-aam-1.0">[DPUB-AAM-1.0]</dt><dd><a href="https://www.w3.org/TR/dpub-aam-1.0/"><cite>Digital Publishing Accessibility API Mappings</cite></a>. Richard Schwerdtfeger; Joanmarie Diggs.  W3C. 14 December 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/dpub-aam-1.0/">https://www.w3.org/TR/dpub-aam-1.0/</a></dd><dt id="bib-wai-aria-1.2">[wai-aria-1.2]</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/"><cite>Accessible Rich Internet Applications (WAI-ARIA) 1.2</cite></a>. Joanmarie Diggs; Shane McCarron; James Nurthen; Michael Cooper; Richard Schwerdtfeger; James Craig.  W3C. 18 December 2018. W3C Working Draft. URL: <a href="https://www.w3.org/TR/wai-aria-1.2/">https://www.w3.org/TR/wai-aria-1.2/</a></dd>
+        <dt id="bib-annotation-model">[annotation-model]</dt><dd><a href="https://www.w3.org/TR/annotation-model/"><cite>Web Annotation Data Model</cite></a>. Robert Sanderson; Paolo Ciccarese; Benjamin Young.  W3C. 23 February 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/annotation-model/">https://www.w3.org/TR/annotation-model/</a></dd><dt id="bib-wai-aria-1.2">[wai-aria-1.2]</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/"><cite>Accessible Rich Internet Applications (WAI-ARIA) 1.2</cite></a>. Joanmarie Diggs; Shane McCarron; James Nurthen; Michael Cooper; Richard Schwerdtfeger; James Craig.  W3C. 18 December 2018. W3C Working Draft. URL: <a href="https://www.w3.org/TR/wai-aria-1.2/">https://www.w3.org/TR/wai-aria-1.2/</a></dd>
       </dl></section></section><p role="navigation" id="back-to-top"><a href="#title"><abbr title="Back to Top">↑</abbr></a></p><script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script></body></html>
