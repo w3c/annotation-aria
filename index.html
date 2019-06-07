@@ -943,7 +943,28 @@ Annotation Data Model <a class="respec-offending-element" title="Error: No match
   <p>All <code>annotation-</code> prefixed <code>role</code> values inherit from an abstract
   role of <code>annotation</code>, which inherits from <code>structure</code>. If the <code>role</code> attribute
   is not provided, then the <a href="#dfn-annotation" class="internalDFN" data-link-type="dfn">annotation</a> is simply treated as a description.</p>
-
+  <p>Below is an alphabetical list of <abbr title="Accessible Rich Internet Applications">WAI-ARIA</abbr>
+  <a data-lt="role" class="respec-offending-element" title="Error: No matching dfn found." id="respec-offender-error-no-matching-dfn-found-6">roles</a> to be used by rich internet application authors.</p>
+  <dl id="index_role" class="compact"><dt><a href="#annotation" class="role-reference">annotation</a></dt>
+<dd>A renderable structural annotation containment unit in a document or application.</dd>
+<dt><a href="#annotation-attribution" class="role-reference">annotation-attribution</a></dt>
+<dd>Authoring information for the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>.</dd>
+<dt><a href="#annotation-commentary" class="role-reference">annotation-commentary</a></dt>
+<dd>One or more comments, or a comment thread.</dd>
+<dt><a href="#annotation-description" class="role-reference">annotation-description</a></dt>
+<dd>Generic description. This is the default if the
+      <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purpose</a> is unspecified.</dd>
+<dt><a href="#annotation-revision" class="role-reference">annotation-revision</a></dt>
+<dd>An historical change that has already been accepted. The source
+      <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> <em class="rfc2119" title="MUST">MUST</em> contain 1-2 children for the
+      <a href="#expressing-editorial-activities">insertion and/or deletion</a>.</dd>
+<dt><a href="#annotation-suggestion" class="role-reference">annotation-suggestion</a></dt>
+<dd>A proposed edit. The source <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> <em class="rfc2119" title="MUST">MUST</em> contain 1-2
+      children for the proposed <a href="#expressing-editorial-activities">insertion and/or deletion</a>.</dd>
+<dt><a href="#annotation-presence" class="role-reference">annotation-presence</a></dt>
+<dd>Similar to attribution, but relates to editing that is happening right
+      now. For example, "Mr. Smith is editing nearby".</dd>
+</dl>
   <section class="role notoc" id="annotation">
     <h5 class="role-name" title="annotation" aria-describedby="desc-annotation" id="annotation-0"><code>annotation</code> <span class="type-indicator">(abstract role)</span><a class="self-link" aria-label="§" href="#annotation"></a></h5>
     <div class="role-description" id="desc-annotation" role="definition">
@@ -971,7 +992,15 @@ Annotation Data Model <a class="respec-offending-element" title="Error: No match
         </tr>
         <tr>
           <th class="role-children-head" scope="row">Subclass Roles:</th>
-          <td class="role-children"> </td>
+          <td class="role-children"><ul>
+<li><rref>annotation-attribution</rref></li>
+<li><rref>annotation-commentary</rref></li>
+<li><rref>annotation-description</rref></li>
+<li><rref>annotation-presence</rref></li>
+<li><rref>annotation-revision</rref></li>
+<li><rref>annotation-suggestion</rref></li>
+</ul>
+</td>
         </tr>
         <tr>
           <th class="role-base-head" scope="row">Base Concept:</th>
@@ -1796,7 +1825,7 @@ Annotation Data Model <a class="respec-offending-element" title="Error: No match
   
 
   <ul>
-    <li><strong>doc-footnote</strong>/<strong>doc-endnote</strong> for footnotes and endnotes. When using DPUB roles, the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> will be the referencing note number. The author may choose to leave out the <code>doc-noteref</code> role on the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>, as that will be exposed as a link to ATs (see <a class="respec-offending-element" title="Error: No matching dfn found." id="respec-offender-error-no-matching-dfn-found-6">DPUB-AAM-1.0</a>), and it may not be a link. In addition, the fact that it is a note reference number is implied by the relation with the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>, which will have the <code>doc-footnote</code> or <code>doc-endnote</code> role.
+    <li><strong>doc-footnote</strong>/<strong>doc-endnote</strong> for footnotes and endnotes. When using DPUB roles, the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> will be the referencing note number. The author may choose to leave out the <code>doc-noteref</code> role on the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>, as that will be exposed as a link to ATs (see <a class="respec-offending-element" title="Error: No matching dfn found." id="respec-offender-error-no-matching-dfn-found-7">DPUB-AAM-1.0</a>), and it may not be a link. In addition, the fact that it is a note reference number is implied by the relation with the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>, which will have the <code>doc-footnote</code> or <code>doc-endnote</code> role.
   </li></ul>
 
   <p>Use the singular form: for consistency, all of the <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purposes</a> are in the singular form of the word, even though in some cases the plural could have made sense, as in "suggestion" where there may be multiple suggestions.</p>
