@@ -1106,12 +1106,39 @@ Annotation Data Model [[annotation-model]].</p>
     </table>
   </div>
 
-  <ul>
-    <li><strong>doc-footnote</strong>/<strong>doc-endnote</strong> for footnotes and endnotes. When using DPUB roles, the <a>annotated content</a> will be the referencing note number. The author may choose to leave out the <code>doc-noteref</code> role on the <a>annotated content</a>, as that will be exposed as a link to ATs (see [[DPUB-AAM-1.0]]), and it may not be a link. In addition, the fact that it is a note reference number is implied by the relation with the <a>annotation body</a>, which will have the <code>doc-footnote</code> or <code>doc-endnote</code> role.
-  </ul>
-
-  <p>Use the singular form: for consistency, all of the <a>annotation purposes</a> are in the singular form of the word, even though in some cases the plural could have made sense, as in "suggestion" where there may be multiple suggestions.</p>
     </section>
+
+  <section>
+    <h2>Referencing endnotes and footnotes</h2>
+    <p>Typically, references to <code>doc-endnote</code> and
+    <code>doc-footnote</code> content is done via an <code>&lt;a&gt;</code>
+    element with a <code>role</code> value of <code>doc-noteref</code>. The
+    result is the creation of a link from the anchor to the note per the
+    [[DPUB-AAM-1.0]] spec.</p>
+
+    <p>However, authors may provide an alternate experience by using ARIA
+    Annotations and avoid the link-based navigation experience.</p>
+
+    <div class="issue">@bigbluehat: pretty sure I've got all this wrong...</div>
+
+    <p>Rather than...</p>
+    <pre class="highlight example">
+      &lt;p&gt; … as studies have shown.&lt;a id="fnref01" role="doc-noteref"&gt;[1]&lt;/a&gt;&lt;/p&gt;
+    </pre>
+    <p>Authors can provide a similar experience via ARIA Annotations by
+    expressing the relationship in this way:</p>
+    <pre class="highlight example">
+      &lt;p&gt; … as studies have shown.&lt;a id="fnref01" aria-details="ref01"&gt;[1]&lt;/a&gt;&lt;/p&gt;
+      ...
+      &lt;section role="doc-endnotes"&gt;
+       &lt;h2&gt;Notes&lt;/h2&gt;
+       &lt;ol&gt;
+          &lt;li id="ref01" role="doc-endnote"&gt;Additional results of this study can be found at … &lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/section&gt;
+    </pre>
+  </section>
+
   </section>
 
 
