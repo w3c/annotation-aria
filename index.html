@@ -559,7 +559,14 @@ Annotation Data Model [[annotation-model]].</p>
     <div class="role-description">
       <p>Similar to attribution, but relates to editing that is happening right
       now. For example, "Mr. Smith is editing nearby".</p>
-      <pre class="example highlight">...</pre>
+      <pre class="example highlight">
+      &lt;h1&gt;Quotes from The Matrix&lt;/h1&gt;
+      &lt;blockquote&gt;I know you're out there. I can feel you now. I know that
+      you're afraid...&lt;mark aria-details="precence-123"&gt;&lt;/mark&gt;&lt;/p&gt;
+      you're afraid of us. You're afraid of change.&lt;/blockquote&gt;
+      ...
+      &lt;div id="precence-123" role="annotation-presence"&gt;Mr. Smith is editing nearby.&lt;/div&gt;
+      </pre>
     </div>
     <table class="role-features">
       <caption>Characteristics:</caption>
