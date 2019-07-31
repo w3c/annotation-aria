@@ -462,8 +462,12 @@ Annotation Data Model [[annotation-model]].</p>
   <div class="role">
     <rdef>annotation-commentary</rdef>
     <div class="role-description">
-      <p>One or more comments, or a comment thread.</p>
-      <pre class="example highlight">...</pre>
+      <p>One or more comments or a comment thread.</p>
+      <pre class="example highlight">
+      &lt;p&gt;&lt;mark aria-details="comment-123"&gt;The proposal&lt;/mark&gt; contains...&lt;/p&gt;
+      ...
+      &lt;div id="comment-123" role="annotation-commentary"&gt;I think this is great!&lt;/div&gt;
+      </pre>
     </div>
     <table class="role-features">
       <caption>Characteristics:</caption>
