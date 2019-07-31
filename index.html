@@ -697,6 +697,15 @@ var[data-type]:hover::before {
     },
     {
       "type": "TechArticle"
+    },
+    {
+      "id": "http://www.idpf.org/epub/vocab/structure/",
+      "type": "TechArticle",
+      "name": "EPUB Structural Semantics Vocabulary",
+      "url": "http://www.idpf.org/epub/vocab/structure/"
+    },
+    {
+      "type": "TechArticle"
     }
   ]
 }</script><link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-ED"></head>
@@ -1025,6 +1034,13 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
 <dt><a href="#annotation-suggestion" class="role-reference">annotation-suggestion</a></dt>
 <dd>A proposed edit. The source <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> <em class="rfc2119" title="MUST">MUST</em> contain 1-2
       children for the proposed <a href="#editorial-activities">insertion and/or deletion</a>.</dd>
+<dt><a href="#doc-endnote" class="role-reference">doc-endnote</a></dt>
+<dd>One of a collection of notes that occur at the end of a work, or a
+          section within it, that provides additional context to a referenced
+          passage of text.</dd>
+<dt><a href="#doc-footnote" class="role-reference">doc-footnote</a></dt>
+<dd>Ancillary information, such as a citation or commentary, that provides
+        additional context to a referenced passage of text.</dd>
 </dl>
   <section class="role notoc" id="annotation">
     <h5 class="role-name" title="annotation" aria-describedby="desc-annotation" id="annotation-0"><code>annotation</code> <span class="type-indicator">(abstract role)</span><a class="self-link" aria-label="§" href="#annotation"></a></h5>
@@ -1558,6 +1574,213 @@ Change of plans! Can you update this, please?
   </section>
 
   
+  <section class="role notoc" id="doc-endnote">
+      <h5 class="role-name" title="doc-endnote" aria-describedby="desc-doc-endnote" id="doc-endnote-0"><code>doc-endnote</code> <span class="type-indicator">(role)</span><a class="self-link" aria-label="§" href="#doc-endnote"></a></h5>
+      <div class="role-description" id="desc-doc-endnote" role="definition">
+        <p>One of a collection of notes that occur at the end of a work, or a
+          section within it, that provides additional context to a referenced
+          passage of text.</p>
+
+        <div class="note" role="note" id="issue-container-generatedID-2"><div role="heading" class="note-title marker" id="h-note-0" aria-level="6"><span>Note</span></div><div class="">
+          The <code>doc-endnote</code> role is copied from the [<cite><a class="bibref" href="#bib-dpub-aria" title="Digital Publishing WAI-ARIA Module 1.0" data-link-type="biblio">DPUB-ARIA</a></cite>]
+          specification.
+        </div></div>
+
+        <p>Authors <em class="rfc2119" title="MUST">MUST</em> ensure that <a class="respec-offending-element" title="Error: No matching dfn found." id="respec-offender-error-no-matching-dfn-found">elements</a> with <a class="respec-offending-element" title="Error: No matching dfn found." id="respec-offender-error-no-matching-dfn-found-0">role</a>
+          <code>doc-endnote</code> are contained in, or owned, by an element with
+          the role <a href="https://w3c.github.io/aria/#list" class="role-reference"><code>list</code></a>.</p>
+        <div class="example" id="example-9">
+          <div class="marker">
+      <a class="self-link" href="#example-9">Example<bdi> 9</bdi></a>
+    </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"doc-endnotes"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Notes<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"6baa07af"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"doc-endnote"</span>&gt;</span>Additional results of this study can be found at … <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"7b2c0555"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"doc-endnote"</span>&gt;</span>…<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  …
+<span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></code></pre>
+        </div>
+        <div class="example" id="example-10">
+          <div class="marker">
+      <a class="self-link" href="#example-10">Example<bdi> 10</bdi></a>
+    </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"doc-endnotes"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Notes<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ch1-notes"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Chapter 1<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"list"</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"6baa07af"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"doc-endnote"</span>&gt;</span>1. Additional results of this study can be found at … <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"7b2c0555"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"doc-endnote"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>2. The primary source of information …<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"note-cont"</span>&gt;</span>In the case of secondary studies …<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+     …
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></code></pre>
+        </div>
+      </div>
+      <table class="role-features">
+        <caption>Characteristics:</caption>
+        <thead>
+          <tr>
+            <th scope="col">Characteristic</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <th class="role-parent-head" scope="row">Superclass Role:</th>
+            <td class="role-parent"><a href="https://w3c.github.io/aria/#listitem" class="role-reference"><code>listitem</code></a></td>
+          </tr>
+          
+          
+          <tr>
+            <th class="role-related-head" scope="row">Related Concepts:</th>
+            <td class="role-related">EPUB <a href="https://idpf.github.io/epub-vocabs/structure/#rearnote">rearnote</a> [<cite><a class="bibref" href="#bib-epub-ssv" title="EPUB Structural Semantics Vocabulary" data-link-type="biblio">EPUB-SSV</a></cite>]</td>
+          </tr>
+          <tr>
+            <th class="role-scope-head" scope="row">Required Context Role:</th>
+            <td class="role-scope"><a href="https://w3c.github.io/aria/#doc-endnotes" class="role-reference"><code>doc-endnotes</code></a></td>
+          </tr>
+          
+          
+          
+          <tr>
+            <th class="role-inherited-head" scope="row">Inherited States and
+              Properties:</th>
+            <td class="role-inherited"><ul>
+<li><a href="https://w3c.github.io/aria/#aria-atomic" class="property-reference"><code>aria-atomic</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-busy" class="state-reference"><code>aria-busy (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-controls" class="property-reference"><code>aria-controls</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-current" class="state-reference"><code>aria-current (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-describedby" class="property-reference"><code>aria-describedby</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-details" class="property-reference"><code>aria-details</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-disabled" class="state-reference"><code>aria-disabled (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-dropeffect" class="property-reference"><code>aria-dropeffect</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-errormessage" class="property-reference"><code>aria-errormessage</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-expanded" class="state-reference"><code>aria-expanded (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-flowto" class="property-reference"><code>aria-flowto</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-grabbed" class="state-reference"><code>aria-grabbed (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-haspopup" class="property-reference"><code>aria-haspopup</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-hidden" class="state-reference"><code>aria-hidden (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-invalid" class="state-reference"><code>aria-invalid (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-keyshortcuts" class="property-reference"><code>aria-keyshortcuts</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-label" class="property-reference"><code>aria-label</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-labelledby" class="property-reference"><code>aria-labelledby</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-level" class="property-reference"><code>aria-level</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-live" class="property-reference"><code>aria-live</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-owns" class="property-reference"><code>aria-owns</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-posinset" class="property-reference"><code>aria-posinset</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-relevant" class="property-reference"><code>aria-relevant</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-roledescription" class="property-reference"><code>aria-roledescription</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-setsize" class="property-reference"><code>aria-setsize</code></a></li>
+</ul>
+</td>
+          </tr>
+          <tr>
+            <th class="role-namefrom-head" scope="row">Name From:</th>
+            <td class="role-namefrom">author</td>
+          </tr>
+          
+          
+          
+          
+          
+        </tbody>
+      </table>
+    </section>
+
+  
+  <section class="role notoc" id="doc-footnote">
+    <h5 class="role-name" title="doc-footnote" aria-describedby="desc-doc-footnote" id="doc-footnote-0"><code>doc-footnote</code> <span class="type-indicator">(role)</span><a class="self-link" aria-label="§" href="#doc-footnote"></a></h5>
+    <div class="role-description" id="desc-doc-footnote" role="definition">
+      <p>Ancillary information, such as a citation or commentary, that provides
+        additional context to a referenced passage of text.</p>
+
+      <div class="note" role="note" id="issue-container-generatedID-3"><div role="heading" class="note-title marker" id="h-note-1" aria-level="6"><span>Note</span></div><div class="">
+        The <code>doc-footnote</code> role is copied from the [<cite><a class="bibref" href="#bib-dpub-aria" title="Digital Publishing WAI-ARIA Module 1.0" data-link-type="biblio">DPUB-ARIA</a></cite>]
+        specification.
+      </div></div>
+
+      <p>The <code>doc-footnote</code>
+        <a class="respec-offending-element" title="Error: No matching dfn found." id="respec-offender-error-no-matching-dfn-found-1">role</a> is only for representing individual notes that occur within
+        the body of a work. For collections of notes that occur at the end of a
+        section, see <a href="https://w3c.github.io/aria/#doc-endnotes" class="role-reference"><code>doc-endnotes</code></a>.</p>
+      <div class="example" id="example-11">
+          <div class="marker">
+      <a class="self-link" href="#example-11">Example<bdi> 11</bdi></a>
+    </div> <pre class="highlight" aria-busy="false"><code class="hljs javascript">&lt;aside id=<span class="hljs-string">"6baa07af"</span> role=<span class="hljs-string">"doc-footnote"</span>&gt;
+* Additional results <span class="hljs-keyword">of</span> <span class="hljs-keyword">this</span> study and similar studies can be found at …
+&lt;<span class="hljs-regexp">/aside&gt;</span></code></pre>
+        </div>
+    </div>
+    <table class="role-features">
+      <caption>Characteristics:</caption>
+      <thead>
+        <tr>
+          <th scope="col">Characteristic</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <th class="role-parent-head" scope="row">Superclass Role:</th>
+          <td class="role-parent"><a href="https://w3c.github.io/aria/#section" class="role-reference"><code>section</code></a></td>
+        </tr>
+        
+        
+        <tr>
+          <th class="role-related-head" scope="row">Related Concepts:</th>
+          <td class="role-related">EPUB <a href="https://idpf.github.io/epub-vocabs/structure/#footnote">footnote</a> [<cite><a class="bibref" href="#bib-epub-ssv" title="EPUB Structural Semantics Vocabulary" data-link-type="biblio">EPUB-SSV</a></cite>]</td>
+        </tr>
+        
+        
+        
+        
+        <tr>
+          <th class="role-inherited-head" scope="row">Inherited States and
+            Properties:</th>
+          <td class="role-inherited"><ul>
+<li><a href="https://w3c.github.io/aria/#aria-atomic" class="property-reference"><code>aria-atomic</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-busy" class="state-reference"><code>aria-busy (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-controls" class="property-reference"><code>aria-controls</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-current" class="state-reference"><code>aria-current (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-describedby" class="property-reference"><code>aria-describedby</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-details" class="property-reference"><code>aria-details</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-disabled" class="state-reference"><code>aria-disabled (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-dropeffect" class="property-reference"><code>aria-dropeffect</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-errormessage" class="property-reference"><code>aria-errormessage</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-expanded" class="state-reference"><code>aria-expanded (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-flowto" class="property-reference"><code>aria-flowto</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-grabbed" class="state-reference"><code>aria-grabbed (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-haspopup" class="property-reference"><code>aria-haspopup</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-hidden" class="state-reference"><code>aria-hidden (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-invalid" class="state-reference"><code>aria-invalid (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-keyshortcuts" class="property-reference"><code>aria-keyshortcuts</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-label" class="property-reference"><code>aria-label</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-labelledby" class="property-reference"><code>aria-labelledby</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-live" class="property-reference"><code>aria-live</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-owns" class="property-reference"><code>aria-owns</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-relevant" class="property-reference"><code>aria-relevant</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-roledescription" class="property-reference"><code>aria-roledescription</code></a></li>
+</ul>
+</td>
+        </tr>
+        <tr>
+          <th class="role-namefrom-head" scope="row">Name From:</th>
+          <td class="role-namefrom">author</td>
+        </tr>
+        
+        
+        
+        
+        
+      </tbody>
+    </table>
+  </section>
 
   <ul>
     <li><strong>doc-footnote</strong>/<strong>doc-endnote</strong> for footnotes and endnotes. When using DPUB roles, the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> will be the referencing note number. The author may choose to leave out the <code>doc-noteref</code> role on the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>, as that will be exposed as a link to ATs (see [<cite><a class="bibref" href="#bib-dpub-aam-1.0" title="Digital Publishing Accessibility API Mappings" data-link-type="biblio">DPUB-AAM-1.0</a></cite>]), and it may not be a link. In addition, the fact that it is a note reference number is implied by the relation with the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>, which will have the <code>doc-footnote</code> or <code>doc-endnote</code> role.
@@ -1571,14 +1794,17 @@ Change of plans! Can you update this, please?
   <section id="editorial-activities">
     <h3 id="x3-3-expressing-editorial-activities"><bdi class="secno">3.3 </bdi>Expressing editorial activities<a class="self-link" aria-label="§" href="#editorial-activities"></a></h3>
 
-    <p>Annotations motivated by expressing a revision to the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>
-or which are providing suggestions to that content come with an additional
-requirement to convey that revision or suggestion.</p>
+    <p>Edititorial activities can be expressed via ARIA Annotations through
+    the use of the <code>role</code> values of <code>annotation-revision</code>
+    and <code>annotation-suggestion</code>. The use of these <code>role</code>
+    values on the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> express that the related
+    <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> contains the revision or suggested edit.</p>
 
     <p>The <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> of such a change-related annotation <em class="rfc2119" title="MUST">MUST</em> contain
-    at least one HTML <code>&lt;ins&gt;</code> or <code>&lt;del&gt;</code> tag or at least one HTML tag
+    at least one HTML <code>&lt;ins&gt;</code> or <code>&lt;del&gt;</code> tag or at least one tag
     with a <code>role</code> value of either <a href="https://w3c.github.io/aria/#insertion"><code>insertion</code></a>
-    or <a href="https://w3c.github.io/aria/#deletion"><code>deletion</code></a> defined in [<cite><a class="bibref" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2" data-link-type="biblio">wai-aria-1.2</a></cite>].</p>
+    or <a href="https://w3c.github.io/aria/#deletion"><code>deletion</code></a>
+    as defined in [<cite><a class="bibref" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2" data-link-type="biblio">wai-aria-1.2</a></cite>].</p>
 
     <p>If a replacement to the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> is being requested, authors
     <em class="rfc2119" title="MUST">MUST</em> provide both an <code>&lt;ins&gt;</code> and a <code>&lt;del&gt;</code> tag together or two HTML
@@ -1589,17 +1815,17 @@ requirement to convey that revision or suggestion.</p>
     <code>insertion</code>/<code>deletion</code> roles) <em class="rfc2119" title="SHOULD">SHOULD</em> be authored as
     separate <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> (i.e. no more than one of each per grouping).</p>
 
-    <div class="example" id="example-9-suggestion-using-ins-and-del">
+    <div class="example" id="example-12-suggestion-using-ins-and-del">
           <div class="marker">
-      <a class="self-link" href="#example-9-suggestion-using-ins-and-del">Example<bdi> 9</bdi></a><span class="example-title">: suggestion using &lt;ins&gt; and &lt;del&gt;</span>
+      <a class="self-link" href="#example-12-suggestion-using-ins-and-del">Example<bdi> 12</bdi></a><span class="example-title">: suggestion using &lt;ins&gt; and &lt;del&gt;</span>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Everyone is encouraged to bring a
 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"suggestion-info-1"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span>side dish<span class="hljs-tag">&lt;/<span class="hljs-name">del</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ins</span>&gt;</span>beverage<span class="hljs-tag">&lt;/<span class="hljs-name">ins</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 to share.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
         </div>
 
-    <div class="example" id="example-10-suggestion-using-insertion-and-deletion-roles">
+    <div class="example" id="example-13-suggestion-using-insertion-and-deletion-roles">
           <div class="marker">
-      <a class="self-link" href="#example-10-suggestion-using-insertion-and-deletion-roles">Example<bdi> 10</bdi></a><span class="example-title">: suggestion using insertion and deletion roles</span>
+      <a class="self-link" href="#example-13-suggestion-using-insertion-and-deletion-roles">Example<bdi> 13</bdi></a><span class="example-title">: suggestion using insertion and deletion roles</span>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Cats are so funny:
 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"suggestion-info-1"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"deletion"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"dog.jpg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"insertion"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"cat.jpg"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 Pretty cute, right?!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
@@ -1608,7 +1834,7 @@ Pretty cute, right?!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>
     <p>Assistive Technology <em class="rfc2119" title="SHOULD">SHOULD</em> handle all permutations of the ordering of
     <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code> when processing edits.</p>
 
-    <div class="note" role="note" id="issue-container-generatedID-2"><div role="heading" class="note-title marker" id="h-note-0" aria-level="4"><span>Note</span></div><div class="">In future, the [<cite><a class="bibref" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2" data-link-type="biblio">wai-aria-1.2</a></cite>] specification may define
+    <div class="note" role="note" id="issue-container-generatedID-4"><div role="heading" class="note-title marker" id="h-note-2" aria-level="4"><span>Note</span></div><div class="">In future, the [<cite><a class="bibref" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2" data-link-type="biblio">wai-aria-1.2</a></cite>] specification may define
       whether the order of <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code> are important.</div></div>
 
     <div class="issue" id="issue-container-number-7"><div role="heading" class="issue-title marker" id="h-issue-3" aria-level="4"><a href="https://github.com/w3c/annotation-aria/issues/7"><span class="issue-number">Issue 7</span></a><span class="issue-label">: Should `annotation-suggestion`/`annotation-revision` processing ignore additional markup?</span></div><p>Right now, we define (somewhat implicitly...) how <code>&lt;ins&gt;</code>/<code>&lt;del&gt;</code> could be processed by AT into actual edits in the main text (i.e. replacing the annotated content following the logic expressed via <code>&lt;ins&gt;</code> and/or <code>&lt;del&gt;</code>).</p>
@@ -1618,9 +1844,9 @@ Pretty cute, right?!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>
     an <a href="#dfn-annotation-purpose" class="internalDFN" data-link-type="dfn">annotation purpose</a> can be expressed by placing the appropriate
     <code>role</code> value on the related <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>.</p>
 
-    <div class="example" id="example-11">
+    <div class="example" id="example-14">
           <div class="marker">
-      <a class="self-link" href="#example-11">Example<bdi> 11</bdi></a>
+      <a class="self-link" href="#example-14">Example<bdi> 14</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Everyone is encouraged to bring a
 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"suggestion-info-1"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span>side dish<span class="hljs-tag">&lt;/<span class="hljs-name">del</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ins</span>&gt;</span>beverage<span class="hljs-tag">&lt;/<span class="hljs-name">ins</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 to share.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
@@ -1635,7 +1861,7 @@ Change of plans! Thanks updating this, Aaron
       <h3 id="x3-4-further-annotation-labeling"><bdi class="secno">3.4 </bdi>Further annotation labeling<a class="self-link" aria-label="§" href="#further-annotation-labeling"></a></h3>
       (optional)
 
-      <div class="issue" id="issue-container-generatedID-3"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="4"><span>Issue</span></div><div class="">@bigbluehat update this to be non-normative/description/exemplary</div></div>
+      <div class="issue" id="issue-container-generatedID-5"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="4"><span>Issue</span></div><div class="">@bigbluehat update this to be non-normative/description/exemplary</div></div>
 
       <p>In addition, this markup may be helpful, but is not really part of the annotations spec:</p>
       <ul>
@@ -1651,8 +1877,8 @@ Change of plans! Thanks updating this, Aaron
   into accessible content, with the goal of enabling AT support. The following
   are non-normative suggestions for accomplishing this.</p>
 
-  <aside class="example" id="example-12-describing-a-relationship-to-in-page-visible-content"><div class="marker">
-      <a class="self-link" href="#example-12-describing-a-relationship-to-in-page-visible-content">Example<bdi> 12</bdi></a><span class="example-title">: Describing a relationship to in-page visible content</span>
+  <aside class="example" id="example-15-describing-a-relationship-to-in-page-visible-content"><div class="marker">
+      <a class="self-link" href="#example-15-describing-a-relationship-to-in-page-visible-content">Example<bdi> 15</bdi></a><span class="example-title">: Describing a relationship to in-page visible content</span>
     </div>
     <p>Translating a “commenting” motivation in the Web Annotation Data Model to the appropriate ARIA and HTML markup:</p>
 
@@ -1663,16 +1889,16 @@ Change of plans! Thanks updating this, Aaron
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
   </aside>
 
-  <aside class="example" id="example-13-describing-a-web-annotation-that-does-not-have-a-relationship-to-other-content"><div class="marker">
-      <a class="self-link" href="#example-13-describing-a-web-annotation-that-does-not-have-a-relationship-to-other-content">Example<bdi> 13</bdi></a><span class="example-title">: Describing a Web Annotation that does not have a relationship to other content</span>
+  <aside class="example" id="example-16-describing-a-web-annotation-that-does-not-have-a-relationship-to-other-content"><div class="marker">
+      <a class="self-link" href="#example-16-describing-a-web-annotation-that-does-not-have-a-relationship-to-other-content">Example<bdi> 16</bdi></a><span class="example-title">: Describing a Web Annotation that does not have a relationship to other content</span>
     </div>
     <p>This example is useful for the “highlighting” motivation.</p>
 
     <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The word <span class="hljs-tag">&lt;<span class="hljs-name">mark</span>&gt;</span>cat<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> is highlighted<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
   </aside>
 
-  <aside class="example" id="example-14-describing-a-web-annotation-that-is-related-to-external-content-only"><div class="marker">
-      <a class="self-link" href="#example-14-describing-a-web-annotation-that-is-related-to-external-content-only">Example<bdi> 14</bdi></a><span class="example-title">: Describing a Web Annotation that is related to external content only</span>
+  <aside class="example" id="example-17-describing-a-web-annotation-that-is-related-to-external-content-only"><div class="marker">
+      <a class="self-link" href="#example-17-describing-a-web-annotation-that-is-related-to-external-content-only">Example<bdi> 17</bdi></a><span class="example-title">: Describing a Web Annotation that is related to external content only</span>
     </div>
     <p>This example is useful for the “identifying” motivation.</p>
 
@@ -1824,7 +2050,7 @@ Change of plans! Thanks updating this, Aaron
 <section id="rejects" class="appendix">
   <h2 id="a-rejected-annotation-purposes"><bdi class="secno">A. </bdi>Rejected annotation purposes<a class="self-link" aria-label="§" href="#rejects"></a></h2>
 
-  <div class="issue" id="issue-container-generatedID-4"><div role="heading" class="issue-title marker" id="h-issue-5" aria-level="3"><span>Issue</span></div><div class="">@bigbluehat: move this to an appendix? remove it? Kind of nice to know what we didn't do and why</div></div>
+  <div class="issue" id="issue-container-generatedID-6"><div role="heading" class="issue-title marker" id="h-issue-5" aria-level="3"><span>Issue</span></div><div class="">@bigbluehat: move this to an appendix? remove it? Kind of nice to know what we didn't do and why</div></div>
 
   <p>For now, the following annotation purposes have not been assigned new roles:</p>
   <ul>
@@ -1834,13 +2060,13 @@ Change of plans! Thanks updating this, Aaron
     <li><strong>bookmark</strong> — similar to <code>annotation-presence</code>; would need more info on this use case in order to support it.</li>
   </ul>
 
-  <div class="issue" id="issue-container-generatedID-5"><div role="heading" class="issue-title marker" id="h-issue-6" aria-level="3"><span>Issue</span></div><div class="">[TBD] @aleventhal: Suggest that the author can use <code>&lt;mark aria-label="Bookmark name"&gt;</code> for a good experience.</div></div>
+  <div class="issue" id="issue-container-generatedID-7"><div role="heading" class="issue-title marker" id="h-issue-6" aria-level="3"><span>Issue</span></div><div class="">[TBD] @aleventhal: Suggest that the author can use <code>&lt;mark aria-label="Bookmark name"&gt;</code> for a good experience.</div></div>
 
   <ul>
     <li><strong>breakpoint</strong>— does not always come with additional visible information, so it would be difficult to shoehorn into this use case.</li>
   </ul>
 
-  <div class="issue" id="issue-container-generatedID-6"><div role="heading" class="issue-title marker" id="h-issue-7" aria-level="3"><span>Issue</span></div><div class="">
+  <div class="issue" id="issue-container-generatedID-8"><div role="heading" class="issue-title marker" id="h-issue-7" aria-level="3"><span>Issue</span></div><div class="">
     [TBD] @aleventhal: For this one, perhaps a <code>&lt;mark&gt;</code> or
     <code>role="mark"</code> or a new <code>role="breakpoint"</code> could be
     used, along with <code>aria-label</code>. Or, a visible button could be used
@@ -1858,5 +2084,5 @@ Change of plans! Thanks updating this, Aaron
     <section id="informative-references">
         <h3 id="b-1-informative-references"><bdi class="secno">B.1 </bdi>Informative references<a class="self-link" aria-label="§" href="#informative-references"></a></h3>
       <dl class="bibliography">
-        <dt id="bib-annotation-html">[annotation-html]</dt><dd><a href="https://www.w3.org/TR/annotation-html/"><cite>Embedding Web Annotations in HTML</cite></a>. Timothy Cole; Sarven Capadisli; Benjamin Young; Ivan Herman.  W3C. 23 February 2017. W3C Note. URL: <a href="https://www.w3.org/TR/annotation-html/">https://www.w3.org/TR/annotation-html/</a></dd><dt id="bib-annotation-model">[annotation-model]</dt><dd><a href="https://www.w3.org/TR/annotation-model/"><cite>Web Annotation Data Model</cite></a>. Robert Sanderson; Paolo Ciccarese; Benjamin Young.  W3C. 23 February 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/annotation-model/">https://www.w3.org/TR/annotation-model/</a></dd><dt id="bib-dpub-aam-1.0">[DPUB-AAM-1.0]</dt><dd><a href="https://www.w3.org/TR/dpub-aam-1.0/"><cite>Digital Publishing Accessibility API Mappings</cite></a>. Richard Schwerdtfeger; Joanmarie Diggs.  W3C. 14 December 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/dpub-aam-1.0/">https://www.w3.org/TR/dpub-aam-1.0/</a></dd><dt id="bib-wai-aria-1.2">[wai-aria-1.2]</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/"><cite>Accessible Rich Internet Applications (WAI-ARIA) 1.2</cite></a>. Joanmarie Diggs; Shane McCarron; James Nurthen; Michael Cooper; Richard Schwerdtfeger; James Craig.  W3C. 18 December 2018. W3C Working Draft. URL: <a href="https://www.w3.org/TR/wai-aria-1.2/">https://www.w3.org/TR/wai-aria-1.2/</a></dd>
+        <dt id="bib-annotation-html">[annotation-html]</dt><dd><a href="https://www.w3.org/TR/annotation-html/"><cite>Embedding Web Annotations in HTML</cite></a>. Timothy Cole; Sarven Capadisli; Benjamin Young; Ivan Herman.  W3C. 23 February 2017. W3C Note. URL: <a href="https://www.w3.org/TR/annotation-html/">https://www.w3.org/TR/annotation-html/</a></dd><dt id="bib-annotation-model">[annotation-model]</dt><dd><a href="https://www.w3.org/TR/annotation-model/"><cite>Web Annotation Data Model</cite></a>. Robert Sanderson; Paolo Ciccarese; Benjamin Young.  W3C. 23 February 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/annotation-model/">https://www.w3.org/TR/annotation-model/</a></dd><dt id="bib-dpub-aam-1.0">[DPUB-AAM-1.0]</dt><dd><a href="https://www.w3.org/TR/dpub-aam-1.0/"><cite>Digital Publishing Accessibility API Mappings</cite></a>. Richard Schwerdtfeger; Joanmarie Diggs.  W3C. 14 December 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/dpub-aam-1.0/">https://www.w3.org/TR/dpub-aam-1.0/</a></dd><dt id="bib-dpub-aria">[DPUB-ARIA]</dt><dd><a href="https://www.w3.org/TR/dpub-aria-1.0/"><cite>Digital Publishing WAI-ARIA Module 1.0</cite></a>. Matt Garrish; Tzviya Siegman; Markus Gylling; Shane McCarron.  W3C. 14 December 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/dpub-aria-1.0/">https://www.w3.org/TR/dpub-aria-1.0/</a></dd><dt id="bib-epub-ssv">[EPUB-SSV]</dt><dd><a href="http://www.idpf.org/epub/vocab/structure/"><cite>EPUB Structural Semantics Vocabulary</cite></a>.  IDPF. URL: <a href="http://www.idpf.org/epub/vocab/structure/">http://www.idpf.org/epub/vocab/structure/</a></dd><dt id="bib-wai-aria-1.2">[wai-aria-1.2]</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/"><cite>Accessible Rich Internet Applications (WAI-ARIA) 1.2</cite></a>. Joanmarie Diggs; Shane McCarron; James Nurthen; Michael Cooper; Richard Schwerdtfeger; James Craig.  W3C. 18 December 2018. W3C Working Draft. URL: <a href="https://www.w3.org/TR/wai-aria-1.2/">https://www.w3.org/TR/wai-aria-1.2/</a></dd>
       </dl></section></section><p role="navigation" id="back-to-top"><a href="#title"><abbr title="Back to Top">↑</abbr></a></p><script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script></body></html>
