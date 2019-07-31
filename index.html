@@ -817,7 +817,8 @@ var[data-type]:hover::before {
 Their uses vary from descriptions, to commentary, to suggested edits, to attribution, and even
 noting the presence of other readers.</p>
 
-      <p>ARIA Annotations builds upon the foundation of <code>aria-details</code>
+      <p>ARIA Annotations builds upon the foundation of
+      <a href="https://www.w3.org/TR/wai-aria-1.2/#aria-details"><code>aria-details</code></a>
       and provides minimal additions needed to enhance the reading experience
       of consuming annotated content via assistive technology.</p>
 
@@ -910,7 +911,8 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
   <h2 id="x3-annotation-markup"><bdi class="secno">3. </bdi>Annotation Markup<a class="self-link" aria-label="§" href="#markup"></a></h2>
 
   <p>ARIA annotations are built from the existing ARIA attributes:
-  <code>aria-details</code> and <code>role</code>. This specification
+  <a href="https://www.w3.org/TR/wai-aria-1.2/#aria-details"><code>aria-details</code></a> and
+  <a href="https://www.w3.org/TR/wai-aria-1.2/#role"><code>role</code></a>. This specification
   introduces new <code>role</code> values to distinguish the purpose of
   <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> from among each other and from among other content
   within the current page. These distinctly expressed purposes may be used by
@@ -965,8 +967,9 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
     <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> beyond simple description.</p>
 
     <p>For example, the following <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> states that its
-    purpose is commentary through the use of the <a class="respec-offending-element" title="Error: No matching dfn found." id="respec-offender-error-no-matching-dfn-found">annotation-commentary</a>
-    <code>role</code> value.</p>
+    purpose is commentary through the use of the <code>role</code> value
+    <a href="#annotation-commentary"><code>annotation-commentary</code></a>.
+    </p>
 
     <div class="example" id="example-2">
           <div class="marker">
@@ -1012,16 +1015,16 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
 <dd>Authoring information for the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>.</dd>
 <dt><a href="#annotation-commentary" class="role-reference">annotation-commentary</a></dt>
 <dd>One or more comments, or a comment thread.</dd>
-<dt><a href="#annotation-revision" class="role-reference">annotation-revision</a></dt>
-<dd>An historical change that has already been accepted. The source
-      <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> <em class="rfc2119" title="MUST">MUST</em> contain 1-2 children for the
-      <a href="#expressing-editorial-activities">insertion and/or deletion</a>.</dd>
-<dt><a href="#annotation-suggestion" class="role-reference">annotation-suggestion</a></dt>
-<dd>A proposed edit. The source <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> <em class="rfc2119" title="MUST">MUST</em> contain 1-2
-      children for the proposed <a href="#expressing-editorial-activities">insertion and/or deletion</a>.</dd>
 <dt><a href="#annotation-presence" class="role-reference">annotation-presence</a></dt>
 <dd>Similar to attribution, but relates to editing that is happening right
       now. For example, "Mr. Smith is editing nearby".</dd>
+<dt><a href="#annotation-revision" class="role-reference">annotation-revision</a></dt>
+<dd>An historical change that has already been accepted. The source
+      <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> <em class="rfc2119" title="MUST">MUST</em> contain 1-2 children for the
+      <a href="#editorial-activities">insertion and/or deletion</a>.</dd>
+<dt><a href="#annotation-suggestion" class="role-reference">annotation-suggestion</a></dt>
+<dd>A proposed edit. The source <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> <em class="rfc2119" title="MUST">MUST</em> contain 1-2
+      children for the proposed <a href="#editorial-activities">insertion and/or deletion</a>.</dd>
 </dl>
   <section class="role notoc" id="annotation">
     <h5 class="role-name" title="annotation" aria-describedby="desc-annotation" id="annotation-0"><code>annotation</code> <span class="type-indicator">(abstract role)</span><a class="self-link" aria-label="§" href="#annotation"></a></h5>
@@ -1273,15 +1276,93 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
     </table>
   </section>
 
+  <section class="role notoc" id="annotation-presence">
+    <h5 class="role-name" title="annotation-presence" aria-describedby="desc-annotation-presence" id="annotation-presence-0"><code>annotation-presence</code> <span class="type-indicator">(role)</span><a class="self-link" aria-label="§" href="#annotation-presence"></a></h5>
+    <div class="role-description" id="desc-annotation-presence" role="definition">
+      <p>Similar to attribution, but relates to editing that is happening right
+      now. For example, "Mr. Smith is editing nearby".</p>
+      <div class="example" id="example-6">
+          <div class="marker">
+      <a class="self-link" href="#example-6">Example<bdi> 6</bdi></a>
+    </div> <pre class="highlight" aria-busy="false"><code class="hljs">...</code></pre>
+        </div>
+    </div>
+    <table class="role-features">
+      <caption>Characteristics:</caption>
+      <thead>
+        <tr>
+          <th scope="col">Characteristic</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr>
+          <th class="role-parent-head" scope="row">Superclass Role:</th>
+          <td class="role-parent"><a href="#annotation" class="role-reference"><code>annotation</code></a></td>
+        </tr>
+        
+        
+        
+        
+        
+        
+        
+        <tr>
+          <th class="role-inherited-head" scope="row">Inherited States and
+            Properties:</th>
+          <td class="role-inherited"><ul>
+<li><a href="https://w3c.github.io/aria/#aria-atomic" class="property-reference"><code>aria-atomic</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-busy" class="state-reference"><code>aria-busy (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-controls" class="property-reference"><code>aria-controls</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-current" class="state-reference"><code>aria-current (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-describedby" class="property-reference"><code>aria-describedby</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-details" class="property-reference"><code>aria-details</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-disabled" class="state-reference"><code>aria-disabled (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-dropeffect" class="property-reference"><code>aria-dropeffect</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-errormessage" class="property-reference"><code>aria-errormessage</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-expanded" class="state-reference"><code>aria-expanded (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-flowto" class="property-reference"><code>aria-flowto</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-grabbed" class="state-reference"><code>aria-grabbed (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-haspopup" class="property-reference"><code>aria-haspopup</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-hidden" class="state-reference"><code>aria-hidden (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-invalid" class="state-reference"><code>aria-invalid (state)</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-keyshortcuts" class="property-reference"><code>aria-keyshortcuts</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-label" class="property-reference"><code>aria-label</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-labelledby" class="property-reference"><code>aria-labelledby</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-live" class="property-reference"><code>aria-live</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-owns" class="property-reference"><code>aria-owns</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-relevant" class="property-reference"><code>aria-relevant</code></a></li>
+<li><a href="https://w3c.github.io/aria/#aria-roledescription" class="property-reference"><code>aria-roledescription</code></a></li>
+</ul>
+</td>
+        </tr>
+        <tr>
+          <th class="role-namefrom-head" scope="row">Name From:</th>
+          <td class="role-namefrom">author</td>
+        </tr>
+        <tr>
+          <th class="role-namerequired-head" scope="row">Accessible Name
+            Required:</th>
+          <td class="role-namerequired">False</td>
+        </tr>
+        
+        
+        
+        
+      </tbody>
+    </table>
+  </section>
+
   <section class="role notoc" id="annotation-revision">
     <h5 class="role-name" title="annotation-revision" aria-describedby="desc-annotation-revision" id="annotation-revision-0"><code>annotation-revision</code> <span class="type-indicator">(role)</span><a class="self-link" aria-label="§" href="#annotation-revision"></a></h5>
     <div class="role-description" id="desc-annotation-revision" role="definition">
       <p>An historical change that has already been accepted. The source
       <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> <em class="rfc2119" title="MUST">MUST</em> contain 1-2 children for the
-      <a href="#expressing-editorial-activities">insertion and/or deletion</a>.</p>
-      <div class="example" id="example-6">
+      <a href="#editorial-activities">insertion and/or deletion</a>.</p>
+      <div class="example" id="example-7">
           <div class="marker">
-      <a class="self-link" href="#example-6">Example<bdi> 6</bdi></a>
+      <a class="self-link" href="#example-7">Example<bdi> 7</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs">...</code></pre>
         </div>
     </div>
@@ -1356,85 +1437,7 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
     <h5 class="role-name" title="annotation-suggestion" aria-describedby="desc-annotation-suggestion" id="annotation-suggestion-0"><code>annotation-suggestion</code> <span class="type-indicator">(role)</span><a class="self-link" aria-label="§" href="#annotation-suggestion"></a></h5>
     <div class="role-description" id="desc-annotation-suggestion" role="definition">
       <p>A proposed edit. The source <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> <em class="rfc2119" title="MUST">MUST</em> contain 1-2
-      children for the proposed <a href="#expressing-editorial-activities">insertion and/or deletion</a>.</p>
-      <div class="example" id="example-7">
-          <div class="marker">
-      <a class="self-link" href="#example-7">Example<bdi> 7</bdi></a>
-    </div> <pre class="highlight" aria-busy="false"><code class="hljs">...</code></pre>
-        </div>
-    </div>
-    <table class="role-features">
-      <caption>Characteristics:</caption>
-      <thead>
-        <tr>
-          <th scope="col">Characteristic</th>
-          <th scope="col">Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        
-        <tr>
-          <th class="role-parent-head" scope="row">Superclass Role:</th>
-          <td class="role-parent"><a href="#annotation" class="role-reference"><code>annotation</code></a></td>
-        </tr>
-        
-        
-        
-        
-        
-        
-        
-        <tr>
-          <th class="role-inherited-head" scope="row">Inherited States and
-            Properties:</th>
-          <td class="role-inherited"><ul>
-<li><a href="https://w3c.github.io/aria/#aria-atomic" class="property-reference"><code>aria-atomic</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-busy" class="state-reference"><code>aria-busy (state)</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-controls" class="property-reference"><code>aria-controls</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-current" class="state-reference"><code>aria-current (state)</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-describedby" class="property-reference"><code>aria-describedby</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-details" class="property-reference"><code>aria-details</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-disabled" class="state-reference"><code>aria-disabled (state)</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-dropeffect" class="property-reference"><code>aria-dropeffect</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-errormessage" class="property-reference"><code>aria-errormessage</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-expanded" class="state-reference"><code>aria-expanded (state)</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-flowto" class="property-reference"><code>aria-flowto</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-grabbed" class="state-reference"><code>aria-grabbed (state)</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-haspopup" class="property-reference"><code>aria-haspopup</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-hidden" class="state-reference"><code>aria-hidden (state)</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-invalid" class="state-reference"><code>aria-invalid (state)</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-keyshortcuts" class="property-reference"><code>aria-keyshortcuts</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-label" class="property-reference"><code>aria-label</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-labelledby" class="property-reference"><code>aria-labelledby</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-live" class="property-reference"><code>aria-live</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-owns" class="property-reference"><code>aria-owns</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-relevant" class="property-reference"><code>aria-relevant</code></a></li>
-<li><a href="https://w3c.github.io/aria/#aria-roledescription" class="property-reference"><code>aria-roledescription</code></a></li>
-</ul>
-</td>
-        </tr>
-        <tr>
-          <th class="role-namefrom-head" scope="row">Name From:</th>
-          <td class="role-namefrom">author</td>
-        </tr>
-        <tr>
-          <th class="role-namerequired-head" scope="row">Accessible Name
-            Required:</th>
-          <td class="role-namerequired">False</td>
-        </tr>
-        
-        
-        
-        
-      </tbody>
-    </table>
-  </section>
-
-  <section class="role notoc" id="annotation-presence">
-    <h5 class="role-name" title="annotation-presence" aria-describedby="desc-annotation-presence" id="annotation-presence-0"><code>annotation-presence</code> <span class="type-indicator">(role)</span><a class="self-link" aria-label="§" href="#annotation-presence"></a></h5>
-    <div class="role-description" id="desc-annotation-presence" role="definition">
-      <p>Similar to attribution, but relates to editing that is happening right
-      now. For example, "Mr. Smith is editing nearby".</p>
+      children for the proposed <a href="#editorial-activities">insertion and/or deletion</a>.</p>
       <div class="example" id="example-8">
           <div class="marker">
       <a class="self-link" href="#example-8">Example<bdi> 8</bdi></a>
