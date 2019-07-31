@@ -226,8 +226,9 @@ Annotation Data Model [[annotation-model]].</p>
     <a>annotation body</a> beyond simple description.</p>
 
     <p>For example, the following <a>annotation body</a> states that its
-    purpose is commentary through the use of the <a>annotation-commentary</a>
-    <code>role</code> value.</p>
+    purpose is commentary through the use of the <code>role</code> value
+    <a href="#annotation-commentary"><code>annotation-commentary</code></a>.
+    </p>
 
     <pre class="example highlight">
       &lt;p&gt;&lt;mark aria-details="comment-123"&gt;The proposal&lt;/mark&gt; contains...&lt;/p&gt;
@@ -639,7 +640,7 @@ Annotation Data Model [[annotation-model]].</p>
     <div class="role-description">
       <p>An historical change that has already been accepted. The source
       <a>annotated content</a> MUST contain 1-2 children for the
-      <a href="#expressing-editorial-activities">insertion and/or deletion</a>.</p>
+      <a href="#editorial-activities">insertion and/or deletion</a>.</p>
       <pre class="example highlight">...</pre>
     </div>
     <table class="role-features">
@@ -731,7 +732,7 @@ Annotation Data Model [[annotation-model]].</p>
     <rdef>annotation-suggestion</rdef>
     <div class="role-description">
       <p>A proposed edit. The source <a>annotated content</a> MUST contain 1-2
-      children for the proposed <a href="#expressing-editorial-activities">insertion and/or deletion</a>.</p>
+      children for the proposed <a href="#editorial-activities">insertion and/or deletion</a>.</p>
       <pre class="example highlight">...</pre>
     </div>
     <table class="role-features">
