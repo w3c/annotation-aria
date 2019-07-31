@@ -216,12 +216,16 @@ Annotation Data Model [[annotation-model]].</p>
   <section id="role">
     <h2>Stating a purpose</h2>
 
-    <p>The <a>annotation body</a> contains the commentary, suggestions, or
-    secondary content related to the <a>annotated content</a>.</p>
+    <p>The <a>annotation body</a> contains the description, commentary,
+    suggestions, or secondary content related to the <a>annotated content</a>.
+    The contents of the <a>annotation body</a> is considered a description by
+    default. The addition of a <code>role</code> to the <a>annotation body</a>
+    describes the purpose or intent (i.e. the <a>annotation purpose</a>) of the
+    <a>annotation body</a> beyond simple description.</p>
 
-    <p>The <code>role</code> on the <a>annotation body</a> describes the purpose or intent (i.e.
-    the <a>annotation purpose</a>) of the <a>annotation body</a>. See below for a
-    <a href="#roles">list of available roles</a> meant for use in ARIA annotations.
+    <p>For example, the following <a>annotation body</a> states that its
+    purpose is commentary through the use of the <a>annotation-commentary</a>
+    <code>role</code> value.</p>
 
     <pre class="example highlight">
       &lt;p&gt;&lt;mark aria-details="comment-123"&gt;The proposal&lt;/mark&gt; contains...&lt;/p&gt;
@@ -234,8 +238,8 @@ Annotation Data Model [[annotation-model]].</p>
     accessibility APIs. Consequently, annotation authors SHOULD place the most
     important (or specific) role first.</p>
 
-    <p>For example, the following would indicate that there is a suggestion with
-    comments, but some APIs may only expose it as a "suggestion":</p>
+    <p>The following markup states that there is a suggestion with comments,
+    but some APIs may only expose it as a "suggestion":</p>
 
 <pre class="example highlight">
   &lt;p&gt;&lt;mark aria-details="suggestion-123"&gt;The proposal&lt;/mark&gt; contains...&lt;/p&gt;
