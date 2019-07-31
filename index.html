@@ -767,7 +767,15 @@ Annotation Data Model [[annotation-model]].</p>
     <div class="role-description">
       <p>A proposed edit. The source <a>annotated content</a> MUST contain 1-2
       children for the proposed <a href="#editorial-activities">insertion and/or deletion</a>.</p>
-      <pre class="example highlight">...</pre>
+      <pre class="example highlight">
+      &lt;p&gt;Everyone is encouraged to bring a
+      &lt;span aria-details="suggestion-123"&gt;&lt;del&gt;side dish&lt;/del&gt;&lt;ins&gt;beverage&lt;/ins&gt;&lt;/span&gt;
+      to share.&lt;/p&gt;
+      ...
+      &lt;div id="suggestion-123" role="annotation-suggestion"&gt;
+      Change of plans! Can you update this, please?
+      &lt;/div&gt;
+      </pre>
     </div>
     <table class="role-features">
       <caption>Characteristics:</caption>
