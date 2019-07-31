@@ -662,7 +662,15 @@ Annotation Data Model [[annotation-model]].</p>
       <p>An historical change that has already been accepted. The source
       <a>annotated content</a> MUST contain 1-2 children for the
       <a href="#editorial-activities">insertion and/or deletion</a>.</p>
-      <pre class="example highlight">...</pre>
+      <pre class="example highlight">
+      &lt;p&gt;...in Order to form a more perfect
+      &lt;span aria-details="revision-123"&gt;&lt;del&gt;Onion&lt;/del&gt;&lt;ins&gt;Union&lt;/ins&gt;&lt;/span&gt;,
+      establish Justice...&lt;/p&gt;
+      ...
+      &lt;div id="revision-123" role="annotation-revision"&gt;
+      &lt;time datetime="1787-09-17"&gt;September 17, 1787&lt;/time&gt;
+      by G. Morris
+      &lt;/div&gt;</pre>
     </div>
     <table class="role-features">
       <caption>Characteristics:</caption>
