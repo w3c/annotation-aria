@@ -362,7 +362,14 @@ Annotation Data Model [[annotation-model]].</p>
     <rdef>annotation-attribution</rdef>
     <div class="role-description">
       <p>Authoring information for the <a>annotated content</a>.</p>
-      <pre class="example highlight">...</pre>
+      <pre class="example highlight">
+      Benjamin Franklin is oft quoted as saying,
+      &lt;p&gt;&lt;mark aria-details="quote-123"&gt;"A penny saved is a penny earned"&lt;/mark&gt;
+      when in fact, he said, &lt;mark aria="details="quote-456"&gt;"A penny saved is twopence dear"&lt;/mark&gt;&lt;/p&gt;
+      ...
+      &lt;div id="quote-123" role="annotation-attribution"&gt;Commonly misattributed to Benjamin Franklin&lt;/div&gt;
+      &lt;div id="quote-456" role="annotation-attribution"&gt;Benjamin Franklin&lt;/div&gt;
+      </pre>
     </div>
     <table class="role-features">
       <caption>Characteristics:</caption>
