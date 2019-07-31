@@ -1117,10 +1117,7 @@ requirement to convey that revision or suggestion.</p>
   <ul>
   <li><a href="https://docs.microsoft.com/en-us/windows/desktop/winauto/uiauto-annotation-type-identifiers">UI Automation has built-in support for annotations</a> — note that a perfect 1 to 1 mapping is not expected here. For example, a grammar error is an annotation in UIA, but in ARIA is <code>aria-invalid="grammar"</code>. An important difference with UIA annotations is that ARIA annotations always link to visible in-page content.</li>
   <li>Most of the markup is reused — there are already known ways for exposing <code>aria-details</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-describedby</code>, <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code>.</li>
-  <li>For aria-annotation, this should be exposed as an object attribute called “annotation” in ATK/IA2</li>
 </ul>
-<div class="issue">@bigbluehat: does "aria-annotation" here mean this spec? It seems to (vs. an attribute or value)</div>
-
 </section>
 
 <section id="rejects" class="appendix">
