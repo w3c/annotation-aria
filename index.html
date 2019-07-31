@@ -1813,17 +1813,18 @@ Change of plans! Thanks updating this, Aaron
 <h2 id="x5-platform-accessibility-mappings"><bdi class="secno">5. </bdi>Platform Accessibility mappings<a class="self-link" aria-label="§" href="#a11y-mappings"></a></h2>
   <ul>
   <li><a href="https://docs.microsoft.com/en-us/windows/desktop/winauto/uiauto-annotation-type-identifiers">UI Automation has built-in support for annotations</a> — note that a perfect 1 to 1 mapping is not expected here. For example, a grammar error is an annotation in UIA, but in ARIA is <code>aria-invalid="grammar"</code>. An important difference with UIA annotations is that ARIA annotations always link to visible in-page content.</li>
-  <li>Most of the markup is reused — there are already known ways for exposing <code>aria-details</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-describedby</code>, <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code>.</li>
-  <li>For aria-annotation, this should be exposed as an object attribute called “annotation” in ATK/IA2</li>
+  <li>Most of the markup is reused — there are already known ways for exposing
+    <code>aria-details</code>, <code>aria-label</code>,
+    <code>aria-labelledby</code>, <code>aria-describedby</code>,
+    <code>&lt;ins&gt;</code> or the use of <code>role="insertion"</code>, and
+    <code>&lt;del&gt;</code> or the use of <code>role="deletion"</code>.</li>
 </ul>
-<div class="issue" id="issue-container-generatedID-4"><div role="heading" class="issue-title marker" id="h-issue-5" aria-level="3"><span>Issue</span></div><div class="">@bigbluehat: does "aria-annotation" here mean this spec? It seems to (vs. an attribute or value)</div></div>
-
 </section>
 
 <section id="rejects" class="appendix">
   <h2 id="a-rejected-annotation-purposes"><bdi class="secno">A. </bdi>Rejected annotation purposes<a class="self-link" aria-label="§" href="#rejects"></a></h2>
 
-  <div class="issue" id="issue-container-generatedID-5"><div role="heading" class="issue-title marker" id="h-issue-6" aria-level="3"><span>Issue</span></div><div class="">@bigbluehat: move this to an appendix? remove it? Kind of nice to know what we didn't do and why</div></div>
+  <div class="issue" id="issue-container-generatedID-4"><div role="heading" class="issue-title marker" id="h-issue-5" aria-level="3"><span>Issue</span></div><div class="">@bigbluehat: move this to an appendix? remove it? Kind of nice to know what we didn't do and why</div></div>
 
   <p>For now, the following annotation purposes have not been assigned new roles:</p>
   <ul>
@@ -1833,13 +1834,13 @@ Change of plans! Thanks updating this, Aaron
     <li><strong>bookmark</strong> — similar to <code>annotation-presence</code>; would need more info on this use case in order to support it.</li>
   </ul>
 
-  <div class="issue" id="issue-container-generatedID-6"><div role="heading" class="issue-title marker" id="h-issue-7" aria-level="3"><span>Issue</span></div><div class="">[TBD] @aleventhal: Suggest that the author can use <code>&lt;mark aria-label="Bookmark name"&gt;</code> for a good experience.</div></div>
+  <div class="issue" id="issue-container-generatedID-5"><div role="heading" class="issue-title marker" id="h-issue-6" aria-level="3"><span>Issue</span></div><div class="">[TBD] @aleventhal: Suggest that the author can use <code>&lt;mark aria-label="Bookmark name"&gt;</code> for a good experience.</div></div>
 
   <ul>
     <li><strong>breakpoint</strong>— does not always come with additional visible information, so it would be difficult to shoehorn into this use case.</li>
   </ul>
 
-  <div class="issue" id="issue-container-generatedID-7"><div role="heading" class="issue-title marker" id="h-issue-8" aria-level="3"><span>Issue</span></div><div class="">
+  <div class="issue" id="issue-container-generatedID-6"><div role="heading" class="issue-title marker" id="h-issue-7" aria-level="3"><span>Issue</span></div><div class="">
     [TBD] @aleventhal: For this one, perhaps a <code>&lt;mark&gt;</code> or
     <code>role="mark"</code> or a new <code>role="breakpoint"</code> could be
     used, along with <code>aria-label</code>. Or, a visible button could be used
