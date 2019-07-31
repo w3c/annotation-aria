@@ -1118,14 +1118,17 @@ Annotation Data Model [[annotation-model]].</p>
   <section id="editorial-activities">
     <h2>Expressing editorial activities</h2>
 
-    <p>Annotations motivated by expressing a revision to the <a>annotated content</a>
-or which are providing suggestions to that content come with an additional
-requirement to convey that revision or suggestion.</p>
+    <p>Edititorial activities can be expressed via ARIA Annotations through
+    the use of the <code>role</code> values of <code>annotation-revision</code>
+    and <code>annotation-suggestion</code>. The use of these <code>role</code>
+    values on the <a>annotation body</a> express that the related
+    <a>annotated content</a> contains the revision or suggested edit.</p>
 
     <p>The <a>annotated content</a> of such a change-related annotation MUST contain
-    at least one HTML <code>&lt;ins&gt;</code> or <code>&lt;del&gt;</code> tag or at least one HTML tag
+    at least one HTML <code>&lt;ins&gt;</code> or <code>&lt;del&gt;</code> tag or at least one tag
     with a <code>role</code> value of either <a href="https://w3c.github.io/aria/#insertion"><code>insertion</code></a>
-    or <a href="https://w3c.github.io/aria/#deletion"><code>deletion</code></a> defined in [[wai-aria-1.2]].</p>
+    or <a href="https://w3c.github.io/aria/#deletion"><code>deletion</code></a>
+    as defined in [[wai-aria-1.2]].</p>
 
     <p>If a replacement to the <a>annotated content</a> is being requested, authors
     MUST provide both an <code>&lt;ins&gt;</code> and a <code>&lt;del&gt;</code> tag together or two HTML
