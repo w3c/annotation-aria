@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="generator" content="ReSpec 24.23.6"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><style>/* --- EXAMPLES --- */
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="generator" content="ReSpec 24.28.0"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><style>/* --- EXAMPLES --- */
 span.example-title {
     text-transform: none;
 }
@@ -152,24 +152,18 @@ a.bibref {
   animation: pop 0.25s ease-in-out 0s 1;
 }
 
-/* TODO: Remove once https://github.com/w3c/tr-design/pull/176 is merged. */
-.respec-offending-element a[href] {
-  margin: 0;
+.respec-offending-element,
+a[href].respec-offending-element {
+  text-decoration: red wavy underline;
 }
-
-.respec-offending-element {
-  display: inline-block;
-  position: relative;
-  /* Red squiggly line */
-  background: url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=)
-    bottom repeat-x;
-}
-@supports (text-decoration-style: wavy) {
+@supports not (text-decoration: red wavy underline) {
+  .respec-offending-element:not(pre) {
+    display: inline-block;
+  }
   .respec-offending-element {
-    background: none;
-    text-decoration-line: underline;
-    text-decoration-style: wavy;
-    text-decoration-color: red;
+    /* Red squiggly line */
+    background: url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=)
+      bottom repeat-x;
   }
 }
 
@@ -610,9 +604,9 @@ var[data-type]:hover::before {
   "wgURI": "https://www.w3.org/WAI/ARIA/",
   "wgPublicList": "public-aria",
   "wgPatentURI": "https://www.w3.org/2004/01/pp-impl/83726/status",
-  "publishDate": "2019-06-28",
-  "publishISODate": "2019-06-28T00:00:00.000Z",
-  "generatedSubtitle": "Editor's Draft 28 June 2019"
+  "publishDate": "2019-07-31",
+  "publishISODate": "2019-07-31T00:00:00.000Z",
+  "generatedSubtitle": "Editor's Draft 31 July 2019"
 }</script><meta name="description" content="ARIA Annotations provides markup for accessible, in-page annotations.
         This specification describes the mechanism for signaling that
         content has been annotated, for what purpose, and where to find the
@@ -645,7 +639,7 @@ var[data-type]:hover::before {
   "name": "ARIA Annotations",
   "inLanguage": "en",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2019-06-28",
+  "datePublished": "2019-07-31",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -711,7 +705,7 @@ var[data-type]:hover::before {
       
       <h2>
         W3C Editor's Draft
-        <time class="dt-published" datetime="2019-06-28">28 June 2019</time>
+        <time class="dt-published" datetime="2019-07-31">31 July 2019</time>
       </h2>
       <dl>
         <dt>This version:</dt><dd>
@@ -820,12 +814,12 @@ var[data-type]:hover::before {
       <h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a></h2>
 
       <p>Annotations provide additional content about the primary content of a document.
-Their uses vary from commentary, to suggested edits, to attribution, and even
+Their uses vary from descriptions, to commentary, to suggested edits, to attribution, and even
 noting the presence of other readers.</p>
 
-      <p>Much of the necessary building blocks already exist with other ARIA specifications.
-This specification provides the minimal additions needed to improve
-the reading experience of annotated content when consumed via assistive technology.</p>
+      <p>ARIA Annotations builds upon the foundation of <code>aria-details</code>
+      and provides minimal additions needed to enhance the reading experience
+      of consuming annotated content via assistive technology.</p>
 
       <p>Additionally, this specification takes steps to use consistent terminology and
 modeling from past annotation specifications at the <abbr title="World Wide Web Consortium">W3C</abbr>, most notably the Web
@@ -915,33 +909,44 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
 <section id="markup">
   <h2 id="x3-annotation-markup"><bdi class="secno">3. </bdi>Annotation Markup<a class="self-link" aria-label="§" href="#markup"></a></h2>
 
-  <p>ARIA annotations are built from existing ARIA attributes. This specification
-  does introduce new <code>role</code> values to distinguish the purpose of
+  <p>ARIA annotations are built from the existing ARIA attributes:
+  <code>aria-details</code> and <code>role</code>. This specification
+  introduces new <code>role</code> values to distinguish the purpose of
   <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> from among each other and from among other content
-  within the current page.</p>
+  within the current page. These distinctly expressed purposes may be used by
+  AT to provide additional filtering or experience affordances when rendering
+  the annotations.</p>
 
   <section id="basic-expression">
     <h3 id="x3-1-basic-expression"><bdi class="secno">3.1 </bdi>Basic expression<a class="self-link" aria-label="§" href="#basic-expression"></a></h3>
 
-    <p><a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">Annotated content</a> markup <em class="rfc2119" title="MUST">MUST</em> use the <code>aria-details</code>
-    attribute which <em class="rfc2119" title="MUST">MUST</em> contain the IDREF of an <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> which
-    exists in the current web page.</p>
+    <p>The Accessible Rich Internet Applications [<cite><a class="bibref" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2" data-link-type="biblio">wai-aria-1.2</a></cite>] specification
+    explains the use of <code>aria-details</code> as "[identifiying] the
+    element that provides a detailed, extended description for the object."
+    ARIA Annotations build on that foundation and provide further contextual
+    meaning via the use of <code>role</code> values specific to annotation use
+    cases.</p>
 
-    <p>Any HTML tag <em class="rfc2119" title="MAY">MAY</em> be used. It is not required to use the <code>role</code>
-    attribute. However, when a visible highlight is intended, authors <em class="rfc2119" title="SHOULD">SHOULD</em> prefer
-    using an element such as <code>&lt;mark&gt;</code> over a more semantically
-    generic and visually invisible element such as <code>&lt;span&gt;</code>.</p>
+    <p>Consequently, the requirements for a minimal ARIA Annotation are no
+    different than a simple use of <code>aria-details</code>.
 
-    <p>The <code>aria-details</code> attribute <em class="rfc2119" title="MUST">MUST</em> reference an element within
-    the current Web page which contains the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>.</p>
-
-    <div class="example" id="example-1">
+    </p><div class="example" id="example-1">
           <div class="marker">
       <a class="self-link" href="#example-1">Example<bdi> 1</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comment-123"</span>&gt;</span>The proposal<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> contains...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 ...
-<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"comment-123"</span>&gt;</span>I think this is great!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"comment-123"</span>&gt;</span>This proposal is great!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
         </div>
+
+    <p>Therefore, <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">Annotated content</a> markup <em class="rfc2119" title="MUST">MUST</em> use the
+    <code>aria-details</code> attribute which <em class="rfc2119" title="MUST">MUST</em> contain the IDREF of an
+    <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a> which <em class="rfc2119" title="MUST">MUST</em> exist in the current web page. It is not
+    required to use a <code>role</code> attribute.</p>
+
+    <p>Any HTML tag <em class="rfc2119" title="MAY">MAY</em> be used. However, when a visible highlight is intended,
+    authors <em class="rfc2119" title="SHOULD">SHOULD</em> prefer using an element such as <code>&lt;mark&gt;</code>
+    over a more semantically generic and visually invisible element such as
+    <code>&lt;span&gt;</code>.</p>
 
     <p>Use of the
     <a href="https://w3c.github.io/aria/#aria-details"><code>aria-details</code></a>
