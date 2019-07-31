@@ -1014,10 +1014,10 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
 <dt><a href="#annotation-attribution" class="role-reference">annotation-attribution</a></dt>
 <dd>Authoring information for the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a>.</dd>
 <dt><a href="#annotation-commentary" class="role-reference">annotation-commentary</a></dt>
-<dd>One or more comments, or a comment thread.</dd>
+<dd>One or more comments or a comment thread.</dd>
 <dt><a href="#annotation-presence" class="role-reference">annotation-presence</a></dt>
 <dd>Similar to attribution, but relates to editing that is happening right
-      now. For example, "Mr. Smith is editing nearby".</dd>
+      now.</dd>
 <dt><a href="#annotation-revision" class="role-reference">annotation-revision</a></dt>
 <dd>An historical change that has already been accepted. The source
       <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> <em class="rfc2119" title="MUST">MUST</em> contain 1-2 children for the
@@ -1120,7 +1120,12 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
       <div class="example" id="example-4">
           <div class="marker">
       <a class="self-link" href="#example-4">Example<bdi> 4</bdi></a>
-    </div> <pre class="highlight" aria-busy="false"><code class="hljs">...</code></pre>
+    </div> <pre class="highlight" aria-busy="false"><code class="hljs xml">Benjamin Franklin is oft quoted as saying,
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"quote-123"</span>&gt;</span>"A penny saved is a penny earned"<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
+when in fact, he said, <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria</span>=<span class="hljs-string">"details="</span><span class="hljs-attr">quote-456</span>"&gt;</span>"A penny saved is twopence dear"<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+...
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"quote-123"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-attribution"</span>&gt;</span>Commonly misattributed to Benjamin Franklin<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"quote-456"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-attribution"</span>&gt;</span>Benjamin Franklin<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
         </div>
     </div>
     <table class="role-features">
@@ -1202,11 +1207,13 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
   <section class="role notoc" id="annotation-commentary">
     <h5 class="role-name" title="annotation-commentary" aria-describedby="desc-annotation-commentary" id="annotation-commentary-0"><code>annotation-commentary</code> <span class="type-indicator">(role)</span><a class="self-link" aria-label="§" href="#annotation-commentary"></a></h5>
     <div class="role-description" id="desc-annotation-commentary" role="definition">
-      <p>One or more comments, or a comment thread.</p>
+      <p>One or more comments or a comment thread.</p>
       <div class="example" id="example-5">
           <div class="marker">
       <a class="self-link" href="#example-5">Example<bdi> 5</bdi></a>
-    </div> <pre class="highlight" aria-busy="false"><code class="hljs">...</code></pre>
+    </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comment-123"</span>&gt;</span>The proposal<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> contains...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+...
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"comment-123"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-commentary"</span>&gt;</span>I think this is great!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
         </div>
     </div>
     <table class="role-features">
@@ -1280,12 +1287,20 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
     <h5 class="role-name" title="annotation-presence" aria-describedby="desc-annotation-presence" id="annotation-presence-0"><code>annotation-presence</code> <span class="type-indicator">(role)</span><a class="self-link" aria-label="§" href="#annotation-presence"></a></h5>
     <div class="role-description" id="desc-annotation-presence" role="definition">
       <p>Similar to attribution, but relates to editing that is happening right
-      now. For example, "Mr. Smith is editing nearby".</p>
+      now.</p>
       <div class="example" id="example-6">
           <div class="marker">
       <a class="self-link" href="#example-6">Example<bdi> 6</bdi></a>
-    </div> <pre class="highlight" aria-busy="false"><code class="hljs">...</code></pre>
+    </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Quotes from The Matrix<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span>&gt;</span>I know you're out there. I can feel you now. I know that
+you're afraid...<span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"precence-123"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+you're afraid of us. You're afraid of change.<span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span>
+...
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"precence-123"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-presence"</span>&gt;</span>Mr. Smith is editing nearby.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
         </div>
+      <div class="issue" id="issue-container-generatedID-1"><div role="heading" class="issue-title marker" id="h-issue-2" aria-level="6"><span>Issue</span></div><div class="">@bigbluehat: are there accessibility concerns with
+        empty annotated content markup (see above)? Per ARIA: "Authors <em class="rfc2119" title="SHOULD">SHOULD</em>
+        ensure the element referenced by aria-details is visible to all users."</div></div>
     </div>
     <table class="role-features">
       <caption>Characteristics:</caption>
@@ -1363,7 +1378,14 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
       <div class="example" id="example-7">
           <div class="marker">
       <a class="self-link" href="#example-7">Example<bdi> 7</bdi></a>
-    </div> <pre class="highlight" aria-busy="false"><code class="hljs">...</code></pre>
+    </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>...in Order to form a more perfect
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"revision-123"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span>Onion<span class="hljs-tag">&lt;/<span class="hljs-name">del</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ins</span>&gt;</span>Union<span class="hljs-tag">&lt;/<span class="hljs-name">ins</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>,
+establish Justice...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+...
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"revision-123"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-revision"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">time</span> <span class="hljs-attr">datetime</span>=<span class="hljs-string">"1787-09-17"</span>&gt;</span>September 17, 1787<span class="hljs-tag">&lt;/<span class="hljs-name">time</span>&gt;</span>
+by G. Morris
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
         </div>
     </div>
     <table class="role-features">
@@ -1384,7 +1406,16 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
         
         
         
-        
+        <tr>
+          <th class="role-mustcontain-head" scope="row">Required Owned
+            Elements:</th>
+          <td class="role-mustcontain">
+            <ul>
+              <li><a href="https://w3c.github.io/aria/#deletion" class="role-reference"><code>deletion</code></a></li>
+              <li><a href="https://w3c.github.io/aria/#insertion" class="role-reference"><code>insertion</code></a></li>
+            </ul>
+          </td>
+        </tr>
         
         
         <tr>
@@ -1441,7 +1472,13 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
       <div class="example" id="example-8">
           <div class="marker">
       <a class="self-link" href="#example-8">Example<bdi> 8</bdi></a>
-    </div> <pre class="highlight" aria-busy="false"><code class="hljs">...</code></pre>
+    </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Everyone is encouraged to bring a
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"suggestion-123"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span>side dish<span class="hljs-tag">&lt;/<span class="hljs-name">del</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ins</span>&gt;</span>beverage<span class="hljs-tag">&lt;/<span class="hljs-name">ins</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+to share.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+...
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"suggestion-123"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-suggestion"</span>&gt;</span>
+Change of plans! Can you update this, please?
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
         </div>
     </div>
     <table class="role-features">
@@ -1462,7 +1499,16 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
         
         
         
-        
+        <tr>
+          <th class="role-mustcontain-head" scope="row">Required Owned
+            Elements:</th>
+          <td class="role-mustcontain">
+            <ul>
+              <li><a href="https://w3c.github.io/aria/#deletion" class="role-reference"><code>deletion</code></a></li>
+              <li><a href="https://w3c.github.io/aria/#insertion" class="role-reference"><code>insertion</code></a></li>
+            </ul>
+          </td>
+        </tr>
         
         
         <tr>
@@ -1562,10 +1608,10 @@ Pretty cute, right?!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>
     <p>Assistive Technology <em class="rfc2119" title="SHOULD">SHOULD</em> handle all permutations of the ordering of
     <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code> when processing edits.</p>
 
-    <div class="note" role="note" id="issue-container-generatedID-1"><div role="heading" class="note-title marker" id="h-note-0" aria-level="4"><span>Note</span></div><div class="">In future, the [<cite><a class="bibref" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2" data-link-type="biblio">wai-aria-1.2</a></cite>] specification may define
+    <div class="note" role="note" id="issue-container-generatedID-2"><div role="heading" class="note-title marker" id="h-note-0" aria-level="4"><span>Note</span></div><div class="">In future, the [<cite><a class="bibref" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2" data-link-type="biblio">wai-aria-1.2</a></cite>] specification may define
       whether the order of <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code> are important.</div></div>
 
-    <div class="issue" id="issue-container-number-7"><div role="heading" class="issue-title marker" id="h-issue-2" aria-level="4"><a href="https://github.com/w3c/annotation-aria/issues/7"><span class="issue-number">Issue 7</span></a><span class="issue-label">: Should `annotation-suggestion`/`annotation-revision` processing ignore additional markup?</span></div><p>Right now, we define (somewhat implicitly...) how <code>&lt;ins&gt;</code>/<code>&lt;del&gt;</code> could be processed by AT into actual edits in the main text (i.e. replacing the annotated content following the logic expressed via <code>&lt;ins&gt;</code> and/or <code>&lt;del&gt;</code>).</p>
+    <div class="issue" id="issue-container-number-7"><div role="heading" class="issue-title marker" id="h-issue-3" aria-level="4"><a href="https://github.com/w3c/annotation-aria/issues/7"><span class="issue-number">Issue 7</span></a><span class="issue-label">: Should `annotation-suggestion`/`annotation-revision` processing ignore additional markup?</span></div><p>Right now, we define (somewhat implicitly...) how <code>&lt;ins&gt;</code>/<code>&lt;del&gt;</code> could be processed by AT into actual edits in the main text (i.e. replacing the annotated content following the logic expressed via <code>&lt;ins&gt;</code> and/or <code>&lt;del&gt;</code>).</p>
 <p>Should we also add something about how to handle any other markup? I'd suggest we state that it should be thrown out entirely--but want to make sure that's what would be expected here from an AT perspective (and that there aren't hidden "gotchas" I've not yet thought about).</p></div>
 
     <p>To distinguish between revisions (past edits) and suggestions (future edits),
@@ -1589,7 +1635,7 @@ Change of plans! Thanks updating this, Aaron
       <h3 id="x3-4-further-annotation-labeling"><bdi class="secno">3.4 </bdi>Further annotation labeling<a class="self-link" aria-label="§" href="#further-annotation-labeling"></a></h3>
       (optional)
 
-      <div class="issue" id="issue-container-generatedID-2"><div role="heading" class="issue-title marker" id="h-issue-3" aria-level="4"><span>Issue</span></div><div class="">@bigbluehat update this to be non-normative/description/exemplary</div></div>
+      <div class="issue" id="issue-container-generatedID-3"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="4"><span>Issue</span></div><div class="">@bigbluehat update this to be non-normative/description/exemplary</div></div>
 
       <p>In addition, this markup may be helpful, but is not really part of the annotations spec:</p>
       <ul>
@@ -1770,14 +1816,14 @@ Change of plans! Thanks updating this, Aaron
   <li>Most of the markup is reused — there are already known ways for exposing <code>aria-details</code>, <code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-describedby</code>, <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code>.</li>
   <li>For aria-annotation, this should be exposed as an object attribute called “annotation” in ATK/IA2</li>
 </ul>
-<div class="issue" id="issue-container-generatedID-3"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="3"><span>Issue</span></div><div class="">@bigbluehat: does "aria-annotation" here mean this spec? It seems to (vs. an attribute or value)</div></div>
+<div class="issue" id="issue-container-generatedID-4"><div role="heading" class="issue-title marker" id="h-issue-5" aria-level="3"><span>Issue</span></div><div class="">@bigbluehat: does "aria-annotation" here mean this spec? It seems to (vs. an attribute or value)</div></div>
 
 </section>
 
 <section id="rejects" class="appendix">
   <h2 id="a-rejected-annotation-purposes"><bdi class="secno">A. </bdi>Rejected annotation purposes<a class="self-link" aria-label="§" href="#rejects"></a></h2>
 
-  <div class="issue" id="issue-container-generatedID-4"><div role="heading" class="issue-title marker" id="h-issue-5" aria-level="3"><span>Issue</span></div><div class="">@bigbluehat: move this to an appendix? remove it? Kind of nice to know what we didn't do and why</div></div>
+  <div class="issue" id="issue-container-generatedID-5"><div role="heading" class="issue-title marker" id="h-issue-6" aria-level="3"><span>Issue</span></div><div class="">@bigbluehat: move this to an appendix? remove it? Kind of nice to know what we didn't do and why</div></div>
 
   <p>For now, the following annotation purposes have not been assigned new roles:</p>
   <ul>
@@ -1787,13 +1833,13 @@ Change of plans! Thanks updating this, Aaron
     <li><strong>bookmark</strong> — similar to <code>annotation-presence</code>; would need more info on this use case in order to support it.</li>
   </ul>
 
-  <div class="issue" id="issue-container-generatedID-5"><div role="heading" class="issue-title marker" id="h-issue-6" aria-level="3"><span>Issue</span></div><div class="">[TBD] @aleventhal: Suggest that the author can use <code>&lt;mark aria-label="Bookmark name"&gt;</code> for a good experience.</div></div>
+  <div class="issue" id="issue-container-generatedID-6"><div role="heading" class="issue-title marker" id="h-issue-7" aria-level="3"><span>Issue</span></div><div class="">[TBD] @aleventhal: Suggest that the author can use <code>&lt;mark aria-label="Bookmark name"&gt;</code> for a good experience.</div></div>
 
   <ul>
     <li><strong>breakpoint</strong>— does not always come with additional visible information, so it would be difficult to shoehorn into this use case.</li>
   </ul>
 
-  <div class="issue" id="issue-container-generatedID-6"><div role="heading" class="issue-title marker" id="h-issue-7" aria-level="3"><span>Issue</span></div><div class="">
+  <div class="issue" id="issue-container-generatedID-7"><div role="heading" class="issue-title marker" id="h-issue-8" aria-level="3"><span>Issue</span></div><div class="">
     [TBD] @aleventhal: For this one, perhaps a <code>&lt;mark&gt;</code> or
     <code>role="mark"</code> or a new <code>role="breakpoint"</code> could be
     used, along with <code>aria-label</code>. Or, a visible button could be used
