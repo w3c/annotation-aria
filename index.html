@@ -75,12 +75,12 @@
       <h1>Introduction</h1>
 
       <p>Annotations provide additional content about the primary content of a document.
-Their uses vary from commentary, to suggested edits, to attribution, and even
+Their uses vary from descriptions, to commentary, to suggested edits, to attribution, and even
 noting the presence of other readers.</p>
 
-      <p>Much of the necessary building blocks already exist with other ARIA specifications.
-This specification provides the minimal additions needed to improve
-the reading experience of annotated content when consumed via assistive technology.</p>
+      <p>ARIA Annotations builds upon the foundation of <code>aria-details</code>
+      and provides minimal additions needed to enhance the reading experience
+      of consuming annotated content via assistive technology.</p>
 
       <p>Additionally, this specification takes steps to use consistent terminology and
 modeling from past annotation specifications at the W3C, most notably the Web
@@ -170,31 +170,42 @@ Annotation Data Model [[annotation-model]].</p>
 <section id="markup">
   <h1>Annotation Markup</h1>
 
-  <p>ARIA annotations are built from existing ARIA attributes. This specification
-  does introduce new <code>role</code> values to distinguish the purpose of
+  <p>ARIA annotations are built from the existing ARIA attributes:
+  <code>aria-details</code> and <code>role</code>. This specification
+  introduces new <code>role</code> values to distinguish the purpose of
   <a>annotated content</a> from among each other and from among other content
-  within the current page.</p>
+  within the current page. These distinctly expressed purposes may be used by
+  AT to provide additional filtering or experience affordances when rendering
+  the annotations.</p>
 
   <section>
     <h2>Basic expression</h2>
 
-    <p><a>Annotated content</a> markup MUST use the <code>aria-details</code>
-    attribute which MUST contain the IDREF of an <a>annotation body</a> which
-    exists in the current web page.</p>
+    <p>The Accessible Rich Internet Applications [[wai-aria-1.2]] specification
+    explains the use of <code>aria-details</code> as "[identifiying] the
+    element that provides a detailed, extended description for the object."
+    ARIA Annotations build on that foundation and provide further contextual
+    meaning via the use of <code>role</code> values specific to annotation use
+    cases.</p>
 
-    <p>Any HTML tag MAY be used. It is not required to use the <code>role</code>
-    attribute. However, when a visible highlight is intended, authors SHOULD prefer
-    using an element such as <code>&lt;mark&gt;</code> over a more semantically
-    generic and visually invisible element such as <code>&lt;span&gt;</code>.</p>
-
-    <p>The <code>aria-details</code> attribute MUST reference an element within
-    the current Web page which contains the <a>annotation body</a>.</p>
+    <p>Consequently, the requirements for a minimal ARIA Annotation are no
+    different than a simple use of <code>aria-details</code>.
 
     <pre class="example highlight">
     &lt;p&gt;&lt;mark aria-details="comment-123"&gt;The proposal&lt;/mark&gt; contains...&lt;/p&gt;
     ...
-    &lt;div id="comment-123"&gt;I think this is great!&lt;/div&gt;
+    &lt;div id="comment-123"&gt;This proposal is great!&lt;/div&gt;
     </pre>
+
+    <p>Therefore, <a>Annotated content</a> markup MUST use the
+    <code>aria-details</code> attribute which MUST contain the IDREF of an
+    <a>annotation body</a> which MUST exist in the current web page. It is not
+    required to use a <code>role</code> attribute.</p>
+
+    <p>Any HTML tag MAY be used. However, when a visible highlight is intended,
+    authors SHOULD prefer using an element such as <code>&lt;mark&gt;</code>
+    over a more semantically generic and visually invisible element such as
+    <code>&lt;span&gt;</code>.</p>
 
     <p>Use of the
     <a href="https://w3c.github.io/aria/#aria-details"><code>aria-details</code></a>
