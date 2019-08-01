@@ -1295,8 +1295,14 @@ Annotation Data Model [[annotation-model]].</p>
     </pre>
   </aside>
 
-  <section>
+  <section class="informative">
   <h3>Purpose to Role Mapping Table</h3>
+
+  <p>The following table shows the preferred mapping between existing
+  Web Annotation Data Model [[annotation-model]]
+  <a data-cite="annotation-model#h-motivation-and-purpose">motivations and
+  purpose</a> values alongside their ARIA Annotation equivalent
+  <code>role</code> values.</p>
 
 <table>
   <thead>
@@ -1309,90 +1315,101 @@ Annotation Data Model [[annotation-model]].</p>
   </thead>
   <tbody>
     <tr>
-      <td>Assessing</td>
+      <td>assessing</td>
       <td><code>role="annotation-commentary"</code></td>
       <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to assess the target resource in some way, rather than simply make a comment about it. For example to write a review or assessment of a book, assess the quality of a dataset, or provide an assessment of a student's work.</td>
     </tr>
     <tr>
-      <td>Bookmarking</td>
+      <td>bookmarking</td>
       <td>none</td>
-      <td>
-        <p><code>aria-details=[id]</code></p>
-      </td>
+      <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to create a bookmark to the Target or part thereof. For example an Annotation that bookmarks the point in a text where the reader finished reading.</td>
     </tr>
     <tr>
       <td>
-        <p>Classifying</p>
+        <p>classifying</p>
       </td>
-      <td><code>role="annotation-description"</code></td>
+      <td>none</td>
       <td><code>aria-details=[id]</code> (if classifications visible in page)</td>
       <td>The motivation for when the user intends to classify the Target as something. For example to classify an image as a portrait.</td>
     </tr>
     <tr>
-      <td>Commenting</td>
+      <td>commenting</td>
       <td><code>role="annotation-commentary"</code></td>
       <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to comment about the Target. For example to provide a commentary about a particular PDF document.</td>
     </tr>
     <tr>
-      <td>Describing</td>
-      <td><code>role="annotation-description"</code></td>
+      <td>describing</td>
+      <td>none</td>
       <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to describe the Target, as opposed to (for example) a comment about it. For example describing the above PDF's contents, rather than commenting on their accuracy.</td>
     </tr>
     <tr>
-      <td>Editing</td>
+      <td>editing</td>
       <td><code>role="annotation-suggestion"</code></td>
       <td>
-        <p><code>aria-details=[id]</code></p>
+        <code>aria-details=[id]</code>
         <p>Must also have <code>&lt;ins&gt;</code>, <code>&lt;del&gt;</code> child or both </p>
       </td>
       <td>The motivation for when the user intends to request a change or edit to the Target resource. For example an Annotation that requests a typo to be corrected.</td>
     </tr>
     <tr>
-      <td>Highlighting</td>
+      <td>highlighting</td>
       <td>none</td>
       <td>Use <code>&lt;mark&gt;</code> or appropriate ARIA <code>role</code> from role parity work once available</td>
       <td>The motivation for when the user intends to highlight the Target resource or segment of it. For example to draw attention to the selected text that the annotator disagrees with.</td>
     </tr>
     <tr>
-      <td>Identifying</td>
+      <td>identifying</td>
       <td>none</td>
       <td><code>&lt;a href=[IRI]&gt;external link&lt;/a&gt;</code></td>
       <td>The motivation for when the user intends to assign an identity to the Target. For example to associate the IRI that identifies a city with a mention of the city in a web page.</td>
     </tr>
     <tr>
-      <td>Linking</td>
+      <td>linking</td>
       <td>none</td>
       <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to link to a resource related to the Target.</td>
     </tr>
     <tr>
-      <td>Moderating</td>
+      <td>moderating</td>
       <td><code>role="annotation-commentary"</code></td>
       <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to assign some value or quality to the Target. For example annotating an Annotation to moderate it up in a trust network or threaded discussion.</td>
     </tr>
     <tr>
-      <td>Questioning</td>
+      <td>questioning</td>
       <td><code>role="annotation-commentary"</code></td>
       <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to ask a question about the Target. For example, to ask for assistance with a particular section of text, or question its veracity.</td>
     </tr>
     <tr>
-      <td>Replying</td>
+      <td>replying</td>
       <td><code>role="annotation-commentary"</code></td>
       <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to reply to a previous statement, either an Annotation or another resource. For example providing the assistance requested in the above.</td>
     </tr>
     <tr>
-      <td>Tagging</td>
+      <td>tagging</td>
       <td><code>role="note"</code>, e.g. <code>&lt;div role="note"&gt;Tags: cats, pets&lt;/div&gt;</code></td>
       <td><code>aria-details=[id]</code> (if tags are visible in content)</td>
       <td>The motivation for when the user intends to associate a tag with the Target.</td>
     </tr>
+  </tbody>
+</table>
+
+<p>Additional scenarios without equivalent Web Annotation motivations/purposes.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Web Annotation motivation/purpose</th>
+      <th>Additional markup on the <a>annotation body</a></th>
+      <th>Markup on the <a>annotated content</a></th>
+      <th>Description</th>
+    </tr>
+  </thead>
     <tr>
       <td>Attribution from provenance chunk</td>
       <td><code>role="annotation-attribution"</code></td>
@@ -1400,25 +1417,28 @@ Annotation Data Model [[annotation-model]].</p>
       <td>Authoring information for the annotated content</td>
     </tr>
     <tr>
-      <td>Does not currently exist in Web Annotations Data Model</td>
+      <td>Does not currently exist in Web Annotation Data Model</td>
       <td><code>role="annotation-revision"</code></td>
       <td>
-        <p><code>aria-details=[id]</code></p>
+        <code>aria-details=[id]</code>
         <p>Must also have <code>&lt;ins&gt;</code>, <code>&lt;del&gt;</code> child or both </p>
       </td>
       <td>This is a historical change that has already been accepted. The source <a>annotated content</a> will contain 1-2 children for the insertion and/or deletion</td>
     </tr>
     <tr>
-      <td>Does not currently exist in Web Annotations Data Model</td>
+      <td>Does not currently exist in Web Annotation Data Model</td>
       <td><code>role="annotation-presence"</code></td>
       <td><code>aria-details=[id]</code></td>
       <td></td>
     </tr>
     <tr>
-      <td>Does not currently exist in Web Annotations Data Model</td>
-      <td><code>role="doc-footnote"</code> | <code>role="doc-endnote"</code> | <code>role="doc-biblioentry"</code></td>
-      <td><code>aria-details</code></td>
-      <td>In-page links for footnotes, endnotes, bibliographical information in a document</td>
+      <td>Does not currently exist in Web Annotation Data Model</td>
+      <td>
+        <code>role="doc-footnote"</code><br />
+        <code>role="doc-endnote"</code><br />
+        <code>role="doc-biblioentry"</code></td>
+      <td><code>aria-details=[id]</code></td>
+      <td>In-page links for footnotes, endnotes, or bibliographical information in a document</td>
     </tr>
   </tbody>
 </table>
