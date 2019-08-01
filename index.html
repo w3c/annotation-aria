@@ -1205,40 +1205,81 @@ Annotation Data Model [[annotation-model]].</p>
     </pre>
   </section>
 
-    <section>
+    <section class="informative">
       <h2>Further annotation labeling</h2>
-      (optional)
 
-      <div class="issue">@bigbluehat update this to be non-normative/description/exemplary</div>
-
-      <p>In addition, this markup may be helpful, but is not really part of the annotations spec:</p>
-      <ul>
-      <li>If this is found on the <a>annotation body</a>, it could provides a useful label or description for the <a>annotation</a>, that could be presented by a screen reader in a mode where the user wanted to understand more about the <a>annotation bodies</a> in context but the <a>annotation bodies</a> themselves would be too long.</li>
-      </ul>
+      <p>Authors may use
+      <a data-cite="wai-aria-1.2#aria-label"><code>aria-label</code></a> to
+      make long or complex <a>annotation bodies</a> more easily findable and
+      dinstinct from each other by providing a simple textual label.</p>
     </section>
 </section>
 
-<section id="annotation-model-mappings">
+<section id="annotation-model-mappings" class="informative">
   <h2><dfn data-dfn-type="dfn" id="dfn-my-term">Web Annotation Data Model correlations</dfn></h2>
   <p>An important use case is to convert annotation data from the
   Web Annotation Data Model [[annotation-model]] (typically in JSON format)
   into accessible content, with the goal of enabling AT support. The following
-  are non-normative suggestions for accomplishing this.</p>
+  are non-normative suggestions for expressing Web Annotations as simple ARIA
+  Annotations.</p>
+
+  Below is an example of translating a "commenting" Web Annotation into an
+  in-page ARIA Annotation expression:
 
   <aside class="example" title="Describing a relationship to in-page visible content">
-    <p>Translating a “commenting” motivation in the Web Annotation Data Model to the appropriate ARIA and [[HTML]] markup:</p>
+    <p>Web Annotation commenting on a specific text quotation in a page.
 
     <pre class="highlight">
-      &lt;p&gt;The following cats have been deemed &lt;span aria-details="comment-thread-1"&gt;uncooperative&lt;/span&gt;.&lt;/p&gt;
+    {
+      "@context": "http://www.w3.org/ns/anno.jsonld",
+      "id": "http://example.org/simple-comment",
+      "type": "Annotation",
+      "motivation": "commenting",
+      "target": {
+        "source": "http://example.org/page-being-commented-on",
+        "selector": {
+          "type": "TextQuoteSelector",
+          "prefix": "cats have been deemed ",
+          "exact": "uncooperative",
+          "suffix": "."
+        }
+      },
+      "body": {
+        "type": "TextualBody",
+        "value": "Wouldn't it be simpler to list the cooperative cats?",
+        "creator": {
+          "type": "Person",
+          "name": "Ruff Finkledog"
+        }
+      }
+    }
+    </pre>
+
+    <p>The ARIA Annotation expression of that Web Annotation added to that
+    page.</p>
+
+    <pre class="highlight">
+      &lt;!-- HTML of http://example.org/page-being-commented-on --&gt;
+      &lt;p&gt;The following cats have been deemed &lt;mark aria-details="comment-thread-1"&gt;uncooperative&lt;/mark&gt;.&lt;/p&gt;
+      &lt;!-- ...elsewhere in the document... --&gt;
       &lt;div id="comment-thread-1" role="annotation-commentary"&gt;
       &lt;h1&gt;Comment by Ruff Finkledog&lt;/h1&gt;
       &lt;p&gt;Wouldn't it be simpler to list the cooperative cats?&lt;/p&gt;
       &lt;/div&gt;
     </pre>
+
+    <div class="note">
+      <p>Authors desiring to expand the expressiveness of their markup beyond what is
+      provided by ARIA Annotations should consult the Embedding Web Annotations in
+      HTML Note [[annotation-html]].</p>
+    </div>
   </aside>
 
+  <p>Some Web Annotations applied to a source text may result in simple
+  [[HTML]] markup only without the need of additional ARIA markup.</p>
+
   <aside class="example" title="Describing a Web Annotation that does not have a relationship to other content">
-    <p>This example is useful for the “highlighting” motivation.</p>
+    <p>Example of a "highlighting" Web Annotation.</p>
 
     <pre class="highlight">
     &lt;p&gt;The word &lt;mark&gt;cat&lt;/mark&gt; is highlighted&lt;/p&gt;
@@ -1246,10 +1287,11 @@ Annotation Data Model [[annotation-model]].</p>
   </aside>
 
   <aside class="example" title="Describing a Web Annotation that is related to external content only">
-    <p>This example is useful for the “identifying” motivation.</p>
+    <p>Example of a "identifying" Web Annotation.</p>
 
     <pre class="highlight">
-    &lt;p&gt;A &lt;a href="https://en.wikipedia.org/wiki/Cat"&gt;cat&lt;/a&gt; is one of our favorite quirky pets.&lt;/p&gt;
+    &lt;p&gt;A &lt;a href="https://en.wikipedia.org/wiki/Cat"&gt;cat&lt;/a&gt;
+    is one of our favorite quirky pets.&lt;/p&gt;
     </pre>
   </aside>
 
