@@ -109,7 +109,7 @@ Annotation Data Model [[annotation-model]].</p>
             the term "target" has a specific meaning in accessibility APIs as the end
             (and not beginning) of a relation, the term annotated content is preferred
             here, in order to avoid confusion with the actual directionality of
-            <code>aria-details</code> in ARIA annotation markup.</blockquote></dd>
+            <code>aria-details</code> in ARIA Annotation markup.</blockquote></dd>
 
           <dt><dfn>annotation body</dfn></dt>
           <dd>The annotation body is visible information within a page which is connected to <a>annotated content</a> for a related purpose.</dd>
@@ -121,21 +121,21 @@ Annotation Data Model [[annotation-model]].</p>
       </section>
 
       <section>
-        <h2>How do ARIA annotations relate to the Web Annotations Data Model?</h2>
+        <h2>How do ARIA Annotations relate to the Web Annotations Data Model?</h2>
 
-        <p>ARIA annotations are deliberately more limited than what can be expressed within
+        <p>ARIA Annotations are deliberately more limited than what can be expressed within
         a Web Annotations Data Model [[annotation-model]] document. For example:</p>
         <ul>
-          <li>ARIA annotations cannot point to information external to the current Web page</li>
-          <li>ARIA annotations must point to *something* within the current Web page to provide the additional content</li>
+          <li>ARIA Annotations cannot point to information external to the current Web page</li>
+          <li>ARIA Annotations must point to *something* within the current Web page to provide the additional content</li>
         </ul>
 
-        <p>In addition, ARIA annotations do not contain as much information as they only
+        <p>In addition, ARIA Annotations do not contain as much information as they only
         contain what is necessary to move between the primary annotated content, and
         the additional content.</p>
 
         <p>Authors desiring to expand the expressiveness of their markup beyond what is
-        provided by ARIA annotations should consult the Embedding Web Annotations in
+        provided by ARIA Annotations should consult the Embedding Web Annotations in
         HTML Note [[annotation-html]].</p>
 
         <p>For further information, please see the <a>Web Annotation Data Model correlations</a> below.</p>
@@ -171,7 +171,7 @@ Annotation Data Model [[annotation-model]].</p>
 <section id="markup">
   <h1>Annotation Markup</h1>
 
-  <p>ARIA annotations are built from the existing ARIA attributes:
+  <p>ARIA Annotations are built from the existing ARIA attributes:
   <a data-cite="wai-aria-1.2#aria-details"><code>aria-details</code></a> and
   <a data-cite="wai-aria-1.2#role"><code>role</code></a>. This specification
   introduces new <code>role</code> values to distinguish the purpose of
@@ -1382,7 +1382,7 @@ Annotation Data Model [[annotation-model]].</p>
 <section id="a11y-mappings">
 <h1>Platform Accessibility mappings</h1>
   <ul>
-  <li><a href="https://docs.microsoft.com/en-us/windows/desktop/winauto/uiauto-annotation-type-identifiers">UI Automation has built-in support for annotations</a> — note that a perfect 1 to 1 mapping is not expected here. For example, a grammar error is an annotation in UIA, but in ARIA is <code>aria-invalid="grammar"</code>. An important difference with UIA annotations is that ARIA annotations always link to visible in-page content.</li>
+  <li><a href="https://docs.microsoft.com/en-us/windows/desktop/winauto/uiauto-annotation-type-identifiers">UI Automation has built-in support for annotations</a> — note that a perfect 1 to 1 mapping is not expected here. For example, a grammar error is an annotation in UIA, but in ARIA is <code>aria-invalid="grammar"</code>. An important difference with UIA annotations is that ARIA Annotations always link to visible in-page content.</li>
   <li>Most of the markup is reused — there are already known ways for exposing
     <code>aria-details</code>, <code>aria-label</code>,
     <code>aria-labelledby</code>, <code>aria-describedby</code>,
