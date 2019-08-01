@@ -204,7 +204,7 @@ Annotation Data Model [[annotation-model]].</p>
     <a>annotation body</a> which MUST exist in the current web page. It is not
     required to use a <code>role</code> attribute.</p>
 
-    <p>Any HTML tag MAY be used. However, when a visible highlight is intended,
+    <p>Any element MAY be used. However, when a visible highlight is intended,
     authors SHOULD prefer using an element such as <code>&lt;mark&gt;</code>
     over a more semantically generic and visually invisible element such as
     <code>&lt;span&gt;</code>.</p>
@@ -1152,19 +1152,23 @@ Annotation Data Model [[annotation-model]].</p>
     <a>annotated content</a> contains the revision or suggested edit.</p>
 
     <p>The <a>annotated content</a> of such a change-related annotation MUST contain
-    at least one HTML <code>&lt;ins&gt;</code> or <code>&lt;del&gt;</code> tag or at least one tag
+    at least one [[HTML]] <code>&lt;ins&gt;</code> or <code>&lt;del&gt;</code>
+    element or at least one element
     with a <code>role</code> value of either <a href="https://w3c.github.io/aria/#insertion"><code>insertion</code></a>
     or <a href="https://w3c.github.io/aria/#deletion"><code>deletion</code></a>
     as defined in [[wai-aria-1.2]].</p>
 
     <p>If a replacement to the <a>annotated content</a> is being requested, authors
-    MUST provide both an <code>&lt;ins&gt;</code> and a <code>&lt;del&gt;</code> tag together or two HTML
-    tags one with <code>role="insertion"</code> and the other with <code>role="deletion"</code>.</p>
+    MUST provide both an [[HTML]] <code>&lt;ins&gt;</code> and a
+    <code>&lt;del&gt;</code> element together or two elements: one with
+    <code>role="insertion"</code> and the other with
+    <code>role="deletion"</code>.</p>
 
-    <p>Each combination of an <code>&lt;ins&gt;</code> and a
-    <code>&lt;del&gt;</code> tag pair (or their equivalent expressed via
+    <p>Each combination of an [[HTML]] <code>&lt;ins&gt;</code> and a
+    <code>&lt;del&gt;</code> element pair (or their equivalent expressed via
     <code>insertion</code>/<code>deletion</code> roles) SHOULD be authored as
-    separate <a>annotated content</a> (i.e. no more than one of each per grouping).</p>
+    separate <a>annotated content</a> (i.e. no more than one of each per
+    grouping).</p>
 
     <pre class="example highlight" title="suggestion using &lt;ins&gt; and &lt;del&gt;">
     &lt;p&gt;Everyone is encouraged to bring a
@@ -1222,7 +1226,7 @@ Annotation Data Model [[annotation-model]].</p>
   are non-normative suggestions for accomplishing this.</p>
 
   <aside class="example" title="Describing a relationship to in-page visible content">
-    <p>Translating a “commenting” motivation in the Web Annotation Data Model to the appropriate ARIA and HTML markup:</p>
+    <p>Translating a “commenting” motivation in the Web Annotation Data Model to the appropriate ARIA and [[HTML]] markup:</p>
 
     <pre class="highlight">
       &lt;p&gt;The following cats have been deemed &lt;span aria-details="comment-thread-1"&gt;uncooperative&lt;/span&gt;.&lt;/p&gt;
@@ -1398,7 +1402,7 @@ Annotation Data Model [[annotation-model]].</p>
 
   <p>For now, the following annotation purposes have not been assigned new roles:</p>
   <ul>
-    <li><strong>highlight</strong> — this does not fit the proposed definition of an <a>annotation</a> in that it does not point to additional info. Therefore, ARIA WG should consider adding something like <code>role=mark</code> (would need to be added for role parity), or the author can use HTML via <code>&lt;mark&gt;</code>/<code>&lt;em&gt;</code>/<code>&lt;strong&gt;</code></li>
+    <li><strong>highlight</strong> — this does not fit the proposed definition of an <a>annotation</a> in that it does not point to additional info. Therefore, ARIA WG should consider adding something like <code>role=mark</code> (would need to be added for role parity), or the author can use [[HTML]] via <code>&lt;mark&gt;</code>/<code>&lt;em&gt;</code>/<code>&lt;strong&gt;</code></li>
     <li><strong>error</strong> — in code in code editor: use the already supported <code>aria-invalid="true"</code> + <code>aria-errormessage=id</code></li>
     <li><strong>warning</strong> — in code editor: may want to add <code>aria-invalid="warning"</code> as possible value (and like error, can use <code>aria-errormessage=id</code>)</li>
     <li><strong>bookmark</strong> — similar to <code>annotation-presence</code>; would need more info on this use case in order to support it.</li>
