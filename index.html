@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="generator" content="ReSpec 24.30.0"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><style>/* --- EXAMPLES --- */
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="generator" content="ReSpec 24.34.1"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><style>/* --- EXAMPLES --- */
 span.example-title {
     text-transform: none;
 }
@@ -52,12 +52,10 @@ span.warning { padding: .1em .5em .15em; }
 
 .warning-title:before{
     content: "⚠"; /*U+26A0 WARNING SIGN*/
-    font-size: 3em;
+    font-size: 1.3em;
     float: left;
-    height: 100%;
     padding-right: .3em;
-    vertical-align: top;
-    margin-top: -0.5em;
+    margin-top: -0.3em;
 }
 
 li.task-list-item {
@@ -225,6 +223,12 @@ table.simple {
 
 .simple th {
   background: #005a9c;
+  color: #fff;
+  padding: 3px 5px;
+  text-align: left;
+}
+
+.simple th a {
   color: #fff;
   padding: 3px 5px;
   text-align: left;
@@ -604,9 +608,9 @@ var[data-type]:hover::before {
   "wgURI": "https://www.w3.org/WAI/ARIA/",
   "wgPublicList": "public-aria",
   "wgPatentURI": "https://www.w3.org/2004/01/pp-impl/83726/status",
-  "publishDate": "2019-08-01",
-  "publishISODate": "2019-08-01T00:00:00.000Z",
-  "generatedSubtitle": "Editor's Draft 01 August 2019"
+  "publishDate": "2019-10-30",
+  "publishISODate": "2019-10-30T00:00:00.000Z",
+  "generatedSubtitle": "Editor's Draft 30 October 2019"
 }</script><meta name="description" content="ARIA Annotations provides markup for accessible, in-page annotations.
         This specification describes the mechanism for signaling that
         content has been annotated, for what purpose, and where to find the
@@ -639,7 +643,7 @@ var[data-type]:hover::before {
   "name": "ARIA Annotations",
   "inLanguage": "en",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2019-08-01",
+  "datePublished": "2019-10-30",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -720,7 +724,7 @@ var[data-type]:hover::before {
       
       <h2>
         W3C Editor's Draft
-        <time class="dt-published" datetime="2019-08-01">01 August 2019</time>
+        <time class="dt-published" datetime="2019-10-30">30 October 2019</time>
       </h2>
       <dl>
         <dt>This version:</dt><dd>
@@ -951,7 +955,7 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
           <div class="marker">
       <a class="self-link" href="#example-1">Example<bdi> 1</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comment-123"</span>&gt;</span>The proposal<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> contains...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-...
+<span class="hljs-comment">&lt;!-- ...elsewhere in the document... --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"comment-123"</span>&gt;</span>This proposal is great!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
         </div>
 
@@ -990,7 +994,7 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
           <div class="marker">
       <a class="self-link" href="#example-2">Example<bdi> 2</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comment-123"</span>&gt;</span>The proposal<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> contains...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-...
+<span class="hljs-comment">&lt;!-- ...elsewhere in the document... --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"comment-123"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-commentary"</span>&gt;</span>I think this is great!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
         </div>
 
@@ -1006,7 +1010,7 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
           <div class="marker">
       <a class="self-link" href="#example-3">Example<bdi> 3</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"suggestion-123"</span>&gt;</span>The proposal<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> contains...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-...
+<span class="hljs-comment">&lt;!-- ...elsewhere in the document... --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"suggestion-123"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-suggestion annotation-commentary group"</span>&gt;</span>
   I think this is great! However, I think you might want to change "proposal"
   to "recommendation."
@@ -1145,7 +1149,7 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml">Benjamin Franklin is oft quoted as saying,
 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"quote-123"</span>&gt;</span>"A penny saved is a penny earned"<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>
 when in fact, he said, <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria</span>=<span class="hljs-string">"details="</span><span class="hljs-attr">quote-456</span>"&gt;</span>"A penny saved is twopence dear"<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-...
+<span class="hljs-comment">&lt;!-- ...elsewhere in the document... --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"quote-123"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-attribution"</span>&gt;</span>Commonly misattributed to Benjamin Franklin<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"quote-456"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-attribution"</span>&gt;</span>Benjamin Franklin<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
         </div>
@@ -1234,7 +1238,7 @@ when in fact, he said, <span class="hljs-tag">&lt;<span class="hljs-name">mark</
           <div class="marker">
       <a class="self-link" href="#example-5">Example<bdi> 5</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comment-123"</span>&gt;</span>The proposal<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> contains...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-...
+<span class="hljs-comment">&lt;!-- ...elsewhere in the document... --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"comment-123"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-commentary"</span>&gt;</span>I think this is great!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
         </div>
     </div>
@@ -1317,7 +1321,7 @@ when in fact, he said, <span class="hljs-tag">&lt;<span class="hljs-name">mark</
 <span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span>&gt;</span>I know you're out there. I can feel you now. I know that
 you're afraid...<span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"precence-123"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 you're afraid of us. You're afraid of change.<span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span>
-...
+<span class="hljs-comment">&lt;!-- ...elsewhere in the document... --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"precence-123"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-presence"</span>&gt;</span>Mr. Smith is editing nearby.<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
         </div>
       <div class="issue" id="issue-container-generatedID-1"><div role="heading" class="issue-title marker" id="h-issue-2" aria-level="6"><span>Issue</span></div><div class="">@bigbluehat: are there accessibility concerns with
@@ -1403,7 +1407,7 @@ you're afraid of us. You're afraid of change.<span class="hljs-tag">&lt;/<span c
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>...in Order to form a more perfect
 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"revision-123"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span>Onion<span class="hljs-tag">&lt;/<span class="hljs-name">del</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ins</span>&gt;</span>Union<span class="hljs-tag">&lt;/<span class="hljs-name">ins</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>,
 establish Justice...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-...
+<span class="hljs-comment">&lt;!-- ...elsewhere in the document... --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"revision-123"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-revision"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">time</span> <span class="hljs-attr">datetime</span>=<span class="hljs-string">"1787-09-17"</span>&gt;</span>September 17, 1787<span class="hljs-tag">&lt;/<span class="hljs-name">time</span>&gt;</span>
 by G. Morris
@@ -1497,7 +1501,7 @@ by G. Morris
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Everyone is encouraged to bring a
 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"suggestion-123"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span>side dish<span class="hljs-tag">&lt;/<span class="hljs-name">del</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ins</span>&gt;</span>beverage<span class="hljs-tag">&lt;/<span class="hljs-name">ins</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 to share.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-...
+<span class="hljs-comment">&lt;!-- ...elsewhere in the document... --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"suggestion-123"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-suggestion"</span>&gt;</span>
 Change of plans! Can you update this, please?
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
@@ -1815,7 +1819,7 @@ Change of plans! Can you update this, please?
           <div class="marker">
       <a class="self-link" href="#example-13">Example<bdi> 13</bdi></a>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span> … as studies have shown.<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"fnref01"</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"ref01"</span>&gt;</span>[1]<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-...
+<span class="hljs-comment">&lt;!-- ...elsewhere in the document... --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"doc-endnotes"</span>&gt;</span>
  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Notes<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
  <span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
@@ -1891,49 +1895,88 @@ Pretty cute, right?!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>
     </div> <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Everyone is encouraged to bring a
 <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"suggestion-info-1"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span>side dish<span class="hljs-tag">&lt;/<span class="hljs-name">del</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">ins</span>&gt;</span>beverage<span class="hljs-tag">&lt;/<span class="hljs-name">ins</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 to share.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-<span class="hljs-comment">&lt;!-- later in the document... --&gt;</span>
+<span class="hljs-comment">&lt;!-- ...elsewhere in the document... --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"suggestion-info-1"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-suggestion"</span>&gt;</span>
 Change of plans! Thanks updating this, Aaron
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
         </div>
   </section>
 
-    <section id="further-annotation-labeling">
-      <h3 id="x3-4-further-annotation-labeling"><bdi class="secno">3.4 </bdi>Further annotation labeling<a class="self-link" aria-label="§" href="#further-annotation-labeling"></a></h3>
-      (optional)
+    <section class="informative" id="further-annotation-labeling">
+      <h3 id="x3-4-further-annotation-labeling"><bdi class="secno">3.4 </bdi>Further annotation labeling<a class="self-link" aria-label="§" href="#further-annotation-labeling"></a></h3><p><em>This section is non-normative.</em></p>
 
-      <div class="issue" id="issue-container-generatedID-6"><div role="heading" class="issue-title marker" id="h-issue-5" aria-level="4"><span>Issue</span></div><div class="">@bigbluehat update this to be non-normative/description/exemplary</div></div>
-
-      <p>In addition, this markup may be helpful, but is not really part of the annotations spec:</p>
-      <ul>
-      <li>If this is found on the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a>, it could provides a useful label or description for the <a href="#dfn-annotation" class="internalDFN" data-link-type="dfn">annotation</a>, that could be presented by a screen reader in a mode where the user wanted to understand more about the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation bodies</a> in context but the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation bodies</a> themselves would be too long.</li>
-      </ul>
+      <p>Authors may use
+      <a href="https://www.w3.org/TR/wai-aria-1.2/#aria-label"><code>aria-label</code></a> to
+      make long or complex <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation bodies</a> more easily findable and
+      dinstinct from each other by providing a simple textual label.</p>
     </section>
 </section>
 
-<section id="annotation-model-mappings">
-  <h2 id="x4-web-annotation-data-model-correlations"><bdi class="secno">4. </bdi><dfn data-dfn-type="dfn" id="dfn-my-term">Web Annotation Data Model correlations</dfn><a class="self-link" aria-label="§" href="#annotation-model-mappings"></a></h2>
+<section id="annotation-model-mappings" class="informative">
+  <h2 id="x4-web-annotation-data-model-correlations"><bdi class="secno">4. </bdi><dfn data-dfn-type="dfn" id="dfn-my-term">Web Annotation Data Model correlations</dfn><a class="self-link" aria-label="§" href="#annotation-model-mappings"></a></h2><p><em>This section is non-normative.</em></p>
   <p>An important use case is to convert annotation data from the
   Web Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" title="Web Annotation Data Model" data-link-type="biblio">annotation-model</a></cite>] (typically in JSON format)
   into accessible content, with the goal of enabling AT support. The following
-  are non-normative suggestions for accomplishing this.</p>
+  are non-normative suggestions for expressing Web Annotations as simple ARIA
+  Annotations.</p>
+
+  Below is an example of translating a "commenting" Web Annotation into an
+  in-page ARIA Annotation expression:
 
   <aside class="example" id="example-17-describing-a-relationship-to-in-page-visible-content"><div class="marker">
       <a class="self-link" href="#example-17-describing-a-relationship-to-in-page-visible-content">Example<bdi> 17</bdi></a><span class="example-title">: Describing a relationship to in-page visible content</span>
     </div>
-    <p>Translating a “commenting” motivation in the Web Annotation Data Model to the appropriate ARIA and [<cite><a class="bibref" href="#bib-html" title="HTML Standard" data-link-type="biblio">HTML</a></cite>] markup:</p>
+    <p>Web Annotation commenting on a specific text quotation in a page.
 
-    <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The following cats have been deemed <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comment-thread-1"</span>&gt;</span>uncooperative<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    </p><pre class="highlight" aria-busy="false"><code class="hljs json">{
+  <span class="hljs-attr">"@context"</span>: <span class="hljs-string">"http://www.w3.org/ns/anno.jsonld"</span>,
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"http://example.org/simple-comment"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Annotation"</span>,
+  <span class="hljs-attr">"motivation"</span>: <span class="hljs-string">"commenting"</span>,
+  <span class="hljs-attr">"target"</span>: {
+    <span class="hljs-attr">"source"</span>: <span class="hljs-string">"http://example.org/page-being-commented-on"</span>,
+    <span class="hljs-attr">"selector"</span>: {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"TextQuoteSelector"</span>,
+      <span class="hljs-attr">"prefix"</span>: <span class="hljs-string">"cats have been deemed "</span>,
+      <span class="hljs-attr">"exact"</span>: <span class="hljs-string">"uncooperative"</span>,
+      <span class="hljs-attr">"suffix"</span>: <span class="hljs-string">"."</span>
+    }
+  },
+  <span class="hljs-attr">"body"</span>: {
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"TextualBody"</span>,
+    <span class="hljs-attr">"value"</span>: <span class="hljs-string">"Wouldn't it be simpler to list the cooperative cats?"</span>,
+    <span class="hljs-attr">"creator"</span>: {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"Person"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Ruff Finkledog"</span>
+    }
+  }
+}</code></pre>
+
+    <p>The ARIA Annotation expression of that Web Annotation added to that
+    page.</p>
+
+    <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-comment">&lt;!-- HTML of http://example.org/page-being-commented-on --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The following cats have been deemed <span class="hljs-tag">&lt;<span class="hljs-name">mark</span> <span class="hljs-attr">aria-details</span>=<span class="hljs-string">"comment-thread-1"</span>&gt;</span>uncooperative<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- ...elsewhere in the document... --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"comment-thread-1"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"annotation-commentary"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Comment by Ruff Finkledog<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Wouldn't it be simpler to list the cooperative cats?<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+
+    <div class="note" role="note" id="issue-container-generatedID-6"><div role="heading" class="note-title marker" id="h-note-3" aria-level="3"><span>Note</span></div><div class="">
+      <p>Authors desiring to expand the expressiveness of their markup beyond what is
+      provided by ARIA Annotations should consult the Embedding Web Annotations in
+      HTML Note [<cite><a class="bibref" href="#bib-annotation-html" title="Embedding Web Annotations in HTML" data-link-type="biblio">annotation-html</a></cite>].</p>
+    </div></div>
   </aside>
+
+  <p>Some Web Annotations applied to a source text may result in simple
+  [<cite><a class="bibref" href="#bib-html" title="HTML Standard" data-link-type="biblio">HTML</a></cite>] markup only without the need of additional ARIA markup.</p>
 
   <aside class="example" id="example-18-describing-a-web-annotation-that-does-not-have-a-relationship-to-other-content"><div class="marker">
       <a class="self-link" href="#example-18-describing-a-web-annotation-that-does-not-have-a-relationship-to-other-content">Example<bdi> 18</bdi></a><span class="example-title">: Describing a Web Annotation that does not have a relationship to other content</span>
     </div>
-    <p>This example is useful for the “highlighting” motivation.</p>
+    <p>Example of a "highlighting" Web Annotation.</p>
 
     <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The word <span class="hljs-tag">&lt;<span class="hljs-name">mark</span>&gt;</span>cat<span class="hljs-tag">&lt;/<span class="hljs-name">mark</span>&gt;</span> is highlighted<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
   </aside>
@@ -1941,13 +1984,20 @@ Change of plans! Thanks updating this, Aaron
   <aside class="example" id="example-19-describing-a-web-annotation-that-is-related-to-external-content-only"><div class="marker">
       <a class="self-link" href="#example-19-describing-a-web-annotation-that-is-related-to-external-content-only">Example<bdi> 19</bdi></a><span class="example-title">: Describing a Web Annotation that is related to external content only</span>
     </div>
-    <p>This example is useful for the “identifying” motivation.</p>
+    <p>Example of a "identifying" Web Annotation.</p>
 
-    <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>A <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://en.wikipedia.org/wiki/Cat"</span>&gt;</span>cat<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> is one of our favorite quirky pets.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
+    <pre class="highlight" aria-busy="false"><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>A <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://en.wikipedia.org/wiki/Cat"</span>&gt;</span>cat<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+is one of our favorite quirky pets.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></code></pre>
   </aside>
 
-  <section id="purpose-to-role-mapping-table">
-  <h3 id="x4-1-purpose-to-role-mapping-table"><bdi class="secno">4.1 </bdi>Purpose to Role Mapping Table<a class="self-link" aria-label="§" href="#purpose-to-role-mapping-table"></a></h3>
+  <section class="informative" id="purpose-to-role-mapping-table">
+  <h3 id="x4-1-purpose-to-role-mapping-table"><bdi class="secno">4.1 </bdi>Purpose to Role Mapping Table<a class="self-link" aria-label="§" href="#purpose-to-role-mapping-table"></a></h3><p><em>This section is non-normative.</em></p>
+
+  <p>The following table shows the preferred mapping between existing
+  Web Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" title="Web Annotation Data Model" data-link-type="biblio">annotation-model</a></cite>]
+  <a href="https://www.w3.org/TR/annotation-model/#h-motivation-and-purpose">motivations and
+  purpose</a> values alongside their ARIA Annotation equivalent
+  <code>role</code> values.</p>
 
 <table>
   <thead>
@@ -1960,116 +2010,130 @@ Change of plans! Thanks updating this, Aaron
   </thead>
   <tbody>
     <tr>
-      <td>Assessing</td>
+      <td>assessing</td>
       <td><code>role="annotation-commentary"</code></td>
       <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to assess the target resource in some way, rather than simply make a comment about it. For example to write a review or assessment of a book, assess the quality of a dataset, or provide an assessment of a student's work.</td>
     </tr>
     <tr>
-      <td>Bookmarking</td>
+      <td>bookmarking</td>
       <td>none</td>
-      <td>
-        <p><code>aria-details=[id]</code></p>
-      </td>
+      <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to create a bookmark to the Target or part thereof. For example an Annotation that bookmarks the point in a text where the reader finished reading.</td>
     </tr>
     <tr>
       <td>
-        <p>Classifying</p>
+        <p>classifying</p>
       </td>
-      <td><code>role="annotation-description"</code></td>
+      <td>none</td>
       <td><code>aria-details=[id]</code> (if classifications visible in page)</td>
       <td>The motivation for when the user intends to classify the Target as something. For example to classify an image as a portrait.</td>
     </tr>
     <tr>
-      <td>Commenting</td>
+      <td>commenting</td>
       <td><code>role="annotation-commentary"</code></td>
       <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to comment about the Target. For example to provide a commentary about a particular PDF document.</td>
     </tr>
     <tr>
-      <td>Describing</td>
-      <td><code>role="annotation-description"</code></td>
+      <td>describing</td>
+      <td>none</td>
       <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to describe the Target, as opposed to (for example) a comment about it. For example describing the above PDF's contents, rather than commenting on their accuracy.</td>
     </tr>
     <tr>
-      <td>Editing</td>
+      <td>editing</td>
       <td><code>role="annotation-suggestion"</code></td>
       <td>
-        <p><code>aria-details=[id]</code></p>
+        <code>aria-details=[id]</code>
         <p>Must also have <code>&lt;ins&gt;</code>, <code>&lt;del&gt;</code> child or both </p>
       </td>
       <td>The motivation for when the user intends to request a change or edit to the Target resource. For example an Annotation that requests a typo to be corrected.</td>
     </tr>
     <tr>
-      <td>Highlighting</td>
+      <td>highlighting</td>
       <td>none</td>
       <td>Use <code>&lt;mark&gt;</code> or appropriate ARIA <code>role</code> from role parity work once available</td>
       <td>The motivation for when the user intends to highlight the Target resource or segment of it. For example to draw attention to the selected text that the annotator disagrees with.</td>
     </tr>
     <tr>
-      <td>Identifying</td>
+      <td>identifying</td>
       <td>none</td>
       <td><code>&lt;a href=[IRI]&gt;external link&lt;/a&gt;</code></td>
       <td>The motivation for when the user intends to assign an identity to the Target. For example to associate the IRI that identifies a city with a mention of the city in a web page.</td>
     </tr>
     <tr>
-      <td>Linking</td>
+      <td>linking</td>
       <td>none</td>
       <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to link to a resource related to the Target.</td>
     </tr>
     <tr>
-      <td>Moderating</td>
+      <td>moderating</td>
       <td><code>role="annotation-commentary"</code></td>
       <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to assign some value or quality to the Target. For example annotating an Annotation to moderate it up in a trust network or threaded discussion.</td>
     </tr>
     <tr>
-      <td>Questioning</td>
+      <td>questioning</td>
       <td><code>role="annotation-commentary"</code></td>
       <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to ask a question about the Target. For example, to ask for assistance with a particular section of text, or question its veracity.</td>
     </tr>
     <tr>
-      <td>Replying</td>
+      <td>replying</td>
       <td><code>role="annotation-commentary"</code></td>
       <td><code>aria-details=[id]</code></td>
       <td>The motivation for when the user intends to reply to a previous statement, either an Annotation or another resource. For example providing the assistance requested in the above.</td>
     </tr>
     <tr>
-      <td>Tagging</td>
+      <td>tagging</td>
       <td><code>role="note"</code>, e.g. <code>&lt;div role="note"&gt;Tags: cats, pets&lt;/div&gt;</code></td>
       <td><code>aria-details=[id]</code> (if tags are visible in content)</td>
       <td>The motivation for when the user intends to associate a tag with the Target.</td>
     </tr>
+  </tbody>
+</table>
+
+<p>Additional scenarios without equivalent Web Annotation motivations/purposes.</p>
+<table>
+  <thead>
     <tr>
+      <th>Web Annotation motivation/purpose</th>
+      <th>Additional markup on the <a href="#dfn-annotation-body" class="internalDFN" data-link-type="dfn">annotation body</a></th>
+      <th>Markup on the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a></th>
+      <th>Description</th>
+    </tr>
+  </thead>
+    <tbody><tr>
       <td>Attribution from provenance chunk</td>
       <td><code>role="annotation-attribution"</code></td>
       <td><code>aria-details=[id]</code> (if attribution is visible in content)</td>
       <td>Authoring information for the annotated content</td>
     </tr>
     <tr>
-      <td>Does not currently exist in Web Annotations Data Model</td>
+      <td>Does not currently exist in Web Annotation Data Model</td>
       <td><code>role="annotation-revision"</code></td>
       <td>
-        <p><code>aria-details=[id]</code></p>
+        <code>aria-details=[id]</code>
         <p>Must also have <code>&lt;ins&gt;</code>, <code>&lt;del&gt;</code> child or both </p>
       </td>
       <td>This is a historical change that has already been accepted. The source <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> will contain 1-2 children for the insertion and/or deletion</td>
     </tr>
     <tr>
-      <td>Does not currently exist in Web Annotations Data Model</td>
+      <td>Does not currently exist in Web Annotation Data Model</td>
       <td><code>role="annotation-presence"</code></td>
       <td><code>aria-details=[id]</code></td>
       <td></td>
     </tr>
     <tr>
-      <td>Does not currently exist in Web Annotations Data Model</td>
-      <td><code>role="doc-footnote"</code> | <code>role="doc-endnote"</code> | <code>role="doc-biblioentry"</code></td>
-      <td><code>aria-details</code></td>
-      <td>In-page links for footnotes, endnotes, bibliographical information in a document</td>
+      <td>Does not currently exist in Web Annotation Data Model</td>
+      <td>
+        <code>role="doc-footnote"</code><br>
+        <code>role="doc-endnote"</code><br>
+        <code>role="doc-biblioentry"</code></td>
+      <td><code>aria-details=[id]</code></td>
+      <td>In-page links for footnotes, endnotes, or bibliographical information in a document</td>
     </tr>
   </tbody>
 </table>
@@ -2091,7 +2155,7 @@ Change of plans! Thanks updating this, Aaron
 <section id="rejects" class="appendix">
   <h2 id="a-rejected-annotation-purposes"><bdi class="secno">A. </bdi>Rejected annotation purposes<a class="self-link" aria-label="§" href="#rejects"></a></h2>
 
-  <div class="issue" id="issue-container-generatedID-7"><div role="heading" class="issue-title marker" id="h-issue-6" aria-level="3"><span>Issue</span></div><div class="">@bigbluehat: move this to an appendix? remove it? Kind of nice to know what we didn't do and why</div></div>
+  <div class="issue" id="issue-container-generatedID-7"><div role="heading" class="issue-title marker" id="h-issue-5" aria-level="3"><span>Issue</span></div><div class="">@bigbluehat: move this to an appendix? remove it? Kind of nice to know what we didn't do and why</div></div>
 
   <p>For now, the following annotation purposes have not been assigned new roles:</p>
   <ul>
@@ -2101,13 +2165,13 @@ Change of plans! Thanks updating this, Aaron
     <li><strong>bookmark</strong> — similar to <code>annotation-presence</code>; would need more info on this use case in order to support it.</li>
   </ul>
 
-  <div class="issue" id="issue-container-generatedID-8"><div role="heading" class="issue-title marker" id="h-issue-7" aria-level="3"><span>Issue</span></div><div class="">[TBD] @aleventhal: Suggest that the author can use <code>&lt;mark aria-label="Bookmark name"&gt;</code> for a good experience.</div></div>
+  <div class="issue" id="issue-container-generatedID-8"><div role="heading" class="issue-title marker" id="h-issue-6" aria-level="3"><span>Issue</span></div><div class="">[TBD] @aleventhal: Suggest that the author can use <code>&lt;mark aria-label="Bookmark name"&gt;</code> for a good experience.</div></div>
 
   <ul>
     <li><strong>breakpoint</strong>— does not always come with additional visible information, so it would be difficult to shoehorn into this use case.</li>
   </ul>
 
-  <div class="issue" id="issue-container-generatedID-9"><div role="heading" class="issue-title marker" id="h-issue-8" aria-level="3"><span>Issue</span></div><div class="">
+  <div class="issue" id="issue-container-generatedID-9"><div role="heading" class="issue-title marker" id="h-issue-7" aria-level="3"><span>Issue</span></div><div class="">
     [TBD] @aleventhal: For this one, perhaps a <code>&lt;mark&gt;</code> or
     <code>role="mark"</code> or a new <code>role="breakpoint"</code> could be
     used, along with <code>aria-label</code>. Or, a visible button could be used
