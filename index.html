@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="generator" content="ReSpec 24.34.1"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><style>/* --- EXAMPLES --- */
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="generator" content="ReSpec 25.1.1"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><style>/* --- EXAMPLES --- */
 span.example-title {
     text-transform: none;
 }
@@ -78,6 +78,7 @@ input.task-list-item-checkbox {
   position: relative;
   bottom: 2px;
   border: none;
+  display: inline-block;
 }
 
 .issue a.respec-label-dark {
@@ -89,14 +90,78 @@ input.task-list-item-checkbox {
   color: #000;
   background-color: #fff;
 }
+</style><style>/* dfn popup panel that list all local references to a dfn */
+dfn {
+  cursor: pointer;
+}
+
+.dfn-panel {
+  position: absolute;
+  left: var(--left); /* set via JS */
+  top: var(--top); /* set via JS */
+  z-index: 35;
+  height: auto;
+  width: max-content;
+  max-width: 300px;
+  max-height: 500px;
+  overflow: auto;
+  padding: 0.5em 0.75em;
+  font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+  background: #dddddd;
+  color: black;
+  border: outset 0.2em;
+}
+
+.dfn-panel * {
+  margin: 0;
+}
+
+.dfn-panel > b {
+  display: block;
+}
+
+.dfn-panel ul a[href] {
+  color: black;
+}
+
+.dfn-panel a:not(:hover) {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.dfn-panel a[href]:hover {
+  border-bottom-width: 1px;
+}
+
+.dfn-panel > b + b {
+  margin-top: 0.25em;
+}
+
+.dfn-panel ul {
+  padding: 0;
+}
+
+.dfn-panel li {
+  list-style: inside;
+}
+
+.dfn-panel.docked {
+  display: inline-block;
+  position: fixed;
+  left: 0.5em;
+  top: unset;
+  bottom: 2em;
+  margin: 0 auto;
+  /* 0.75em from padding (x2), 0.5em from left position, 0.2em border (x2) */
+  max-width: calc(100vw - 0.75em * 2 - 0.5em - 0.2em * 2);
+  max-height: 30vh;
+}
 </style>
     
     <title>ARIA Annotations</title>
     <style id="respec-mainstyle">/*****************************************************************
- * ReSpec 3 CSS
- * Robin Berjon - http://berjon.com/
+ * ReSpec specific CSS
  *****************************************************************/
-
 @keyframes pop {
   0% {
     transform: scale(1, 1);
@@ -388,96 +453,304 @@ h6 > a.self-link::before {
     
 
     
-  <link rel="canonical" href="https://www.w3.org/TR/annotation-aria/"><style>/*
-
-github.com style (c) Vasily Polovnyov <vast@whiteants.net>
-
+  <meta name="description" content="ARIA Annotations provides markup for accessible, in-page annotations.
+        This specification describes the mechanism for signaling that
+        content has been annotated, for what purpose, and where to find the
+        related additional content."><link rel="canonical" href="https://www.w3.org/TR/annotation-aria/"><script type="application/ld+json">{
+  "@context": [
+    "http://schema.org",
+    {
+      "@vocab": "http://schema.org/",
+      "@language": "en",
+      "w3p": "http://www.w3.org/2001/02pd/rec54#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "datePublished": {
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "inLanguage": {
+        "@language": null
+      },
+      "isBasedOn": {
+        "@type": "@id"
+      },
+      "license": {
+        "@type": "@id"
+      }
+    }
+  ],
+  "id": "https://www.w3.org/TR/annotation-aria/",
+  "type": [
+    "TechArticle"
+  ],
+  "name": "ARIA Annotations",
+  "inLanguage": "en",
+  "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
+  "datePublished": "2020-02-10",
+  "copyrightHolder": {
+    "name": "World Wide Web Consortium",
+    "url": "https://www.w3.org/"
+  },
+  "discussionUrl": "https://github.com/w3c/annotation-aria/issues/",
+  "alternativeHeadline": "",
+  "isBasedOn": "",
+  "description": "ARIA Annotations provides markup for accessible, in-page annotations.\n        This specification describes the mechanism for signaling that\n        content has been annotated, for what purpose, and where to find the\n        related additional content.",
+  "editor": [
+    {
+      "type": "Person",
+      "name": "Michael Cooper",
+      "worksFor": {
+        "name": "W3C",
+        "url": "http://www.w3.org"
+      }
+    },
+    {
+      "type": "Person",
+      "name": "Aaron Leventhal",
+      "worksFor": {
+        "name": "Google, Inc.",
+        "url": "https://google.com/"
+      }
+    },
+    {
+      "type": "Person",
+      "name": "Benjamin Young",
+      "url": "http://bigbluehat.com/",
+      "foaf:mbox": "byoung@bigbluehat.com",
+      "worksFor": {
+        "name": "John Wiley &amp; Sons, Inc.",
+        "url": "http://www.wiley.com/"
+      }
+    }
+  ],
+  "citation": [
+    {
+      "id": "https://www.w3.org/TR/annotation-model/",
+      "type": "TechArticle",
+      "name": "Web Annotation Data Model",
+      "url": "https://www.w3.org/TR/annotation-model/",
+      "creator": [
+        {
+          "name": "Robert Sanderson"
+        },
+        {
+          "name": "Paolo Ciccarese"
+        },
+        {
+          "name": "Benjamin Young"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/annotation-html/",
+      "type": "TechArticle",
+      "name": "Embedding Web Annotations in HTML",
+      "url": "https://www.w3.org/TR/annotation-html/",
+      "creator": [
+        {
+          "name": "Timothy Cole"
+        },
+        {
+          "name": "Sarven Capadisli"
+        },
+        {
+          "name": "Benjamin Young"
+        },
+        {
+          "name": "Ivan Herman"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/wai-aria-1.2/",
+      "type": "TechArticle",
+      "name": "Accessible Rich Internet Applications (WAI-ARIA) 1.2",
+      "url": "https://www.w3.org/TR/wai-aria-1.2/",
+      "creator": [
+        {
+          "name": "Joanmarie Diggs"
+        },
+        {
+          "name": "Shane McCarron"
+        },
+        {
+          "name": "James Nurthen"
+        },
+        {
+          "name": "Michael Cooper"
+        },
+        {
+          "name": "Richard Schwerdtfeger"
+        },
+        {
+          "name": "James Craig"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/dpub-aria-1.0/",
+      "type": "TechArticle",
+      "name": "Digital Publishing WAI-ARIA Module 1.0",
+      "url": "https://www.w3.org/TR/dpub-aria-1.0/",
+      "creator": [
+        {
+          "name": "Matt Garrish"
+        },
+        {
+          "name": "Tzviya Siegman"
+        },
+        {
+          "name": "Markus Gylling"
+        },
+        {
+          "name": "Shane McCarron"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "http://www.idpf.org/epub/vocab/structure/",
+      "type": "TechArticle",
+      "name": "EPUB Structural Semantics Vocabulary",
+      "url": "http://www.idpf.org/epub/vocab/structure/",
+      "publisher": {
+        "name": "IDPF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/dpub-aam-1.0/",
+      "type": "TechArticle",
+      "name": "Digital Publishing Accessibility API Mappings",
+      "url": "https://www.w3.org/TR/dpub-aam-1.0/",
+      "creator": [
+        {
+          "name": "Richard Schwerdtfeger"
+        },
+        {
+          "name": "Joanmarie Diggs"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://html.spec.whatwg.org/multipage/",
+      "type": "TechArticle",
+      "name": "HTML Standard",
+      "url": "https://html.spec.whatwg.org/multipage/",
+      "creator": [
+        {
+          "name": "Anne van Kesteren"
+        },
+        {
+          "name": "Domenic Denicola"
+        },
+        {
+          "name": "Ian Hickson"
+        },
+        {
+          "name": "Philip Jägenstedt"
+        },
+        {
+          "name": "Simon Pieters"
+        }
+      ],
+      "publisher": {
+        "name": "WHATWG"
+      }
+    }
+  ]
+}</script><style>/*
+Atom One Light by Daniel Gamage
+Original One Light Syntax theme from https://github.com/atom/one-light-syntax
+base:    #fafafa
+mono-1:  #383a42
+mono-2:  #686b77
+mono-3:  #a0a1a7
+hue-1:   #0184bb
+hue-2:   #4078f2
+hue-3:   #a626a4
+hue-4:   #50a14f
+hue-5:   #e45649
+hue-5-2: #c91243
+hue-6:   #986801
+hue-6-2: #c18401
 */
 
 .hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  color: #333;
-  background: #f8f8f8;
+  color: #383a42;
+  background: #fafafa;
 }
 
 .hljs-comment,
 .hljs-quote {
-  color: #998;
+  color: #717277;
   font-style: italic;
 }
 
+.hljs-doctag,
 .hljs-keyword,
-.hljs-selector-tag,
-.hljs-subst {
-  color: #333;
-  font-weight: bold;
+.hljs-formula {
+  color: #a626a4;
 }
 
-.hljs-number,
-.hljs-literal,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag .hljs-attr {
-  color: #008080;
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e45649;
+}
+
+.hljs-literal {
+  color: #0184bb;
 }
 
 .hljs-string,
-.hljs-doctag {
-  color: #d14;
-}
-
-.hljs-title,
-.hljs-section,
-.hljs-selector-id {
-  color: #900;
-  font-weight: bold;
-}
-
-.hljs-subst {
-  font-weight: normal;
-}
-
-.hljs-type,
-.hljs-class .hljs-title {
-  color: #458;
-  font-weight: bold;
-}
-
-.hljs-tag,
-.hljs-name,
-.hljs-attribute {
-  color: #000080;
-  font-weight: normal;
-}
-
 .hljs-regexp,
-.hljs-link {
-  color: #009926;
-}
-
-.hljs-symbol,
-.hljs-bullet {
-  color: #990073;
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta-string {
+  color: #42803C;
 }
 
 .hljs-built_in,
-.hljs-builtin-name {
-  color: #0086b3;
+.hljs-class .hljs-title {
+  color: #c18401;
 }
 
-.hljs-meta {
-  color: #999;
-  font-weight: bold;
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #986801;
 }
 
-.hljs-deletion {
-  background: #fdd;
-}
-
-.hljs-addition {
-  background: #dfd;
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #4078f2;
 }
 
 .hljs-emphasis {
@@ -486,6 +759,10 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 
 .hljs-strong {
   font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
 }
 </style><style>var {
   position: relative;
@@ -591,6 +868,14 @@ var[data-type]:hover::before {
     "HTML-AAM": {
       "aliasOf": "HTML-AAM-1.0"
     },
+    "MathML-Core": {
+      "href": "https://mathml-refresh.github.io/mathml-core/",
+      "title": "MathML Core",
+      "authors": [
+        "David Carlisle",
+        "Frédéric Wang"
+      ]
+    },
     "SVG-AAM": {
       "aliasOf": "SVG-AAM-1.0"
     },
@@ -608,123 +893,16 @@ var[data-type]:hover::before {
   "wgURI": "https://www.w3.org/WAI/ARIA/",
   "wgPublicList": "public-aria",
   "wgPatentURI": "https://www.w3.org/2004/01/pp-impl/83726/status",
-  "publishDate": "2019-11-15",
-  "publishISODate": "2019-11-15T00:00:00.000Z",
-  "generatedSubtitle": "Editor's Draft 15 November 2019"
-}</script><meta name="description" content="ARIA Annotations provides markup for accessible, in-page annotations.
-        This specification describes the mechanism for signaling that
-        content has been annotated, for what purpose, and where to find the
-        related additional content."><script type="application/ld+json">{
-  "@context": [
-    "http://schema.org",
-    {
-      "@vocab": "http://schema.org/",
-      "@language": "en",
-      "w3p": "http://www.w3.org/2001/02pd/rec54#",
-      "foaf": "http://xmlns.com/foaf/0.1/",
-      "datePublished": {
-        "@type": "http://www.w3.org/2001/XMLSchema#date"
-      },
-      "inLanguage": {
-        "@language": null
-      },
-      "isBasedOn": {
-        "@type": "@id"
-      },
-      "license": {
-        "@type": "@id"
-      }
-    }
-  ],
-  "id": "https://www.w3.org/TR/annotation-aria/",
-  "type": [
-    "TechArticle"
-  ],
-  "name": "ARIA Annotations",
-  "inLanguage": "en",
-  "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2019-11-15",
-  "copyrightHolder": {
-    "name": "World Wide Web Consortium",
-    "url": "https://www.w3.org/"
-  },
-  "discussionUrl": "https://github.com/w3c/annotation-aria/issues/",
-  "alternativeHeadline": "",
-  "isBasedOn": "",
-  "description": "ARIA Annotations provides markup for accessible, in-page annotations.\n        This specification describes the mechanism for signaling that\n        content has been annotated, for what purpose, and where to find the\n        related additional content.",
-  "editor": [
-    {
-      "type": "Person",
-      "name": "Michael Cooper",
-      "worksFor": {
-        "name": "W3C",
-        "url": "http://www.w3.org"
-      }
-    },
-    {
-      "type": "Person",
-      "name": "Aaron Leventhal",
-      "worksFor": {
-        "name": "Google, Inc.",
-        "url": "https://google.com/"
-      }
-    },
-    {
-      "type": "Person",
-      "name": "Benjamin Young",
-      "url": "http://bigbluehat.com/",
-      "foaf:mbox": "byoung@bigbluehat.com",
-      "worksFor": {
-        "name": "John Wiley &amp; Sons, Inc.",
-        "url": "http://www.wiley.com/"
-      }
-    }
-  ],
-  "citation": [
-    {
-      "id": "https://www.w3.org/TR/annotation-model/",
-      "type": "TechArticle",
-      "name": "Web Annotation Data Model",
-      "url": "https://www.w3.org/TR/annotation-model/"
-    },
-    {
-      "id": "https://www.w3.org/TR/annotation-html/",
-      "type": "TechArticle",
-      "name": "Embedding Web Annotations in HTML",
-      "url": "https://www.w3.org/TR/annotation-html/"
-    },
-    {
-      "id": "https://www.w3.org/TR/wai-aria-1.2/",
-      "type": "TechArticle",
-      "name": "Accessible Rich Internet Applications (WAI-ARIA) 1.2",
-      "url": "https://www.w3.org/TR/wai-aria-1.2/"
-    },
-    {
-      "type": "TechArticle"
-    },
-    {
-      "id": "http://www.idpf.org/epub/vocab/structure/",
-      "type": "TechArticle",
-      "name": "EPUB Structural Semantics Vocabulary",
-      "url": "http://www.idpf.org/epub/vocab/structure/"
-    },
-    {
-      "type": "TechArticle"
-    },
-    {
-      "id": "https://html.spec.whatwg.org/multipage/",
-      "type": "TechArticle",
-      "name": "HTML Standard",
-      "url": "https://html.spec.whatwg.org/multipage/"
-    }
-  ]
+  "publishDate": "2020-02-10",
+  "publishISODate": "2020-02-10T00:00:00.000Z",
+  "generatedSubtitle": "Editor's Draft 10 February 2020"
 }</script><link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-ED"></head>
   <body class="h-entry informative"><div class="head">
       <a class="logo" href="https://www.w3.org/"><img alt="W3C" width="72" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C"></a> <h1 id="title" class="title p-name">ARIA Annotations</h1>
       
       <h2>
         W3C Editor's Draft
-        <time class="dt-published" datetime="2019-11-15">15 November 2019</time>
+        <time class="dt-published" datetime="2020-02-10">10 February 2020</time>
       </h2>
       <dl>
         <dt>This version:</dt><dd>
@@ -733,7 +911,6 @@ var[data-type]:hover::before {
                 <a href="https://www.w3.org/TR/annotation-aria/">https://www.w3.org/TR/annotation-aria/</a>
               </dd>
         <dt>Latest editor's draft:</dt><dd><a href="https://w3c.github.io/annotation-aria/">https://w3c.github.io/annotation-aria/</a></dd>
-        
         
         
         
@@ -765,7 +942,7 @@ var[data-type]:hover::before {
       <p class="copyright">
       <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
       ©
-      2019
+      2019-2020
       
       <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
       <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>,
@@ -849,12 +1026,12 @@ noting the presence of other readers.</p>
 
       <p>Additionally, this specification takes steps to use consistent terminology and
 modeling from past annotation specifications at the <abbr title="World Wide Web Consortium">W3C</abbr>, most notably the Web
-Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" title="Web Annotation Data Model" data-link-type="biblio">annotation-model</a></cite>].</p>
+Annotation Data Model [<cite><a class="bibref" data-link-type="biblio" href="#bib-annotation-model" title="Web Annotation Data Model">annotation-model</a></cite>].</p>
 
       <section id="definitions">
           <h3 id="x1-1-definitions"><bdi class="secno">1.1 </bdi>Definitions<a class="self-link" aria-label="§" href="#definitions"></a></h3>
 
-          <p>The following terminology is informed by the Web Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" title="Web Annotation Data Model" data-link-type="biblio">annotation-model</a></cite>]
+          <p>The following terminology is informed by the Web Annotation Data Model [<cite><a class="bibref" data-link-type="biblio" href="#bib-annotation-model" title="Web Annotation Data Model">annotation-model</a></cite>]
           specification. You can read more about <a href="https://www.w3.org/TR/annotation-model/#introduction">the underlying conceptual model in that
           introduction</a>.</p>
 
@@ -888,7 +1065,7 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
         <h3 id="x1-2-how-do-aria-annotations-relate-to-the-web-annotations-data-model"><bdi class="secno">1.2 </bdi>How do ARIA Annotations relate to the Web Annotations Data Model?<a class="self-link" aria-label="§" href="#how-do-aria-annotations-relate-to-the-web-annotations-data-model"></a></h3>
 
         <p>ARIA Annotations are deliberately more limited than what can be expressed within
-        a Web Annotations Data Model [<cite><a class="bibref" href="#bib-annotation-model" title="Web Annotation Data Model" data-link-type="biblio">annotation-model</a></cite>] document. For example:</p>
+        a Web Annotations Data Model [<cite><a class="bibref" data-link-type="biblio" href="#bib-annotation-model" title="Web Annotation Data Model">annotation-model</a></cite>] document. For example:</p>
         <ul>
           <li>ARIA Annotations cannot point to information external to the current Web page</li>
           <li>ARIA Annotations must point to *something* within the current Web page to provide the additional content</li>
@@ -900,7 +1077,7 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
 
         <p>Authors desiring to expand the expressiveness of their markup beyond what is
         provided by ARIA Annotations should consult the Embedding Web Annotations in
-        HTML Note [<cite><a class="bibref" href="#bib-annotation-html" title="Embedding Web Annotations in HTML" data-link-type="biblio">annotation-html</a></cite>].</p>
+        HTML Note [<cite><a class="bibref" data-link-type="biblio" href="#bib-annotation-html" title="Embedding Web Annotations in HTML">annotation-html</a></cite>].</p>
 
         <p>For further information, please see the <a href="#dfn-my-term" class="internalDFN" data-link-type="dfn">Web Annotation Data Model correlations</a> below.</p>
       </section>
@@ -947,7 +1124,7 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
   <section id="basic-expression">
     <h3 id="x3-1-basic-expression"><bdi class="secno">3.1 </bdi>Basic expression<a class="self-link" aria-label="§" href="#basic-expression"></a></h3>
 
-    <p>The Accessible Rich Internet Applications [<cite><a class="bibref" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2" data-link-type="biblio">wai-aria-1.2</a></cite>] specification
+    <p>The Accessible Rich Internet Applications [<cite><a class="bibref" data-link-type="biblio" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2">wai-aria-1.2</a></cite>] specification
     explains the use of <code>aria-details</code> as "[identifying] the
     element that provides a detailed, extended description for the object."
     ARIA Annotations build on that foundation and provide further contextual
@@ -978,7 +1155,7 @@ Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" titl
     <p>Use of the
     <a href="https://w3c.github.io/aria/#aria-details"><code>aria-details</code></a>
     attribute <em class="rfc2119" title="MUST">MUST</em> follow any additional requirements expressed in the
-    Accessible Rich Internet Applications [<cite><a class="bibref" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2" data-link-type="biblio">wai-aria-1.2</a></cite>] specification.</p>
+    Accessible Rich Internet Applications [<cite><a class="bibref" data-link-type="biblio" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2">wai-aria-1.2</a></cite>] specification.</p>
   </section>
 
   <section id="role">
@@ -1227,11 +1404,11 @@ when in fact, he said, <span class="hljs-tag">&lt;<span class="hljs-name">mark</
     </table>
   </section>
 
-    <div class="issue" id="issue-container-number-4"><div role="heading" class="issue-title marker" id="h-issue-0" aria-level="5"><a href="https://github.com/w3c/annotation-aria/issues/4"><span class="issue-number">Issue 4</span></a><span class="issue-label">: Consider a different name for `annotation-attribution`</span></div><p>From <a class="user-mention" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=7241781" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/mcking65">@mcking65</a>:</p>
+    <div class="issue" id="issue-container-number-4"><div role="heading" class="issue-title marker" id="h-issue-0" aria-level="5"><a href="https://github.com/w3c/annotation-aria/issues/4"><span class="issue-number">Issue 4</span></a><span class="issue-label">: Consider a different name for `annotation-attribution`</span></div><p>From <a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/mcking65/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/mcking65">@mcking65</a>:</p>
 <blockquote>
 <p>we may want to choose a better name as this name may ultimately just be used by screen readers and most users might not know what to make of it.</p>
 </blockquote></div>
-    <div class="issue" id="issue-container-number-5"><div role="heading" class="issue-title marker" id="h-issue-1" aria-level="5"><a href="https://github.com/w3c/annotation-aria/issues/5"><span class="issue-number">Issue 5</span></a><span class="issue-label">: Remove `annotation-attribution` in favor of using `annotation-revision`</span></div><p>From <a class="user-mention" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=1376358" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/aleventhal">@aleventhal</a>:</p>
+    <div class="issue" id="issue-container-number-5"><div role="heading" class="issue-title marker" id="h-issue-1" aria-level="5"><a href="https://github.com/w3c/annotation-aria/issues/5"><span class="issue-number">Issue 5</span></a><span class="issue-label">: Remove `annotation-attribution` in favor of using `annotation-revision`</span></div><p>From <a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/aleventhal/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/aleventhal">@aleventhal</a>:</p>
 <blockquote>
 <p>recommend we make this redundant with <code>annotation-revision</code>, and remove this one.</p>
 </blockquote></div>
@@ -1598,7 +1775,7 @@ Change of plans! Can you update this, please?
           passage of text.</p>
 
         <div class="note" role="note" id="issue-container-generatedID-2"><div role="heading" class="note-title marker" id="h-note-0" aria-level="6"><span>Note</span></div><div class="">
-          The <code>doc-endnote</code> role is copied from the [<cite><a class="bibref" href="#bib-dpub-aria" title="Digital Publishing WAI-ARIA Module 1.0" data-link-type="biblio">DPUB-ARIA</a></cite>]
+          The <code>doc-endnote</code> role is copied from the [<cite><a class="bibref" data-link-type="biblio" href="#bib-dpub-aria" title="Digital Publishing WAI-ARIA Module 1.0">DPUB-ARIA</a></cite>]
           specification.
         </div></div>
 
@@ -1654,7 +1831,7 @@ Change of plans! Can you update this, please?
           
           <tr>
             <th class="role-related-head" scope="row">Related Concepts:</th>
-            <td class="role-related">EPUB <a href="https://idpf.github.io/epub-vocabs/structure/#rearnote">rearnote</a> [<cite><a class="bibref" href="#bib-epub-ssv" title="EPUB Structural Semantics Vocabulary" data-link-type="biblio">EPUB-SSV</a></cite>]</td>
+            <td class="role-related">EPUB <a href="https://idpf.github.io/epub-vocabs/structure/#rearnote">rearnote</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-epub-ssv" title="EPUB Structural Semantics Vocabulary">EPUB-SSV</a></cite>]</td>
           </tr>
           <tr>
             <th class="role-scope-head" scope="row">Required Context Role:</th>
@@ -1716,7 +1893,7 @@ Change of plans! Can you update this, please?
         additional context to a referenced passage of text.</p>
 
       <div class="note" role="note" id="issue-container-generatedID-3"><div role="heading" class="note-title marker" id="h-note-1" aria-level="6"><span>Note</span></div><div class="">
-        The <code>doc-footnote</code> role is copied from the [<cite><a class="bibref" href="#bib-dpub-aria" title="Digital Publishing WAI-ARIA Module 1.0" data-link-type="biblio">DPUB-ARIA</a></cite>]
+        The <code>doc-footnote</code> role is copied from the [<cite><a class="bibref" data-link-type="biblio" href="#bib-dpub-aria" title="Digital Publishing WAI-ARIA Module 1.0">DPUB-ARIA</a></cite>]
         specification.
       </div></div>
 
@@ -1750,7 +1927,7 @@ Change of plans! Can you update this, please?
         
         <tr>
           <th class="role-related-head" scope="row">Related Concepts:</th>
-          <td class="role-related">EPUB <a href="https://idpf.github.io/epub-vocabs/structure/#footnote">footnote</a> [<cite><a class="bibref" href="#bib-epub-ssv" title="EPUB Structural Semantics Vocabulary" data-link-type="biblio">EPUB-SSV</a></cite>]</td>
+          <td class="role-related">EPUB <a href="https://idpf.github.io/epub-vocabs/structure/#footnote">footnote</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-epub-ssv" title="EPUB Structural Semantics Vocabulary">EPUB-SSV</a></cite>]</td>
         </tr>
         
         
@@ -1806,7 +1983,7 @@ Change of plans! Can you update this, please?
     <code>doc-footnote</code> content is done via an <code>&lt;a&gt;</code>
     element with a <code>role</code> value of <code>doc-noteref</code>. The
     result is the creation of a link from the anchor to the note per the
-    [<cite><a class="bibref" href="#bib-dpub-aam-1.0" title="Digital Publishing Accessibility API Mappings" data-link-type="biblio">DPUB-AAM-1.0</a></cite>] spec.</p>
+    [<cite><a class="bibref" data-link-type="biblio" href="#bib-dpub-aam-1.0" title="Digital Publishing Accessibility API Mappings">DPUB-AAM-1.0</a></cite>] spec.</p>
 
     <p>However, authors may provide an alternate experience by using ARIA
     Annotations and avoid the link-based navigation experience.</p>
@@ -1848,19 +2025,19 @@ Change of plans! Can you update this, please?
     <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> contains the revision or suggested edit.</p>
 
     <p>The <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> of such a change-related annotation <em class="rfc2119" title="MUST">MUST</em> contain
-    at least one [<cite><a class="bibref" href="#bib-html" title="HTML Standard" data-link-type="biblio">HTML</a></cite>] <code>&lt;ins&gt;</code> or <code>&lt;del&gt;</code>
+    at least one [<cite><a class="bibref" data-link-type="biblio" href="#bib-html" title="HTML Standard">HTML</a></cite>] <code>&lt;ins&gt;</code> or <code>&lt;del&gt;</code>
     element or at least one element
     with a <code>role</code> value of either <a href="https://w3c.github.io/aria/#insertion"><code>insertion</code></a>
     or <a href="https://w3c.github.io/aria/#deletion"><code>deletion</code></a>
-    as defined in [<cite><a class="bibref" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2" data-link-type="biblio">wai-aria-1.2</a></cite>].</p>
+    as defined in [<cite><a class="bibref" data-link-type="biblio" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2">wai-aria-1.2</a></cite>].</p>
 
     <p>If a replacement to the <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> is being requested, authors
-    <em class="rfc2119" title="MUST">MUST</em> provide both an [<cite><a class="bibref" href="#bib-html" title="HTML Standard" data-link-type="biblio">HTML</a></cite>] <code>&lt;ins&gt;</code> and a
+    <em class="rfc2119" title="MUST">MUST</em> provide both an [<cite><a class="bibref" data-link-type="biblio" href="#bib-html" title="HTML Standard">HTML</a></cite>] <code>&lt;ins&gt;</code> and a
     <code>&lt;del&gt;</code> element together or two elements: one with
     <code>role="insertion"</code> and the other with
     <code>role="deletion"</code>.</p>
 
-    <p>Each combination of an [<cite><a class="bibref" href="#bib-html" title="HTML Standard" data-link-type="biblio">HTML</a></cite>] <code>&lt;ins&gt;</code> and a
+    <p>Each combination of an [<cite><a class="bibref" data-link-type="biblio" href="#bib-html" title="HTML Standard">HTML</a></cite>] <code>&lt;ins&gt;</code> and a
     <code>&lt;del&gt;</code> element pair (or their equivalent expressed via
     <code>insertion</code>/<code>deletion</code> roles) <em class="rfc2119" title="SHOULD">SHOULD</em> be authored as
     separate <a href="#dfn-annotated-content" class="internalDFN" data-link-type="dfn">annotated content</a> (i.e. no more than one of each per
@@ -1885,7 +2062,7 @@ Pretty cute, right?!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>
     <p>Assistive Technology <em class="rfc2119" title="SHOULD">SHOULD</em> handle all permutations of the ordering of
     <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code> when processing edits.</p>
 
-    <div class="note" role="note" id="issue-container-generatedID-5"><div role="heading" class="note-title marker" id="h-note-2" aria-level="4"><span>Note</span></div><div class="">In future, the [<cite><a class="bibref" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2" data-link-type="biblio">wai-aria-1.2</a></cite>] specification may define
+    <div class="note" role="note" id="issue-container-generatedID-5"><div role="heading" class="note-title marker" id="h-note-2" aria-level="4"><span>Note</span></div><div class="">In future, the [<cite><a class="bibref" data-link-type="biblio" href="#bib-wai-aria-1.2" title="Accessible Rich Internet Applications (WAI-ARIA) 1.2">wai-aria-1.2</a></cite>] specification may define
       whether the order of <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code> are important.</div></div>
 
     <div class="issue" id="issue-container-number-7"><div role="heading" class="issue-title marker" id="h-issue-4" aria-level="4"><a href="https://github.com/w3c/annotation-aria/issues/7"><span class="issue-number">Issue 7</span></a><span class="issue-label">: Should `annotation-suggestion`/`annotation-revision` processing ignore additional markup?</span></div><p>Right now, we define (somewhat implicitly...) how <code>&lt;ins&gt;</code>/<code>&lt;del&gt;</code> could be processed by AT into actual edits in the main text (i.e. replacing the annotated content following the logic expressed via <code>&lt;ins&gt;</code> and/or <code>&lt;del&gt;</code>).</p>
@@ -1921,7 +2098,7 @@ Change of plans! Thanks updating this, Aaron
 <section id="annotation-model-mappings" class="informative">
   <h2 id="x4-web-annotation-data-model-correlations"><bdi class="secno">4. </bdi><dfn data-dfn-type="dfn" id="dfn-my-term">Web Annotation Data Model correlations</dfn><a class="self-link" aria-label="§" href="#annotation-model-mappings"></a></h2><p><em>This section is non-normative.</em></p>
   <p>An important use case is to convert annotation data from the
-  Web Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" title="Web Annotation Data Model" data-link-type="biblio">annotation-model</a></cite>] (typically in JSON format)
+  Web Annotation Data Model [<cite><a class="bibref" data-link-type="biblio" href="#bib-annotation-model" title="Web Annotation Data Model">annotation-model</a></cite>] (typically in JSON format)
   into accessible content, with the goal of enabling AT support. The following
   are non-normative suggestions for expressing Web Annotations as simple ARIA
   Annotations.</p>
@@ -1972,12 +2149,12 @@ Change of plans! Thanks updating this, Aaron
     <div class="note" role="note" id="issue-container-generatedID-6"><div role="heading" class="note-title marker" id="h-note-3" aria-level="3"><span>Note</span></div><div class="">
       <p>Authors desiring to expand the expressiveness of their markup beyond what is
       provided by ARIA Annotations should consult the Embedding Web Annotations in
-      HTML Note [<cite><a class="bibref" href="#bib-annotation-html" title="Embedding Web Annotations in HTML" data-link-type="biblio">annotation-html</a></cite>].</p>
+      HTML Note [<cite><a class="bibref" data-link-type="biblio" href="#bib-annotation-html" title="Embedding Web Annotations in HTML">annotation-html</a></cite>].</p>
     </div></div>
   </aside>
 
   <p>Some Web Annotations applied to a source text may result in simple
-  [<cite><a class="bibref" href="#bib-html" title="HTML Standard" data-link-type="biblio">HTML</a></cite>] markup only without the need of additional ARIA markup.</p>
+  [<cite><a class="bibref" data-link-type="biblio" href="#bib-html" title="HTML Standard">HTML</a></cite>] markup only without the need of additional ARIA markup.</p>
 
   <aside class="example" id="example-18-describing-a-web-annotation-that-does-not-have-a-relationship-to-other-content"><div class="marker">
       <a class="self-link" href="#example-18-describing-a-web-annotation-that-does-not-have-a-relationship-to-other-content">Example<bdi> 18</bdi></a><span class="example-title">: Describing a Web Annotation that does not have a relationship to other content</span>
@@ -2000,7 +2177,7 @@ is one of our favorite quirky pets.<span class="hljs-tag">&lt;/<span class="hljs
   <h3 id="x4-1-purpose-to-role-mapping-table"><bdi class="secno">4.1 </bdi>Purpose to Role Mapping Table<a class="self-link" aria-label="§" href="#purpose-to-role-mapping-table"></a></h3><p><em>This section is non-normative.</em></p>
 
   <p>The following table shows the preferred mapping between existing
-  Web Annotation Data Model [<cite><a class="bibref" href="#bib-annotation-model" title="Web Annotation Data Model" data-link-type="biblio">annotation-model</a></cite>]
+  Web Annotation Data Model [<cite><a class="bibref" data-link-type="biblio" href="#bib-annotation-model" title="Web Annotation Data Model">annotation-model</a></cite>]
   <a href="https://www.w3.org/TR/annotation-model/#h-motivation-and-purpose">motivations and
   purpose</a> values alongside their ARIA Annotation equivalent
   <code>role</code> values.</p>
@@ -2165,7 +2342,7 @@ is one of our favorite quirky pets.<span class="hljs-tag">&lt;/<span class="hljs
 
   <p>For now, the following annotation purposes have not been assigned new roles:</p>
   <ul>
-    <li><strong>highlight</strong> — this does not fit the proposed definition of an <a href="#dfn-annotation" class="internalDFN" data-link-type="dfn">annotation</a> in that it does not point to additional info. Therefore, ARIA WG should consider adding something like <code>role=mark</code> (would need to be added for role parity), or the author can use [<cite><a class="bibref" href="#bib-html" title="HTML Standard" data-link-type="biblio">HTML</a></cite>] via <code>&lt;mark&gt;</code>/<code>&lt;em&gt;</code>/<code>&lt;strong&gt;</code></li>
+    <li><strong>highlight</strong> — this does not fit the proposed definition of an <a href="#dfn-annotation" class="internalDFN" data-link-type="dfn">annotation</a> in that it does not point to additional info. Therefore, ARIA WG should consider adding something like <code>role=mark</code> (would need to be added for role parity), or the author can use [<cite><a class="bibref" data-link-type="biblio" href="#bib-html" title="HTML Standard">HTML</a></cite>] via <code>&lt;mark&gt;</code>/<code>&lt;em&gt;</code>/<code>&lt;strong&gt;</code></li>
     <li><strong>error</strong> — in code in code editor: use the already supported <code>aria-invalid="true"</code> + <code>aria-errormessage=id</code></li>
     <li><strong>warning</strong> — in code editor: may want to add <code>aria-invalid="warning"</code> as possible value (and like error, can use <code>aria-errormessage=id</code>)</li>
     <li><strong>bookmark</strong> — similar to <code>annotation-presence</code>; would need more info on this use case in order to support it.</li>
@@ -2189,11 +2366,8 @@ is one of our favorite quirky pets.<span class="hljs-tag">&lt;/<span class="hljs
 
   
 
-<section id="references" class="appendix">
-      <h2 id="b-references"><bdi class="secno">B. </bdi>References<a class="self-link" aria-label="§" href="#references"></a></h2>
-      
-    <section id="informative-references">
+<section id="references" class="appendix"><h2 id="b-references"><bdi class="secno">B. </bdi>References<a class="self-link" aria-label="§" href="#references"></a></h2><section id="informative-references">
         <h3 id="b-1-informative-references"><bdi class="secno">B.1 </bdi>Informative references<a class="self-link" aria-label="§" href="#informative-references"></a></h3>
       <dl class="bibliography">
-        <dt id="bib-annotation-html">[annotation-html]</dt><dd><a href="https://www.w3.org/TR/annotation-html/"><cite>Embedding Web Annotations in HTML</cite></a>. Timothy Cole; Sarven Capadisli; Benjamin Young; Ivan Herman.  W3C. 23 February 2017. W3C Note. URL: <a href="https://www.w3.org/TR/annotation-html/">https://www.w3.org/TR/annotation-html/</a></dd><dt id="bib-annotation-model">[annotation-model]</dt><dd><a href="https://www.w3.org/TR/annotation-model/"><cite>Web Annotation Data Model</cite></a>. Robert Sanderson; Paolo Ciccarese; Benjamin Young.  W3C. 23 February 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/annotation-model/">https://www.w3.org/TR/annotation-model/</a></dd><dt id="bib-dpub-aam-1.0">[DPUB-AAM-1.0]</dt><dd><a href="https://www.w3.org/TR/dpub-aam-1.0/"><cite>Digital Publishing Accessibility API Mappings</cite></a>. Richard Schwerdtfeger; Joanmarie Diggs.  W3C. 14 December 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/dpub-aam-1.0/">https://www.w3.org/TR/dpub-aam-1.0/</a></dd><dt id="bib-dpub-aria">[DPUB-ARIA]</dt><dd><a href="https://www.w3.org/TR/dpub-aria-1.0/"><cite>Digital Publishing WAI-ARIA Module 1.0</cite></a>. Matt Garrish; Tzviya Siegman; Markus Gylling; Shane McCarron.  W3C. 14 December 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/dpub-aria-1.0/">https://www.w3.org/TR/dpub-aria-1.0/</a></dd><dt id="bib-epub-ssv">[EPUB-SSV]</dt><dd><a href="http://www.idpf.org/epub/vocab/structure/"><cite>EPUB Structural Semantics Vocabulary</cite></a>.  IDPF. URL: <a href="http://www.idpf.org/epub/vocab/structure/">http://www.idpf.org/epub/vocab/structure/</a></dd><dt id="bib-html">[HTML]</dt><dd><a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Anne van Kesteren; Domenic Denicola; Ian Hickson; Philip Jägenstedt; Simon Pieters.  WHATWG. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a></dd><dt id="bib-wai-aria-1.2">[wai-aria-1.2]</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/"><cite>Accessible Rich Internet Applications (WAI-ARIA) 1.2</cite></a>. Joanmarie Diggs; Shane McCarron; James Nurthen; Michael Cooper; Richard Schwerdtfeger; James Craig.  W3C. 18 December 2018. W3C Working Draft. URL: <a href="https://www.w3.org/TR/wai-aria-1.2/">https://www.w3.org/TR/wai-aria-1.2/</a></dd>
+        <dt id="bib-annotation-html">[annotation-html]</dt><dd><a href="https://www.w3.org/TR/annotation-html/"><cite>Embedding Web Annotations in HTML</cite></a>. Timothy Cole; Sarven Capadisli; Benjamin Young; Ivan Herman.  W3C. 23 February 2017. W3C Note. URL: <a href="https://www.w3.org/TR/annotation-html/">https://www.w3.org/TR/annotation-html/</a></dd><dt id="bib-annotation-model">[annotation-model]</dt><dd><a href="https://www.w3.org/TR/annotation-model/"><cite>Web Annotation Data Model</cite></a>. Robert Sanderson; Paolo Ciccarese; Benjamin Young.  W3C. 23 February 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/annotation-model/">https://www.w3.org/TR/annotation-model/</a></dd><dt id="bib-dpub-aam-1.0">[DPUB-AAM-1.0]</dt><dd><a href="https://www.w3.org/TR/dpub-aam-1.0/"><cite>Digital Publishing Accessibility API Mappings</cite></a>. Richard Schwerdtfeger; Joanmarie Diggs.  W3C. 14 December 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/dpub-aam-1.0/">https://www.w3.org/TR/dpub-aam-1.0/</a></dd><dt id="bib-dpub-aria">[DPUB-ARIA]</dt><dd><a href="https://www.w3.org/TR/dpub-aria-1.0/"><cite>Digital Publishing WAI-ARIA Module 1.0</cite></a>. Matt Garrish; Tzviya Siegman; Markus Gylling; Shane McCarron.  W3C. 14 December 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/dpub-aria-1.0/">https://www.w3.org/TR/dpub-aria-1.0/</a></dd><dt id="bib-epub-ssv">[EPUB-SSV]</dt><dd><a href="http://www.idpf.org/epub/vocab/structure/"><cite>EPUB Structural Semantics Vocabulary</cite></a>.  IDPF. URL: <a href="http://www.idpf.org/epub/vocab/structure/">http://www.idpf.org/epub/vocab/structure/</a></dd><dt id="bib-html">[HTML]</dt><dd><a href="https://html.spec.whatwg.org/multipage/"><cite>HTML Standard</cite></a>. Anne van Kesteren; Domenic Denicola; Ian Hickson; Philip Jägenstedt; Simon Pieters.  WHATWG. Living Standard. URL: <a href="https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a></dd><dt id="bib-wai-aria-1.2">[wai-aria-1.2]</dt><dd><a href="https://www.w3.org/TR/wai-aria-1.2/"><cite>Accessible Rich Internet Applications (WAI-ARIA) 1.2</cite></a>. Joanmarie Diggs; Shane McCarron; James Nurthen; Michael Cooper; Richard Schwerdtfeger; James Craig.  W3C. 18 December 2019. W3C Working Draft. URL: <a href="https://www.w3.org/TR/wai-aria-1.2/">https://www.w3.org/TR/wai-aria-1.2/</a></dd>
       </dl></section></section><p role="navigation" id="back-to-top"><a href="#title"><abbr title="Back to Top">↑</abbr></a></p><script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script></body></html>
